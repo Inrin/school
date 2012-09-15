@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=vollerName\ geburtsTag\ geburtsMonat\ geburtsJahr\ groesse\ gewicht\ istMann
+comment0.target=Person(java.lang.String,\ int,\ int,\ int,\ double,\ double,\ boolean)
+comment1.params=
+comment1.target=Person()
+comment10.params=
+comment10.target=void\ input()
+comment11.params=
+comment11.target=void\ check()
+comment2.params=
+comment2.target=java.lang.String\ getErgebnis()
+comment3.params=
+comment3.target=int\ getSternzeichen()
+comment4.params=
+comment4.target=double\ getBMI()
+comment5.params=gewicht
+comment5.target=void\ setGewicht(double)
+comment6.params=vollerName
+comment6.target=void\ setName(java.lang.String)
+comment7.params=
+comment7.target=int\ getAlter()
+comment8.params=
+comment8.target=java.lang.String\ getHoroskop()
+comment9.params=
+comment9.target=void\ printInfo()
+numComments=12

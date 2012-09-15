@@ -16,7 +16,10 @@ public class Autobewertung
     }
 
     public void setAlter(double newAlter) {
+        if(newAlter > 0)
         alter = newAlter;
+        else
+        System.out.println("Error 33");
     }
 
     public void setUnfaelle(double newUnfaelle) {
@@ -46,6 +49,10 @@ public class Autobewertung
     public double getAlter() {
         return alter;
     }
+    
+    public double getVerlust () {
+        return getNeupreis() - getPreis();
+    }
 
     public void getInfo() {
         System.out.println("===============================================");
@@ -56,7 +63,7 @@ public class Autobewertung
             (int) getAlter() + ",\n mit dem Kilometerstand von " + (int) getkilometerstandInTausend() + ".000,\n sowie der Unfallanzahl von " +
             (int) getUnfaelle() + ", betraegt: " + (int) getPreis());
         System.out.println("");
-        System.out.println("Dies ist ein Verlust von " + (getNeupreis() - getPreis()) + " gegenueber einem Neupreis von " + getNeupreis());
+        System.out.println("Dies ist ein Verlust von " + getVerlust() + " gegenueber einem Neupreis von " + getNeupreis());
     }
 }
 
