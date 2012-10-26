@@ -1,0 +1,44 @@
+import greenfoot.*;
+
+public class SnakeTail extends Actor{
+    private SnakeTail next;
+    private int oldx,oldy;
+
+    public SnakeTail(){
+        next=null;
+        oldx=0;
+        oldy=0;
+    }
+
+    public void setNext(SnakeTail next){
+        this.next = next;
+    }
+
+    public SnakeTail getNext(){
+        return next;
+    }
+
+    public void applePie(){
+        if(next==null){
+            SnakeTail next = new SnakeTail();
+            getWorld().addObject(next, getX(), getY());
+            setNext(next);
+            setOldxy(getX(),getY());
+        }else{
+            next.applePie();
+        }
+    }
+
+    public void setOldxy(int oldx, int oldy){
+        this.oldx=oldx;
+        this.oldy=oldy;
+    }
+
+    public void act(){
+        if(next!=null){
+            next.setOldxy(getX(),getY());
+            next.setLocation(oldx,oldy);
+        }
+    } 
+}
+

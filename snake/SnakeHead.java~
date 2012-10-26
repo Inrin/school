@@ -1,0 +1,79 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+public class SnakeHead extends Actor
+{
+    private int direction; 
+    private SnakeTail next;
+
+    public SnakeHead(){
+        direction = 0; // 0 = North, 1 = East, 2 = South, 3 = West
+        next = null;
+    }
+
+    public int getDirection(){
+        return direction;
+    }
+
+    public void setDirection(int direction){
+        if(direction >= 0 && direction < 4)
+            this.direction = direction;
+    }
+
+    public void control(){
+        if(getDirection() != 0 && getDirection() != 2){
+            if(Greenfoot.isKeyDown("w"))
+                setDirection(0);
+            if(Greenfoot.isKeyDown("s"))
+                setDirection(2);
+        }
+        else if(getDirection() != 1 && getDirection() != 3){
+            if(Greenfoot.isKeyDown("d"))
+                setDirection(1);
+            if(Greenfoot.isKeyDown("a"))
+                setDirection(3);
+        }
+
+        switch(getDirection()){
+            case 0:
+            setRotation(-90);
+            break;
+            case 1:
+            setRotation(0);
+            break;
+            case 2:
+            setRotation(90);
+            break;
+            case 3:
+            setRotation(180);
+            break;
+        }
+    }
+
+    public void collissionCheck(){
+        if(getOneIntersectingObject(Rand.class) != null)
+            Greenfoot.stop();
+        if(getOneIntersectingObject(Apple.class) != null)
+            applePie();
+    }
+
+    public void applePie(){
+        getWorld().removeObject(getOneIntersectingObject(Apple.class));
+        if(next == null){
+            next = new SnakeTail();
+            getWorld().addObject(next, getX(), getY());
+        }
+        else{
+            next.applePie();
+        }
+    }
+
+    public void act(){
+        collissionCheck();
+        control();
+        if(next!=null){
+            next.setOldxy(next.getX(),next.getY());
+            next.setLocation(getX(),getY());
+        }
+        move(1);
+    }
+}
