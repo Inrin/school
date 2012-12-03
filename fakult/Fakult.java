@@ -1,13 +1,32 @@
+/**
+ * Simple Programm to calculate factorial
+ *
+ * */
 public class Fakult{
 
+	/**
+	 *
+	 * Recursively calculates factorial
+	 *
+	 * @param n is natural in n!
+	 * @return factorial
+	 * 
+	 * */
 	public int calcFakult(int n){
 		if(n==1){
 			return 1;
 		}else{
-		return n*calcFakult(n-1);
+			return n*calcFakult(n-1);
 		}
 	}
 
+	/**
+	 *
+	 * Main method
+	 *
+	 * @param args Get user param before execution
+	 *
+	 * */
 	public static void main(String[] args){
 		int firstArg = 0;
 		if(args.length > 0){
