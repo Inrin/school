@@ -9,3 +9,7 @@
 *.ctxt
 package.bluej
 project.greenfoot
+
+
+# Backupfiles
+*~
