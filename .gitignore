@@ -7,9 +7,6 @@
 
 # Bluej, Greenfoot specific
 *.ctxt
-package.bluej
-project.greenfoot
-
 
 # Backupfiles
 *~
