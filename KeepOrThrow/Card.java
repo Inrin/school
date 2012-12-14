@@ -20,6 +20,7 @@ public class Card
      * @param value of new created card.
      */
     public Card(int value){
+        this.setValue(value);
     }
     
     /**
@@ -28,7 +29,7 @@ public class Card
      * @return next as Card
      */
     public Card getNext(){
-        return null;
+        return next;
     }
     
     /**
@@ -37,7 +38,7 @@ public class Card
      * return value as int
      */
     public int getValue(){
-        return 0;
+        return value;
     }
     
     /**
@@ -46,7 +47,7 @@ public class Card
      * @param next card beneath this
      */
     public void setNext(Card next){
-        
+        this.next = next;
     }
     
     /**
