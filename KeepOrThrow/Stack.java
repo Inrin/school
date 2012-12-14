@@ -12,7 +12,10 @@ public class Stack
     * @return true if empty
     */
    public boolean isEmpty(){
+       if(top!=null)
        return false;
+       else
+       return true;
     }
    
     /**
