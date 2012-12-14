@@ -48,23 +48,27 @@ public class StackTest
     }
 
     @Test
-    public void peekAndRetreat()
+    public void peek()
     {
         Stack stack1 = new Stack();
-        stack1.push(new Card(1));
-        assertEquals(1, stack1.peek());
+        Card card1 = new Card(1);
+        stack1.push(card1);
+        assertEquals(card1, stack1.peek());
     }
 
     @Test
     public void pop()
     {
         Stack stack1 = new Stack();
-        assertEquals(null, stack1.pop());
-        stack1.push(new Card(2));
-        assertEquals(2, stack1.pop());
-        assertEquals(null, stack1.peek());
+        assertNull(stack1.pop());
+        Card card1 = new Card(5);
+        stack1.push(card1);
+        assertEquals(card1, stack1.pop());
+        assertNull(stack1.peek());
     }
 }
+
+
 
 
 
