@@ -43,5 +43,9 @@ public class GameLogic
         mixedStack = new Stack();
         keepStack = new Stack();
         throwStack = new Stack();
+        
+        for(int i=1; i<53; i++){
+            mixedStack.push(new Card());
+        }
     }
 }
