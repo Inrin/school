@@ -6,6 +6,10 @@ public class Stack
 {
     private Card top;
 
+    public Stack(){
+        this.top = null;
+    }
+
     /**
      * Check emptiness.
      * 
