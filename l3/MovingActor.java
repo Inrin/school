@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 /**
- * Abstrakte Klasse MovingActor stellt Basisfunktionalität zur Verfügung, die jedem bewegbaren Actor zu Grunde liegt.
+ * Abstrakte Klasse MovingActor stellt BasisfunktionalitÃ¤t zur VerfÃ¼gung, die jedem bewegbaren Actor zu Grunde liegt.
  * 
  * @author (Thomas Karp) 
  * @version (1.0)
@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 public abstract class MovingActor extends Actor
 {
     /**
-     * Richtungskonstanten: Norden: 0, Osten: 1; Süden: 2, Westen: 3
+     * Richtungskonstanten: Norden: 0, Osten: 1; SÃ¼den: 2, Westen: 3
      */
-    // public wäre eigentlich besser, aber ich möchte nicht, dass wir am Anfang
-    // beim Lesen der Dokumentation mit static final in Berührung kommen.
+    // public wï¿½re eigentlich besser, aber ich mï¿½chte nicht, dass wir am Anfang
+    // beim Lesen der Dokumentation mit static final in Berï¿½hrung kommen.
     private static final int NORTH = 0;
     private static final int EAST = 1;
     private static final int SOUTH = 2;        
@@ -24,22 +24,22 @@ public abstract class MovingActor extends Actor
     private GreenfootImage imageLeft;
 
     /**
-     * Konstruktor für Anfangswerte.
+     * Konstruktor fÃ¼r Anfangswerte.
      * Startrichtung ist Osten
      */
     public MovingActor()
     {
-        // Bilder für rechts-links festlegen
+        // Bilder fï¿½r rechts-links festlegen
         imageRight = getImage();
         imageLeft = new GreenfootImage(getImage());
         imageLeft.mirrorHorizontally();
-        // Startwert für die Richtung
+        // Startwert fï¿½r die Richtung
         setDirection(EAST);
     } 
     
     /**
      * Gehe einen Schritt nach vorne.
-     * Falls dies nicht möglich ist, bleibe stehen.
+     * Falls dies nicht mÃ¶glich ist, bleibe stehen.
      */
     public void move()
     {
@@ -63,8 +63,8 @@ public abstract class MovingActor extends Actor
     }    
     
     /**
-     * Prüft, ob das MovingActor-Objekt in der aktuellen Richtung gehen kann.
-     * Überprüft dabei nur, ob es am Ende der Welt angekommen ist.
+     * PrÃ¼ft, ob das MovingActor-Objekt in der aktuellen Richtung gehen kann.
+     * Ã¼berprÃ¼ft dabei nur, ob es am Ende der Welt angekommen ist.
      * @return true, wenn das Objekt gehen kann, sonst false
      */
     public boolean canMove()
@@ -140,7 +140,7 @@ public abstract class MovingActor extends Actor
 
     /**
      * Legt die Richtung fest.
-     * 0: Norden, 1: Osten, 2: Süden, 3: Westen
+     * 0: Norden, 1: Osten, 2: SÃ¼den, 3: Westen
      */
     public void setDirection(int direction)
     {
