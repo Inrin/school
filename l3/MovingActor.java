@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
+import greenfoot.*;  
 
 /**
  * Abstrakte Klasse MovingActor stellt Basisfunktionalität zur Verfügung, die jedem bewegbaren Actor zu Grunde liegt.
@@ -11,8 +11,8 @@ public abstract class MovingActor extends Actor
     /**
      * Richtungskonstanten: Norden: 0, Osten: 1; Süden: 2, Westen: 3
      */
-    // public w�re eigentlich besser, aber ich m�chte nicht, dass wir am Anfang
-    // beim Lesen der Dokumentation mit static final in Ber�hrung kommen.
+    // public wäre eigentlich besser, aber ich möchte nicht, dass wir am Anfang
+    // beim Lesen der Dokumentation mit static final in Berührung kommen.
     private static final int NORTH = 0;
     private static final int EAST = 1;
     private static final int SOUTH = 2;        
@@ -20,8 +20,7 @@ public abstract class MovingActor extends Actor
     
     // Instanzvariablen
     private int direction;
-    private GreenfootImage imageRight;
-    private GreenfootImage imageLeft;
+    private GreenfootImage imageRight,imageLeft;
 
     /**
      * Konstruktor für Anfangswerte.
@@ -29,11 +28,11 @@ public abstract class MovingActor extends Actor
      */
     public MovingActor()
     {
-        // Bilder f�r rechts-links festlegen
+        // Bilder für rechts-links festlegen
         imageRight = getImage();
         imageLeft = new GreenfootImage(getImage());
         imageLeft.mirrorHorizontally();
-        // Startwert f�r die Richtung
+        // Startwert für die Richtung
         setDirection(EAST);
     } 
     

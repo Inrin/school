@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
+import greenfoot.*;  
 import java.util.Random;
 
 public class SheepWorld extends World

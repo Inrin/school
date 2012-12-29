@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 public class Sheep extends MovingActor
 {
@@ -9,8 +9,8 @@ public class Sheep extends MovingActor
     }
 
     private void sheepInit(){
-        energy=10;
-        score=0;
+        this.energy=10;
+        this.score=0;
     }
 
     public void movement(){
