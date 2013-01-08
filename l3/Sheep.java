@@ -34,9 +34,10 @@ public class Sheep extends MovingActor
     }
 
     private void printStats(){
-        this.getImage().clear();
-        this.getImage().drawString(""+energy, 38,38);
-        this.getImage().drawString(""+score ,  0,38);
+        this.getImage().drawString("",12,12);
+        this.getImage().drawString("",12,12);
+        this.getImage().drawString(""+energy, 12,12);
+        this.getImage().drawString(""+score ,  0,12);
     }
 
     private void eatFlower(){
