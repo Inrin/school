@@ -16,7 +16,7 @@ public class Stack
 	 * @return true if empty
 	 */
 	public boolean isEmpty(){
-		return (top!=null) ? false : true;
+		return (top==null) ? true : false;
 	}
 
 	/**
@@ -32,14 +32,14 @@ public class Stack
 	 * Give the topcard, don't put it back.
 	 */
 	public Card pop(){
-		if(top!=null){///**
+		if(top!=null){
 			Card temp = top;
 			top = top.getNext();
 			temp.setNext(null);
 			return temp;
 		}else{
 			return null;
-		}//*/
+		}
 	}
 
 	/**
