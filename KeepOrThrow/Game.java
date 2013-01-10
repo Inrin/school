@@ -13,7 +13,7 @@ public class Game extends JFrame {
     public Game() {
         initComponents();
     }
-
+    
     private void initComponents() {
         game = new GameLogic();
 
@@ -21,16 +21,20 @@ public class Game extends JFrame {
             case "Windows 7":
             path="cards\\";
             break;
+            case "Linux":
+            path="cards/";
+            break;
+        
         }
 
         jPanel1 = new JPanel();
-        jLabel1 = new JLabel("Mixed Stack", new ImageIcon(path + "0.png"), JLabel.CENTER);
+        jLabel1 = new JLabel("Mixed Stack", new ImageIcon(path + "00.png"), JLabel.CENTER);
         jLabel1.setVerticalTextPosition(JLabel.TOP);
         jLabel1.setHorizontalTextPosition(JLabel.CENTER);
-        jLabel2 = new JLabel("Keep Stack", new ImageIcon(path + "0.png"), JLabel.CENTER);
+        jLabel2 = new JLabel("Keep Stack", new ImageIcon(path + "00.png"), JLabel.CENTER);
         jLabel2.setVerticalTextPosition(JLabel.TOP);
         jLabel2.setHorizontalTextPosition(JLabel.CENTER);
-        jLabel3 = new JLabel("Throw Stack", new ImageIcon(path + "0.png"), JLabel.CENTER);
+        jLabel3 = new JLabel("Throw Stack", new ImageIcon(path + "00.png"), JLabel.CENTER);
         jLabel3.setVerticalTextPosition(JLabel.TOP);
         jLabel3.setHorizontalTextPosition(JLabel.CENTER);
         jPanel2 = new JPanel();
@@ -91,7 +95,7 @@ public class Game extends JFrame {
                 .addGap(18, 18, 18))
         );
 
-        pack();//*/
+        pack();
     }                        
 
     private void jButton1ActionPerformed(ActionEvent evt) {     
@@ -109,13 +113,22 @@ public class Game extends JFrame {
     }
 
     public void updateLogic(){
-        jLabel1.setIcon(new ImageIcon(path + + game.view() + ".png"));
-        jLabel2.setIcon(new ImageIcon(path + + game.getKeepStack().peek().getValue() + ".png"));
-        jLabel3.setIcon(new ImageIcon(path + + game.getThrowStack().peek().getValue() + ".png"));
+        jLabel1.setIcon(new ImageIcon(path + 
+                                      game.view() + 
+                                      game.getMixedStack().peek().getSuite() + 
+                                      ".png"));
+        jLabel2.setIcon(new ImageIcon(path + 
+                                      game.getKeepStack().peek().getValue() + 
+                                      game.getKeepStack().peek().getSuite() +
+                                      ".png"));
+        jLabel3.setIcon(new ImageIcon(path + 
+                                      game.getThrowStack().peek().getValue() + 
+                                      game.getThrowStack().peek().getSuite() +
+                                      ".png"));
     }
 
     public static void main(String args[]) {
-        try {///**
+        try {
             for (UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
@@ -136,6 +149,6 @@ public class Game extends JFrame {
                 public void run() {
                     new Game().setVisible(true);
                 }
-            });//*/
+            });
     }
 }

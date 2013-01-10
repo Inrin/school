@@ -51,7 +51,7 @@ public class StackTest
     public void peek()
     {
         Stack stack1 = new Stack();
-        Card card1 = new Card(1);
+        Card card1 = new Card(1,0);
         stack1.push(card1);
         assertEquals(card1, stack1.peek());
     }
@@ -61,7 +61,7 @@ public class StackTest
     {
         Stack stack1 = new Stack();
         assertNull(stack1.pop());
-        Card card1 = new Card(5);
+        Card card1 = new Card(5,0);
         stack1.push(card1);
         assertEquals(card1, stack1.pop());
         assertNull(stack1.peek());

@@ -43,14 +43,14 @@ public class CardTest
     @Test
     public void viewValue()
     {
-        Card card1 = new Card(2);
+        Card card1 = new Card(2,0);
         assertEquals(2, card1.getValue());
     }
 
     @Test
     public void setValue()
     {
-        Card card2 = new Card(2);
+        Card card2 = new Card(2,0);
         card2.setValue(5);
         assertEquals(5, card2.getValue());
     }
@@ -58,7 +58,7 @@ public class CardTest
     @Test
     public void setNext()
     {
-        Card card1 = new Card(5);
+        Card card1 = new Card(5,0);
         Card card2 = new Card();
         card1.setNext(card2);
         assertNotNull(card1.getNext());
