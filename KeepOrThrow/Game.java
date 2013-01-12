@@ -47,7 +47,7 @@ public class Game extends JFrame {
                     jMenuItemDateiSchließenActionPerformed(evt);
                 }
             });
-            
+
         jMenuDatei.add(jMenuItemDateiHilfe);
         jMenuDatei.add(jMenuItemDateiSchließen);
         jMenuBar.add(jMenuDatei);
@@ -114,9 +114,9 @@ public class Game extends JFrame {
                 }
             });
         jPanel2.add(jButton3);
-        
+
         setJMenuBar(jMenuBar);
-        
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +143,8 @@ public class Game extends JFrame {
     }                        
 
     private void jMenuItemDateiHilfeActionPerformed(ActionEvent evt){
-        JOptionPane.showMessageDialog(null, "See http://www.infoskript.com for more Info");
+        JOptionPane.showMessageDialog(null, "See http://www.infoskript.com for more Info", "Hilfe",
+                                      JOptionPane.PLAIN_MESSAGE);
     }
 
     private void jMenuItemDateiSchließenActionPerformed(ActionEvent evt){
@@ -167,13 +168,20 @@ public class Game extends JFrame {
         timer.restart();
     }
 
+    protected void restartGame(){
+        countdown = 60000;
+        gl = new GameLogic();
+        updateLabels();
+        timer.restart();
+    }
+
     public void updateLabels(){
         jLabels[0].setIcon(new ImageIcon(path + 
                 gl.view() + 
                 gl.viewSuite() + 
                 ".png"));
         jLabels[2].setIcon(new ImageIcon(path + 
-                gl.getKeepStack().peek().getValue() + 
+                gl.getKeepStack().peek().getValue   () + 
                 gl.getKeepStack().peek().getSuite() +
                 ".png"));
         jLabels[4].setIcon(new ImageIcon(path + 
@@ -192,25 +200,40 @@ public class Game extends JFrame {
         ActionListener heartbeat = new ActionListener(){
                 public void actionPerformed(ActionEvent evt){
                     jLabels[1].setText(String.valueOf(gl.count()));
-
-                    if(countdown == 0){
-                        timer.stop();
-                        while(!gl.getMixedStack().isEmpty()){
-                            gl.getMixedStack().pop();
-                            updateLabels();
-                        }
-                    }
-
-                    if(gl.getMixedStack().isEmpty()){
-                        timer.stop();
-                        JOptionPane.showMessageDialog(null, "Game over!\n You Score is: "
-                            + (gl.count() + scoreAlgorithm()));
-                    }
+                    gameFinished();
                 }
             };
         timer = new Timer(1,playingtime);
         timer.addActionListener(heartbeat);
         timer.start();
+    }
+
+    public void gameFinished(){
+
+        if(countdown == 0){
+            timer.stop();
+            while(!gl.getMixedStack().isEmpty()){
+                gl.getMixedStack().pop();
+                updateLabels();
+            }
+        }
+
+        if(gl.getMixedStack().isEmpty()){
+            timer.stop();
+
+            Object[] options = {"OK", "Restart?"};
+            int choice = JOptionPane.showOptionDialog(null, "Game over!\n You Score is: "
+                    + (gl.count() + scoreAlgorithm()), "Game Over!",
+                    JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE,
+                    null,options,options[1]);
+            if(choice == 1){
+                countdown = 60000;
+                gl = new GameLogic();
+                updateLabels();
+                timer.restart();    
+            }
+        }
+
     }
 
     public static void main(String args[]) {
