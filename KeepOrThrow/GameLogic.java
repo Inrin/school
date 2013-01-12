@@ -6,6 +6,7 @@ public class GameLogic
 {
     /** The three needed Stacks for playing KeepOrThrow */
     private Stack mixedStack, keepStack,throwStack;
+    private int errors;
 
     public GameLogic(){
         gameInit();
@@ -19,12 +20,25 @@ public class GameLogic
     }
 
     /**
+     * View the current suite of top card of mixedStack
+     */
+    public int viewSuite(){
+        return (!mixedStack.isEmpty()) ? mixedStack.peek().getSuite() : 0;
+    }
+
+    /**
      * Keep the current top card on the mixedStack(Place it on keepStack).
      */
     public void keep(){
         if(!mixedStack.isEmpty()){
             if(!keepStack.isEmpty()){
-                if(mixedStack.peek().getValue() > keepStack.peek().getValue())
+                int mvalue = mixedStack.peek().getValue();
+                int kvalue = keepStack.peek().getValue();
+                int msuite = mixedStack.peek().getSuite();
+                int ksuite = keepStack.peek().getSuite();
+                if(mvalue > kvalue)
+                    keepStack.push(mixedStack.pop());
+                else if(mvalue >= kvalue && msuite != ksuite)
                     keepStack.push(mixedStack.pop());
                 else
                     JOptionPane.showMessageDialog(null,"Not allowed. Card is equal or smaler than previous!");
@@ -33,6 +47,7 @@ public class GameLogic
             }
         }else{
             JOptionPane.showMessageDialog(null,"Stack is empty!");
+            errors++;
         }
     }
 
@@ -40,16 +55,18 @@ public class GameLogic
      * Throw the current top card on the mixedStack away(Place it on throwStack).
      */
     public void dump(){
-        if(!mixedStack.isEmpty())
+        if(!mixedStack.isEmpty()){
             throwStack.push(mixedStack.pop());
-        else 
+        }else{
             JOptionPane.showMessageDialog(null,"Deck is empty!");
+            errors++;
+        }
     }
 
     /**
      * Count cards on keepStack.
      */
-    public void count(){
+    public int count(){
         int counter = 0;
         if(!keepStack.isEmpty()){
             Card temp = keepStack.peek();
@@ -57,9 +74,12 @@ public class GameLogic
                 counter++;
                 temp = temp.getNext();
             }
-            JOptionPane.showMessageDialog(null,counter);
-        }else
+            return counter;
+        }else{
             JOptionPane.showMessageDialog(null, "Empty");
+            errors++;
+            return 1;
+        }
     }
 
     protected Stack getMixedStack(){
@@ -72,6 +92,10 @@ public class GameLogic
 
     protected Stack getThrowStack(){
         return throwStack;
+    }
+
+    public int getErrors(){
+        return errors;
     }
 
     /**
