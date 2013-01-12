@@ -41,12 +41,17 @@ public class GameLogic
                 else if(mvalue >= kvalue && msuite != ksuite)
                     keepStack.push(mixedStack.pop());
                 else
-                    JOptionPane.showMessageDialog(null,"Not allowed. Card is equal or smaler than previous!");
+                    JOptionPane.showMessageDialog(null,"Not allowed. Card is equal or smaler than previous!"
+                    ,"Not allowed."
+                    ,JOptionPane.PLAIN_MESSAGE);
             }else{
                 keepStack.push(mixedStack.pop());
             }
         }else{
-            JOptionPane.showMessageDialog(null,"Stack is empty!");
+            JOptionPane.showMessageDialog(null
+            ,"Mxed stack is empty!"
+            ,"Stack is empty!"
+            ,JOptionPane.PLAIN_MESSAGE);
             errors++;
         }
     }
@@ -58,7 +63,7 @@ public class GameLogic
         if(!mixedStack.isEmpty()){
             throwStack.push(mixedStack.pop());
         }else{
-            JOptionPane.showMessageDialog(null,"Deck is empty!");
+            JOptionPane.showMessageDialog(null,"Mixed sktack is empty!","Stack is empty!",JOptionPane.PLAIN_MESSAGE);
             errors++;
         }
     }
@@ -76,7 +81,7 @@ public class GameLogic
             }
             return counter;
         }else{
-            JOptionPane.showMessageDialog(null, "Empty");
+            JOptionPane.showMessageDialog(null,"Keepdtack is empty!","Empty",JOptionPane.PLAIN_MESSAGE);
             errors++;
             return 1;
         }
