@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 
 public class Game extends JFrame {
 
@@ -10,8 +13,9 @@ public class Game extends JFrame {
     private JMenuBar jMenuBar;
     private JMenu jMenuDatei;
     private JMenuItem jMenuItemDateiHilfe,jMenuItemDateiSchließen;
+    private JDialog help;
     private GameLogic gl;
-    private String path;
+    private String path, helpPath;
     private int countdown=60000;
     private Timer timer;
 
@@ -25,9 +29,11 @@ public class Game extends JFrame {
         switch(System.getProperty("os.name")){
             case "Windows 7":
             path="cards\\";
+            helpPath="help\\index.html";
             break;
             case "Linux":
             path="cards/";
+            helpPath="help/index.html";
             break;
 
         }
@@ -52,11 +58,14 @@ public class Game extends JFrame {
         jMenuDatei.add(jMenuItemDateiSchließen);
         jMenuBar.add(jMenuDatei);
 
-        jLabels[0] = new JLabel("Mixed Stack", new ImageIcon(path + "00.png"), JLabel.CENTER);
+        jLabels[0] = new JLabel("Mixed Stack", new ImageIcon(Game.class.getResource(
+                    path + "00.png")), JLabel.CENTER);
         jLabels[1] = new JLabel("0", JLabel.CENTER);
-        jLabels[2] = new JLabel("Keep Stack", new ImageIcon(path + "00.png"), JLabel.CENTER);
+        jLabels[2] = new JLabel("Keep Stack", new ImageIcon(Game.class.getResource(
+                    path + "00.png")), JLabel.CENTER);
         jLabels[3] = new JLabel("120s", JLabel.CENTER);
-        jLabels[4] = new JLabel("Keep Stack", new ImageIcon(path + "00.png"), JLabel.CENTER);
+        jLabels[4] = new JLabel("Throw Stack", new ImageIcon(Game.class.getResource(
+                    path + "00.png")), JLabel.CENTER);
 
         Font f = new Font("Dialog",Font.PLAIN,18);
         Font f2 = new Font("Dialog",Font.PLAIN,24);
@@ -143,8 +152,33 @@ public class Game extends JFrame {
     }                        
 
     private void jMenuItemDateiHilfeActionPerformed(ActionEvent evt){
-        JOptionPane.showMessageDialog(null, "See http://www.infoskript.com for more Info", "Hilfe",
-                                      JOptionPane.PLAIN_MESSAGE);
+
+        help = new JDialog(this,"Help");
+
+        JEditorPane editorPane = new JEditorPane();
+        editorPane.setEditable(false);
+        java.net.URL helpURL = Game.class.getResource(
+                helpPath);
+        if (helpURL != null) {
+            try {
+                editorPane.setPage(helpURL);
+            } catch (IOException e) {
+                System.err.println("Attempted to read a bad URL: " + helpURL);
+            }
+        } else {
+            System.err.println("Couldn't find file: TextSamplerDemoHelp.html");
+        }
+
+        JScrollPane editorScrollPane = new JScrollPane(editorPane);
+        editorScrollPane.setVerticalScrollBarPolicy(
+            JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        help.add(editorScrollPane, BorderLayout.CENTER);
+        Toolkit toolkit = Toolkit.getDefaultToolkit(); 
+        Dimension dim = toolkit.getScreenSize();
+        help.setSize(dim.width, dim.height);
+        help.setLocationRelativeTo(this);
+        help.setVisible(true);
     }
 
     private void jMenuItemDateiSchließenActionPerformed(ActionEvent evt){
@@ -176,18 +210,21 @@ public class Game extends JFrame {
     }
 
     public void updateLabels(){
-        jLabels[0].setIcon(new ImageIcon(path + 
-                gl.view() + 
-                gl.viewSuite() + 
-                ".png"));
-        jLabels[2].setIcon(new ImageIcon(path + 
-                gl.getKeepStack().peek().getValue   () + 
-                gl.getKeepStack().peek().getSuite() +
-                ".png"));
-        jLabels[4].setIcon(new ImageIcon(path + 
-                gl.getThrowStack().peek().getValue() + 
-                gl.getThrowStack().peek().getSuite() +
-                ".png"));
+        jLabels[0].setIcon(new ImageIcon(Game.class.getResource(
+                    path + 
+                    gl.view() + 
+                    gl.viewSuite() + 
+                    ".png")));
+        jLabels[2].setIcon(new ImageIcon(Game.class.getResource(
+                    path + 
+                    gl.getKeepStack().peek().getValue   () + 
+                    gl.getKeepStack().peek().getSuite() +
+                    ".png")));
+        jLabels[4].setIcon(new ImageIcon(Game.class.getResource(
+                    path + 
+                    gl.getThrowStack().peek().getValue() + 
+                    gl.getThrowStack().peek().getSuite() +
+                    ".png")));
     }
 
     private void timerInit(){
