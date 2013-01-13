@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import javax.swing.text.html.HTMLDocument;
-import javax.swing.text.html.HTMLEditorKit;
 
 public class Game extends JFrame {
 
@@ -11,8 +9,7 @@ public class Game extends JFrame {
     private JLabel jLabels[] = new JLabel[5];
     private JPanel jPanel1,jPanel2;
     private JMenuBar jMenuBar;
-    private JMenu jMenuDatei;
-    private JMenuItem jMenuItemDateiHilfe,jMenuItemDateiSchließen;
+    private JMenuItem jMenuItemHelp,jMenuItemClose;
     private JDialog help;
     private GameLogic gl;
     private String path, helpPath;
@@ -40,23 +37,21 @@ public class Game extends JFrame {
 
         jPanel1 = new JPanel();
         jMenuBar = new JMenuBar();
-        jMenuDatei = new JMenu("Datei");
-        jMenuItemDateiHilfe = new JMenuItem("Hilfe");
-        jMenuItemDateiHilfe.addActionListener(new ActionListener(){
+        jMenuItemHelp = new JMenuItem("Hilfe");
+        jMenuItemClose = new JMenuItem("Schliessen");
+        jMenuItemHelp.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent evt){
-                    jMenuItemDateiHilfeActionPerformed(evt);
+                    jMenuItemHelpActionPerformed(evt);
                 }
             });
-        jMenuItemDateiSchließen = new JMenuItem("Schließen");
-        jMenuItemDateiSchließen.addActionListener(new ActionListener(){
+        jMenuItemClose.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent evt){
-                    jMenuItemDateiSchließenActionPerformed(evt);
+                    jMenuItemCloseActionPerformed(evt);
                 }
             });
 
-        jMenuDatei.add(jMenuItemDateiHilfe);
-        jMenuDatei.add(jMenuItemDateiSchließen);
-        jMenuBar.add(jMenuDatei);
+        jMenuBar.add(jMenuItemHelp);
+        jMenuBar.add(jMenuItemClose);
 
         jLabels[0] = new JLabel("Mixed Stack", new ImageIcon(Game.class.getResource(
                     path + "00.png")), JLabel.CENTER);
@@ -148,10 +143,6 @@ public class Game extends JFrame {
         );
 
         pack();
-        timerInit();
-    }                        
-
-    private void jMenuItemDateiHilfeActionPerformed(ActionEvent evt){
 
         help = new JDialog(this,"Help");
 
@@ -176,12 +167,18 @@ public class Game extends JFrame {
         help.add(editorScrollPane, BorderLayout.CENTER);
         Toolkit toolkit = Toolkit.getDefaultToolkit(); 
         Dimension dim = toolkit.getScreenSize();
-        help.setSize(dim.width, dim.height);
+        help.setSize(821, dim.height);
         help.setLocationRelativeTo(this);
+        help.setResizable(false);
+
+        timerInit();
+    }                        
+
+    private void jMenuItemHelpActionPerformed(ActionEvent evt){
         help.setVisible(true);
     }
 
-    private void jMenuItemDateiSchließenActionPerformed(ActionEvent evt){
+    private void jMenuItemCloseActionPerformed(ActionEvent evt){
         System.exit(0);
     }
 
