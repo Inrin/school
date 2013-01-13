@@ -40,16 +40,18 @@ public class GameLogic
                     keepStack.push(mixedStack.pop());
                 else if(mvalue >= kvalue && msuite != ksuite)
                     keepStack.push(mixedStack.pop());
-                else
+                else{
                     JOptionPane.showMessageDialog(null,"Not allowed. Card is equal or smaler than previous!"
                     ,"Not allowed."
                     ,JOptionPane.PLAIN_MESSAGE);
+                    errors++;
+                }
             }else{
                 keepStack.push(mixedStack.pop());
             }
         }else{
             JOptionPane.showMessageDialog(null
-            ,"Mxed stack is empty!"
+            ,"Mixed stack is empty!"
             ,"Stack is empty!"
             ,JOptionPane.PLAIN_MESSAGE);
             errors++;
