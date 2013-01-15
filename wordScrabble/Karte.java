@@ -6,7 +6,7 @@ public class Karte
     private String wort;
     
     /**
-     * Erzeugt eine Karte mit zufälligem Inhalt.
+     * Erzeugt eine Karte mit zufaelligem Inhalt.
      */
     public Karte()
     {
@@ -16,14 +16,14 @@ public class Karte
             "mich", "dich","mich", "dich","mich", "dich",
             "wieder", "heute", "gestern", "bald",
             "Haus", "Blume", "PC", "Schule", "Tapete",
-            "habe", "hast", "möchte", "möchtest",
-            "gehe", "gehst", "laufe", "läufst",
+            "habe", "hast", "mï¿½chte", "mï¿½chtest",
+            "gehe", "gehst", "laufe", "lï¿½ufst",
             "spreche", "sprichst", "singe", "singst",
             "voll", "daneben", "wieder", "mal",
             "echt", "blau", "leer", "Cola", "Sofa",
             "und", "und", "und", "und", "und",
             "oder", "oder", "oder", "oder", "oder",
-            "Fußball", "Bild", "hallo"
+            "Fuï¿½ball", "Bild", "hallo"
         };
         Random random = new Random();
         int index = random.nextInt(worte.length);
