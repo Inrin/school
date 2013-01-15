@@ -30,6 +30,7 @@ public class Karte
         wort = worte[index].toUpperCase();
         wert = random.nextInt(10) + 1;
     }
+    
     /**
      * Konstruktor, der v.a. zum Testen benutzt werden kann.
      */
