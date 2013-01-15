@@ -14,7 +14,7 @@ public class Game{
 	}
 
 	public void showCurrentCard(){
-		return currentCard;
+	    System.out.print(currentCard.getWort());
 	}
 
 	public void drawCard(){ 
@@ -22,7 +22,7 @@ public class Game{
 	}
 
 	public void putCard(int position){ 
-		sentence.add(position);	
+		sentence.add(position, currentCard);	
 	}
 
 	public void deleteCard(int position){
@@ -33,21 +33,22 @@ public class Game{
 		System.out.println("--------------------------------------------------------------------");
 		System.out.println("                          Word Scrabble");
 		System.out.println("--------------------------------------------------------------------");
-		System.out.println("Aktueller Satz: " +  printSentence();
-		System.out.println("Aktuelle Wortanzahl: " + satz.size());
+		System.out.println("Aktueller Satz: ");
+		printSentence();
+		System.out.println("Aktuelle Wortanzahl: " + sentence.size());
 		System.out.println("Aktuelle Punktzahl: " + getScore());
-		System.out.println("Aktuelle Karte: " showCurrentCard + '\n');
+		System.out.println("Aktuelle Karte: " + currentCard.getWort());
 	}
 
 	public void printSentence(){
-		for (Karte k : satz) {
-			System.out.print(k.getWort())
+		for (Karte k : sentence) {
+			System.out.println(k.getWort());
 		}
 	}
 
 	public int getScore(){
 		int score = 0;
-		for (Karte k : satz) {
+		for (Karte k : sentence) {
 			score += k.getWert();
 		}
 		return score;
