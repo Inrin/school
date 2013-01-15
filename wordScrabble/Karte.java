@@ -14,7 +14,7 @@ public class Karte
             "ich", "ich", "ich", "ich", "ich",
             "du", "du", "du", "du", "du", 
             "mich", "dich","mich", "dich","mich", "dich",
-            "wieder", "heute", "gestern", "wald",
+            "wieder", "heute", "gestern", "bald",
             "Haus", "Blume", "PC", "Schule", "Tapete",
             "habe", "hast", "möchte", "möchtest",
             "gehe", "gehst", "laufe", "läufst",
