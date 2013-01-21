@@ -12,12 +12,12 @@
     <void property="methods">
      <void property="text">
       <string>- void add(String, String, boolean, int)
-- Song remove(int)
+- void Song remove(int)
 - int getNumberOfSongs()
 - void printInfo()
 - int getNumberOfSongsByInterpret(String)
-- LinkedList&lt;Song&gt; getSongsByInterpret(String)
-Song[] getSongsByString(String)
+- LinkedList&lt;Song&gt; getSongsByInterpreter(String)
+- LinkedList&lt;Song&gt; getSongsByString(String)
 
 </string>
      </void>
@@ -38,15 +38,15 @@ Song[] getSongsByString(String)
         <void method="set">
          <object idref="Point2D$Double0">
           <void method="setLocation">
-           <double>224.0</double>
-           <double>116.0</double>
+           <double>226.12132034355966</double>
+           <double>118.82842712474618</double>
           </void>
          </object>
-         <double>116.0</double>
+         <double>118.82842712474618</double>
         </void>
        </void>
       </object>
-      <double>224.0</double>
+      <double>226.12132034355966</double>
      </void>
     </void>
    </object>
