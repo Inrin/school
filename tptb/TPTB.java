@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class TPTB{
     /** The pro and con list */
     private LinkedList<Argument> con, pro;
-    
+
     /**
      * Creates this with a pro- and a con-list.
      */
@@ -22,18 +22,21 @@ public class TPTB{
         System.out.println("");
         System.out.println("The pro-arguments are: \n");
         for(Argument arg: pro){
-            System.out.println(arg.getArgument() + "(" + arg.getRelevance() + ")");
+            System.out.print(arg.getArgument() + "(" + arg.getRelevance() + ")\n");
         }
         System.out.println("");
         System.out.println("The con-arguments are: \n");
         for(Argument arg: con){
-            System.out.println(arg.getArgument() + "(" + arg.getRelevance() + ")");
+            if(arg.getRelevance() != 0 && arg.getArgument() != null)
+            System.out.print(arg.getArgument() + "(" + arg.getRelevance() + ")\n");
         }
         System.out.println("");
+        System.out.println("-----------------------------------------");
         if(calculateDecision())
             System.out.println("Do it!");
         else
             System.out.println("Don't do it");
+        System.out.println("_________________________________________");
     }
 
     /**
