@@ -2,6 +2,9 @@ public class Argument{
     private String argument;
     private int relevance;
 
+    /** 
+     * Creates this with an argument and it's relevance.
+     */
     public Argument(String argument, int relevance){
         setArgument(argument);
         setRelevance(relevance);
@@ -10,7 +13,7 @@ public class Argument{
     /**
      * Set argument of this.
      * 
-     * @param argument as String must be not empty
+     * @param argument must not be empty
      */
     private void setArgument(String argument){
         if(argument != null && !argument.isEmpty())
@@ -22,7 +25,7 @@ public class Argument{
     /**
      * Set relevance of this.
      * 
-     * @param relevance as int, between 1(smallest) to 10(biggest) relevance
+     * @param relevance is between 1(smallest) to 10(biggest) relevance
      */
     private void setRelevance(int relevance){
         if(relevance > 0 && relevance < 11)
@@ -31,11 +34,21 @@ public class Argument{
             System.err.println("Relevance must be between 1-10");
     }
 
+    /**
+     * Get this argument
+     * 
+     * @return argument
+     */
     public String getArgument(){
         return argument;
     }
 
-    public int getrelevance(){
+    /**
+     * Get the importance
+     * 
+     * @return relevance
+     */
+    public int getRelevance(){
         return relevance;
     }
 }
