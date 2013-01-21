@@ -11,8 +11,8 @@
     </void>
     <void property="methods">
      <void property="text">
-      <string>- printDecision()
-- insertArgument(boolean , String, int) </string>
+      <string>- void printDecision()
+- void nsertArgument(boolean , String, int) </string>
      </void>
     </void>
     <void property="name">
