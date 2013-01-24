@@ -2,11 +2,14 @@
 dependency1.from=Benzaiten
 dependency1.to=Song
 dependency1.type=UsesDependency
+dependency2.from=BenzaitenTest
+dependency2.to=Benzaiten
+dependency2.type=UsesDependency
 package.editor.height=550
 package.editor.width=1196
 package.editor.x=3
-package.editor.y=0
-package.numDependencies=1
+package.editor.y=25
+package.numDependencies=2
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
