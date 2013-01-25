@@ -1,5 +1,5 @@
 /**
- * Hilfsklasse, die verschiede Arrays erzeugt und zurück gibt.
+ * Hilfsklasse, die verschiede Arrays erzeugt und zurueck gibt.
  * 
  * @author (Thomas Karp) 
  * @version (21.4.2008)
@@ -7,7 +7,7 @@
 public class Generator
 {
     /**
-     * Berechnet eine Menge von Zufallszahlen. Die Anzahl der Zufallszahlen ist ebenfalls zufällig.
+     * Berechnet eine Menge von Zufallszahlen. Die Anzahl der Zufallszahlen ist ebenfalls zufaellig.
      * @return Array von Zufallszahlen.
      */
     public static int[] getZufallszahlen()
@@ -22,7 +22,7 @@ public class Generator
     }
     
     /**
-     * Liefert ein Array von Hunden zurück.
+     * Liefert ein Array von Hunden zurueck.
      */
     public static Hund[] getHunde()
     {
