@@ -1,39 +1,83 @@
 import java.util.Random;
+import java.io.*;
 
 public class NoRiskNoMoney{
-    private boolean[] field = new boolean[6];
-    private boolean allowed= true;
+	private boolean[] field = new boolean[6];
+	private boolean allowed = true;
 
-    public NoRiskNoMoney(){
-        for(boolean b: field)
-            b = false;
-    }
+	public NoRiskNoMoney(){
+		for(int i=0; i<field.length; i++)
+			field[i] = false;
+	}
 
-    public void dice(){
-        if(allowed){
-            int r = new Random().nextInt(6);
+	public void dice(){
+		if(allowed){
+			int r = new Random().nextInt(6);
 
-            if(!field[r])
-                field[r] = true;
-            else
-                allowed = false;
-        }
+			if(!field[r])
+				field[r] = true;
+			else
+				allowed = false;
+		}
 
-    }
+	}
 
-    public void printField(){
-        System.out.println("\f");
-        System.out.println("=====================================================================");
-        System.out.println("+                         No Risk No Money!");
-        System.out.println("=====================================================================\n");
-        System.out.println("+---+---+");
-        for(int i=0; i<5;){
-            int j=i;
-            System.out.println("| " + ((!field[j] ? ++j : "X") + " | " + ((!field[j]) ?  ++j: "X") + " |"));
-            i+=2;
-        }
-        System.out.println("+---+---+");
-        if(!allowed)
-            System.out.println("Game Over!\n Please restart...");
-    }
+	public void printField(){
+		System.out.println("\f");
+		System.out.println("================================");
+		System.out.println("* Welcome to No Risk No Money! *");
+		System.out.println("================================\n");
+		System.out.println("\t+---+---+");
+		for(int i=0; i<5;){
+			System.out.println("\t| " + ((!field[i] ? i+1 : "X") + " | " + ((!field[++i]) ?  i+1: "X") + " |"));
+			i++;
+		}
+		System.out.println("\t+---+---+");
+		check();
+	}
+
+	private void check(){
+		if(!allowed)
+			System.out.println("\nGame Over!\nType r to restart\nType q to exit");
+		else
+			System.out.println("\nType d to dice\nType q to exit");
+
+		try{
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(System.in));
+			String choice = in.readLine();
+			switch(choice){
+				case "q":
+				case "Q":
+					System.exit(0);
+					break;
+				case "r":
+				case "R":
+					for(int i=0; i<field.length; i++)
+						field[i] = false;
+					allowed = true;
+					printField();
+					break;
+				case "d":
+				case "D":
+					dice();
+					printField();
+					break;
+				default:
+					System.out.println("Please only use given options.");
+					check();
+					break;
+			}
+
+		}catch(IOException e){
+			System.err.println("Inputerror");
+		}   
+	}
+
+	public static void main (String [] args)
+	{
+		NoRiskNoMoney n = new NoRiskNoMoney();
+
+		n.printField();
+	}
 }
