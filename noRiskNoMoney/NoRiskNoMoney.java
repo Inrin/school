@@ -4,6 +4,7 @@ import java.io.*;
 public class NoRiskNoMoney{
 	private boolean[] field = new boolean[6];
 	private boolean allowed = true;
+	private boolean showMenu = true;
 
 	public NoRiskNoMoney(){
 		for(int i=0; i<field.length; i++)
@@ -23,7 +24,6 @@ public class NoRiskNoMoney{
 	}
 
 	public void printField(){
-		System.out.println("\f");
 		System.out.println("================================");
 		System.out.println("* Welcome to No Risk No Money! *");
 		System.out.println("================================\n");
@@ -37,10 +37,12 @@ public class NoRiskNoMoney{
 	}
 
 	private void check(){
-		if(!allowed)
-			System.out.println("\nGame Over!\nType r to restart\nType q to exit");
-		else
-			System.out.println("\nType d to dice\nType q to exit");
+		if(showMenu){
+			if(!allowed)
+				System.out.println("\nGame Over!\nType r to restart\nType q to exit");
+			else
+				System.out.println("\nType d to dice\nType m to disable/enable this menu\nType q to exit");
+		}
 
 		try{
 			BufferedReader in = new BufferedReader(
@@ -63,6 +65,11 @@ public class NoRiskNoMoney{
 					dice();
 					printField();
 					break;
+				case "m":
+				case "M":
+					showMenu = (showMenu) ? false : true;
+					printField();
+					break;
 				default:
 					System.out.println("Please only use given options.");
 					check();
@@ -70,7 +77,7 @@ public class NoRiskNoMoney{
 			}
 
 		}catch(IOException e){
-			System.err.println("Inputerror");
+			System.err.println("Input error");
 		}   
 	}
 
