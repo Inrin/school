@@ -6,30 +6,31 @@ import java.awt.Dimension;
 public class WeatherStationGUI extends JFrame{
     private static final int UPDATE_MIN = 0;
     private static final int UPDATE_MAX = 30;
-    private static final int UPDATE_INIT = 15;
+    private static final int UPDATE_INIT = 1;
     private WeatherStation weatherStation = new WeatherStation();
-    private  JCheckBox jCheckBox1;
-    private  JCheckBox jCheckBox3;
-    private  JComboBox jComboBox1;
-    private  JLabel jLabel1;
-    private  JLabel jLabel10;
-    private  JLabel jLabel2;
-    private  JLabel jLabel3;
-    private  JLabel jLabel4;
-    private  JLabel jLabel5;
-    private  JLabel jLabel6;
-    private  JLabel jLabel7;
-    private  JLabel jLabel8;
-    private  JLabel jLabel9;
-    private  JPanel jPanel1;
-    private  JPanel jPanel2;
-    private  JPanel jPanel3;
-    private  JPanel jPanel4;
-    private  JSlider jSlider1;
-    private  JTabbedPane jTabbedPane1;
-    private  JTextField jTextField1;
-    private  JTextField jTextField2;
-    private  JTextField jTextField3;
+    private JCheckBox jCheckBox1;
+    private JCheckBox jCheckBox3;
+    private JComboBox jComboBox1;
+    private JLabel jLabel1;
+    private JLabel jLabel10;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JLabel jLabel7;
+    private JLabel jLabel8;
+    private JLabel jLabel9;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JPanel jPanel3;
+    private JPanel jPanel4;
+    private JSlider jSlider1;
+    private JTabbedPane jTabbedPane1;
+    private JTextField jTextField1;
+    private JTextField jTextField2;
+    private JTextField jTextField3;
+    private Timer updateTimer; 
 
     /**
      * Creates new form WeatherStationGUI
@@ -42,6 +43,7 @@ public class WeatherStationGUI extends JFrame{
      * This method is called from within the constructor to initialize the form.
      */
     private void initComponents() {
+        this.setTitle("Weatherstation");
         weatherStation.update();
         jTabbedPane1 = new  JTabbedPane();
         jPanel2 = new JPanel();
@@ -205,11 +207,7 @@ public class WeatherStationGUI extends JFrame{
 
         jSlider1.addChangeListener(new ChangeListener(){
                 public void stateChanged(ChangeEvent evt) {
-                    JSlider source = (JSlider)evt.getSource();
-                    if (!source.getValueIsAdjusting()) {
-                        int upm = (int)source.getValue();
-                        
-                    }
+                    jSlider1StateChanged(evt);
                 }
             });
         jSlider1.setMajorTickSpacing(10);
@@ -453,6 +451,23 @@ public class WeatherStationGUI extends JFrame{
         );
 
         pack();
+
+        timerInit(UPDATE_INIT);
+    }
+
+    public void timerInit(int upm){
+        ActionListener updatesPerMinutes = new ActionListener(){
+                public void actionPerformed(ActionEvent evt){
+                    weatherStation.update();
+                    updateLabels();
+                    JOptionPane.showMessageDialog(null, "Debugging");
+                }
+            };
+
+        upm *= 60 * 60 * 1000;
+        updateTimer = new Timer(upm,updatesPerMinutes);
+        if(upm >0)
+        updateTimer.start();
     }
 
     public void updateLabels(){
@@ -481,10 +496,13 @@ public class WeatherStationGUI extends JFrame{
 
     //Updates
     private void jCheckBox3ItemStateChanged(ItemEvent evt) {
-        if(evt.getStateChange() == ItemEvent.DESELECTED)
+        if(evt.getStateChange() == ItemEvent.DESELECTED){
             jSlider1.setEnabled(false);
-        else
+            updateTimer.start();
+        }else{
             jSlider1.setEnabled(true);
+            updateTimer.stop();
+        }
     }
 
     private void jComboBox1ActionPerformed(ActionEvent evt) {
@@ -530,6 +548,17 @@ public class WeatherStationGUI extends JFrame{
 
     private void jTextField3FocusGained(FocusEvent evt){
         jTextField3.setText("");
+    }
+
+    private void jSlider1StateChanged(ChangeEvent evt){
+        JSlider source = (JSlider)evt.getSource();
+        if (!source.getValueIsAdjusting()) {
+            int upm = (int)source.getValue();
+            updateTimer.stop();
+            System.gc();
+            timerInit(upm);
+            System.out.println(upm);
+        }
     }
 
     /**
