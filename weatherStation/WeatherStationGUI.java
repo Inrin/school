@@ -464,10 +464,12 @@ public class WeatherStationGUI extends JFrame{
                 }
             };
 
-        upm *= 60 * 60 * 1000;
+        upm *= 60 * 1000;
         updateTimer = new Timer(upm,updatesPerMinutes);
         if(upm >0)
-        updateTimer.start();
+            updateTimer.start();
+        else
+            updateTimer.stop();
     }
 
     public void updateLabels(){
@@ -498,10 +500,10 @@ public class WeatherStationGUI extends JFrame{
     private void jCheckBox3ItemStateChanged(ItemEvent evt) {
         if(evt.getStateChange() == ItemEvent.DESELECTED){
             jSlider1.setEnabled(false);
-            updateTimer.start();
+            updateTimer.stop();
         }else{
             jSlider1.setEnabled(true);
-            updateTimer.stop();
+            updateTimer.start();
         }
     }
 
@@ -527,6 +529,9 @@ public class WeatherStationGUI extends JFrame{
     private void jTextField2ActionPerformed(ActionEvent evt){
         String host = jTextField2.getText();
         weatherStation.setProxyHost(host);
+        weatherStation.setProxy(true);
+        weatherStation.update();
+        updateLabels();
     }
 
     private void jTextField2FocusGained(FocusEvent evt){
@@ -539,6 +544,9 @@ public class WeatherStationGUI extends JFrame{
         {
             int portAsInt= Integer.parseInt(port);
             weatherStation.setProxyPort(portAsInt);
+            weatherStation.setProxy(true);
+            weatherStation.update();
+            updateLabels();
         }
         catch(NumberFormatException nfe)
         {
