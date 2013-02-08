@@ -1,12 +1,16 @@
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.event.*;
-import java.awt.Dimension;
+import java.awt.*;
+import javax.swing.plaf.FontUIResource;
+import java.util.Enumeration;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class WeatherStationGUI extends JFrame{
     private static final int UPDATE_MIN = 0;
     private static final int UPDATE_MAX = 30;
-    private static final int UPDATE_INIT = 1;
+    private static final int UPDATE_INIT = 15;
     private WeatherStation weatherStation = new WeatherStation();
     private JCheckBox jCheckBox1;
     private JCheckBox jCheckBox3;
@@ -40,8 +44,9 @@ public class WeatherStationGUI extends JFrame{
     }
 
     /**
-     * This method is called from within the constructor to initialize the form.
-     */
+    * This method is called from within the constructor to initialize the form.
+    */
+    @SuppressWarnings("unchecked")
     private void initComponents() {
         this.setTitle("Weatherstation");
         weatherStation.update();
@@ -69,7 +74,11 @@ public class WeatherStationGUI extends JFrame{
         jLabel8 = new JLabel();
         jLabel9 = new JLabel();
 
-        setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE);
+        jTextField1.setColumns(20);
+        jTextField2.setColumns(10);
+        jTextField3.setColumns(10);
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Stadtname");
 
@@ -83,7 +92,7 @@ public class WeatherStationGUI extends JFrame{
 
         jLabel2.setText("Citycode");
 
-        jTextField1.setText("Citycode eingben...");
+        jTextField1.setText("Citycode eingben");
         jTextField1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt){
                     jTextField1ActionPerformed(evt);
@@ -95,6 +104,8 @@ public class WeatherStationGUI extends JFrame{
                 }
 
                 public void focusLost(FocusEvent evt){
+                    if(jTextField1.getText().isEmpty())
+                        jTextField1.setText("Citycode eingeben");
                 }
             });
 
@@ -117,6 +128,8 @@ public class WeatherStationGUI extends JFrame{
                 }
 
                 public void focusLost(FocusEvent evt){
+                    if(jTextField2.getText().isEmpty())
+                        jTextField2.setText("Host");
                 }
             });
 
@@ -127,12 +140,14 @@ public class WeatherStationGUI extends JFrame{
                     jTextField3ActionPerformed(evt);
                 }
             });
-        jTextField1.addFocusListener(new FocusListener(){
+        jTextField3.addFocusListener(new FocusListener(){
                 public void focusGained(FocusEvent evt){
                     jTextField3FocusGained(evt);
                 }
 
                 public void focusLost(FocusEvent evt){
+                    if(jTextField3.getText().isEmpty())
+                        jTextField3.setText("Port");
                 }
             });
 
@@ -310,17 +325,17 @@ public class WeatherStationGUI extends JFrame{
                 addContainerGap())
         );
 
-        jTabbedPane1.addTab("Einstellungen", jPanel2);
+        jTabbedPane1.addTab("Wetterstation", jPanel1);
 
         jLabel5.setText(weatherStation.getCityName());
 
         jLabel6.setIcon(weatherStation.getIcon());
 
-        jLabel7.setText(String.valueOf(weatherStation.getHumidity()));
+        jLabel7.setText(String.valueOf(weatherStation.getHumidity()) + "%");
 
         jLabel10.setText(weatherStation.getSunset());
 
-        jLabel8.setText(String.valueOf(weatherStation.getTemperature()));
+        jLabel8.setText(String.valueOf(weatherStation.getTemperature()) + "°C");
 
         jLabel9.setText(weatherStation.getSunrise());
 
@@ -422,7 +437,7 @@ public class WeatherStationGUI extends JFrame{
                 addContainerGap())
         );
 
-        jTabbedPane1.addTab("Wetterstation", jPanel1);
+        jTabbedPane1.addTab("Einstellungen", jPanel2);
 
         GroupLayout layout = new  GroupLayout(getContentPane());
         getContentPane().
@@ -455,12 +470,16 @@ public class WeatherStationGUI extends JFrame{
         timerInit(UPDATE_INIT);
     }
 
-    public void timerInit(int upm){
+    /**
+     * Initiate the updateTimer
+     * 
+     * @param upm update per minute
+     */
+    private void timerInit(int upm){
         ActionListener updatesPerMinutes = new ActionListener(){
                 public void actionPerformed(ActionEvent evt){
                     weatherStation.update();
                     updateLabels();
-                    JOptionPane.showMessageDialog(null, "Debugging");
                 }
             };
 
@@ -472,31 +491,43 @@ public class WeatherStationGUI extends JFrame{
             updateTimer.stop();
     }
 
-    public void updateLabels(){
+    /**
+     * Updates all the Labels
+     * 
+     * Always than something changes the labels need to be updated.
+     */
+    private void updateLabels(){
         jLabel5.setText(weatherStation.getCityName());
         jLabel6.setIcon(weatherStation.getIcon());
-        jLabel7.setText(String.valueOf(weatherStation.getHumidity()));
+        jLabel7.setText(String.valueOf(weatherStation.getHumidity()) + "%");
         jLabel10.setText(weatherStation.getSunset());
-        jLabel8.setText(String.valueOf(weatherStation.getTemperature()));
+        jLabel8.setText(String.valueOf(weatherStation.getTemperature()) + "°C");
         jLabel9.setText(weatherStation.getSunrise());
     }
 
-    //Proxy
+    /**
+     * What to do than the Proxy-Checkbox is clicked.
+     */
     private void jCheckBox1ItemStateChanged(ItemEvent evt){
         if(evt.getStateChange() == ItemEvent.DESELECTED){
             jLabel3.setEnabled(false);
             jLabel4.setEnabled(false);
             jTextField2.setEnabled(false);
             jTextField3.setEnabled(false);
+            weatherStation.setProxy(false);
         }else{
             jLabel3.setEnabled(true);
             jLabel4.setEnabled(true);
             jTextField2.setEnabled(true);
             jTextField3.setEnabled(true);
+            weatherStation.setProxy(true);
+            jLabel4.setText("Proxy");
         }
     }
 
-    //Updates
+    /**
+     * What to do than Updates-Checkbox is clicked.
+     */
     private void jCheckBox3ItemStateChanged(ItemEvent evt) {
         if(evt.getStateChange() == ItemEvent.DESELECTED){
             jSlider1.setEnabled(false);
@@ -507,6 +538,9 @@ public class WeatherStationGUI extends JFrame{
         }
     }
 
+    /**
+     * What to do with the selected item.
+     */
     private void jComboBox1ActionPerformed(ActionEvent evt) {
         JComboBox cb = (JComboBox) evt.getSource();
         String choice = (String) cb.getSelectedItem();
@@ -515,6 +549,9 @@ public class WeatherStationGUI extends JFrame{
         updateLabels();
     }
 
+    /**
+     * What to do with user input - Citycodetextfield.
+     */
     private void jTextField1ActionPerformed(ActionEvent evt){
         String cityCode = jTextField1.getText();
         weatherStation.setCityCode(cityCode);
@@ -522,10 +559,14 @@ public class WeatherStationGUI extends JFrame{
         updateLabels();
     }
 
+    //Clear textfield than focused
     private void jTextField1FocusGained(FocusEvent evt){
         jTextField1.setText("");
     }
 
+    /**
+     * configure proxy host
+     */
     private void jTextField2ActionPerformed(ActionEvent evt){
         String host = jTextField2.getText();
         weatherStation.setProxyHost(host);
@@ -534,10 +575,14 @@ public class WeatherStationGUI extends JFrame{
         updateLabels();
     }
 
+    //Clear textfield than focused
     private void jTextField2FocusGained(FocusEvent evt){
         jTextField2.setText("");
     }
 
+    /**
+     * configure proxy port
+     */
     private void jTextField3ActionPerformed(ActionEvent evt){
         String port = jTextField2.getText();
         try
@@ -554,10 +599,14 @@ public class WeatherStationGUI extends JFrame{
         }
     }
 
+    //Clear textfield than focused
     private void jTextField3FocusGained(FocusEvent evt){
         jTextField3.setText("");
     }
 
+    /**
+     * What to do than the slider is changed
+     */
     private void jSlider1StateChanged(ChangeEvent evt){
         JSlider source = (JSlider)evt.getSource();
         if (!source.getValueIsAdjusting()) {
@@ -565,7 +614,6 @@ public class WeatherStationGUI extends JFrame{
             updateTimer.stop();
             System.gc();
             timerInit(upm);
-            System.out.println(upm);
         }
     }
 
@@ -581,17 +629,17 @@ public class WeatherStationGUI extends JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WeatherStationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(WeatherStationGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WeatherStationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(WeatherStationGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WeatherStationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(WeatherStationGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch ( UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WeatherStationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(WeatherStationGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     new WeatherStationGUI().setVisible(true);
                 }

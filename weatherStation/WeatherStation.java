@@ -12,8 +12,8 @@ import java.net.*;
  * Informationen is retrieved from Yahoo Weather.
  *
  * @author Thomas Karp
- * @version 26.4.2008. Jetzt mit Proxy und Array der Städtenamen. Groß/Kleinschreibung bei
- * Namen der Städte ist nun egal.
+ * @version 26.4.2008. Jetzt mit Proxy und Array der Stï¿½dtenamen. Groï¿½/Kleinschreibung bei
+ * Namen der Stï¿½dte ist nun egal.
  */
 public class WeatherStation {
 
@@ -30,7 +30,7 @@ public class WeatherStation {
     private String imgURL;
     private ImageIcon icon;
     private boolean online;
-    // Defaultwerte für FMSG passend
+    // Defaultwerte fï¿½r FMSG passend
     private String proxyHost = "192.168.0.254";
     private int proxyPort = 3128;
 
@@ -53,11 +53,11 @@ public class WeatherStation {
         cityCodes.put("Speyer", "GMXX4638");
         cityCodes.put("Mannheim", "GMXX0081");
         cityCodes.put("Berlin", "GMXX1273");
-        cityCodes.put("München", "GMXX0087");
+        cityCodes.put("Mï¿½nchen", "GMXX0087");
         cityCodes.put("Frankfurt", "GMXX0040");
         cityCodes.put("Hamburg", "GMXX0049");
         cityCodes.put("Karlsruhe", "GMXX0063");
-        cityCodes.put("Köln", "GMXX0018");
+        cityCodes.put("Kï¿½ln", "GMXX0018");
         cityCodes.put("Rom", "ITXX0067");
         cityCodes.put("Kapstadt", "SFXX0010");
         cityCodes.put("Rio de Janeiro", "BRXX0201");
@@ -270,7 +270,7 @@ public class WeatherStation {
     /**
      * Schaltet die Benutzung des Proxy-Servers an oder aus.
      * 
-     * @param state true für an, false für aus.
+     * @param state true fï¿½r an, false fï¿½r aus.
      */
     public void setProxy(boolean state) {
         if (state == false) {
