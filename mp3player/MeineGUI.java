@@ -14,14 +14,13 @@ public class MeineGUI extends JFrame implements MusicPlayerListener
     
     public MeineGUI()
     {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
-        pack();
-        setVisible(true);
     }
     
     private void initComponents(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setTitle("Benzaiten");
         
         jTextField1 = new JTextField();
         jButton1 = new JButton("Öffnen");
