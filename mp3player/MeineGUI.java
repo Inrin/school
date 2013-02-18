@@ -27,7 +27,7 @@ public class MeineGUI extends JFrame implements MusicPlayerListener
         jButton1 = new JButton("Öffnen");
         jButton2 = new JButton("Play");
         jButton3 = new JButton("Stop");
-        jLabel1 = new JLabel("0%");
+        jLabel1 = new JLabel("  0%");
         fc = new JFileChooser();
 
         jTextField1.setColumns(50);
@@ -67,7 +67,6 @@ public class MeineGUI extends JFrame implements MusicPlayerListener
 
     public void positionChanged(int newPosition){
         jLabel1.setText(String.valueOf(newPosition) + "%");
-        pack();
     }
 
     private void open(ActionEvent evt){
