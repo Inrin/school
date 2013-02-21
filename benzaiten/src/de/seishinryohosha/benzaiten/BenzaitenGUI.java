@@ -27,7 +27,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     }
 
     public void positionChanged(int position) {
-            playbackJSlider.setValue(position);
+        playbackJSlider.setValue(position);
     }
 
     /**
@@ -48,19 +48,18 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        musicInfoJPanel = new javax.swing.JPanel();
+        artistJlabel = new javax.swing.JLabel();
+        songTitleJLabel = new javax.swing.JLabel();
+        albumJLabel = new javax.swing.JLabel();
         controlsJPanel = new javax.swing.JPanel();
         rewindJButton = new javax.swing.JButton();
         playPauseJButton = new javax.swing.JButton();
         stopPlayingJButton = new javax.swing.JButton();
         fastForwardJButton = new javax.swing.JButton();
         playbackJSlider = new javax.swing.JSlider();
-        volumeJButton = new javax.swing.JButton();
         volumeJSlider = new javax.swing.JSlider();
-        jButton2 = new javax.swing.JButton();
-        musicInfoJPanel = new javax.swing.JPanel();
-        artistJlabel = new javax.swing.JLabel();
-        songTitleJLabel = new javax.swing.JLabel();
-        albumJLabel = new javax.swing.JLabel();
+        volumeJButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         dateiJMenu = new javax.swing.JMenu();
         openJMenuItem = new javax.swing.JMenuItem();
@@ -129,6 +128,19 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         setForeground(java.awt.Color.red);
         setResizable(false);
 
+        musicInfoJPanel.setLayout(new java.awt.BorderLayout());
+        musicInfoJPanel.setVisible(false);
+
+        artistJlabel.setText("Artist");
+        musicInfoJPanel.add(artistJlabel, java.awt.BorderLayout.CENTER);
+
+        songTitleJLabel.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        songTitleJLabel.setText("Song");
+        musicInfoJPanel.add(songTitleJLabel, java.awt.BorderLayout.PAGE_START);
+
+        albumJLabel.setText("Album");
+        musicInfoJPanel.add(albumJLabel, java.awt.BorderLayout.PAGE_END);
+
         rewindJButton.setText("«");
         rewindJButton.setEnabled(false);
         rewindJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -183,18 +195,10 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         });
         controlsJPanel.add(playbackJSlider);
 
-        volumeJButton.setText("\uD83D\uDD0A");
-        volumeJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                volumeJButtonActionPerformed(evt);
-            }
-        });
-        controlsJPanel.add(volumeJButton);
-
         volumeJSlider.setOrientation(javax.swing.JSlider.VERTICAL);
         volumeJSlider.setValue(100);
         volumeJSlider.setMaximumSize(new java.awt.Dimension(36, 38));
-        volumeJSlider.setPreferredSize(new java.awt.Dimension(36, 50));
+        volumeJSlider.setPreferredSize(new java.awt.Dimension(36, 48));
         volumeJSlider.setVisible(false);
         volumeJSlider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -208,22 +212,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         });
         controlsJPanel.add(volumeJSlider);
 
-        jButton2.setText("⤡");
-        jButton2.setEnabled(false);
-        controlsJPanel.add(jButton2);
-
-        musicInfoJPanel.setLayout(new java.awt.BorderLayout());
-        musicInfoJPanel.setVisible(false);
-
-        artistJlabel.setText("Artist");
-        musicInfoJPanel.add(artistJlabel, java.awt.BorderLayout.CENTER);
-
-        songTitleJLabel.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        songTitleJLabel.setText("Song");
-        musicInfoJPanel.add(songTitleJLabel, java.awt.BorderLayout.PAGE_START);
-
-        albumJLabel.setText("Album");
-        musicInfoJPanel.add(albumJLabel, java.awt.BorderLayout.PAGE_END);
+        volumeJButton.setText("\uD83D\uDD0A");
+        volumeJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volumeJButtonActionPerformed(evt);
+            }
+        });
+        controlsJPanel.add(volumeJButton);
 
         dateiJMenu.setText("Datei");
 
@@ -469,15 +464,15 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(controlsJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -580,7 +575,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     }//GEN-LAST:event_controlElementsJCheckBoxMenuItemItemStateChanged
 
     private void volumeJSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_volumeJSliderStateChanged
-        // TODO add your handling code here:
+        JSlider source = (JSlider) evt.getSource();
+
+        if (!source.getValueIsAdjusting()) {
+            mplayer.setGain(source.getValue());
+        }
     }//GEN-LAST:event_volumeJSliderStateChanged
 
     private void volumeJSliderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeJSliderMouseExited
@@ -602,12 +601,12 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
     private void playbackJSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playbackJSliderStateChanged
         JSlider source = (JSlider) evt.getSource();
-        
-        if(!source.getValueIsAdjusting() && mplayer.getStatus() == MusicPlayer.PAUSED){
+
+        if (!source.getValueIsAdjusting() && mplayer.getStatus() == MusicPlayer.PAUSED) {
             int position = (int) source.getValue();
             mplayer.seek(position);
         }
-            
+
     }//GEN-LAST:event_playbackJSliderStateChanged
 
     private void playbackJSliderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbackJSliderMousePressed
@@ -681,7 +680,6 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem increaseSubtitleSizeJMenuItem;
     private javax.swing.JMenuItem infoJMenuItem;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem10;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem8;
     private javax.swing.JLabel jLabel1;
