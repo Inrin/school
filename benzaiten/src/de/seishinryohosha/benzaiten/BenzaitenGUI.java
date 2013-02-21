@@ -54,6 +54,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         fastForwardJButton = new javax.swing.JButton();
         playbackJSlider = new javax.swing.JSlider();
         speakerJButton = new javax.swing.JButton();
+        volumeJSlider = new javax.swing.JSlider();
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         dateiJMenu = new javax.swing.JMenu();
@@ -155,6 +156,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             }
         });
         controlsJPanel.add(speakerJButton);
+
+        volumeJSlider.setOrientation(javax.swing.JSlider.VERTICAL);
+        volumeJSlider.setValue(100);
+        volumeJSlider.setVisible(false);
+        controlsJPanel.add(volumeJSlider);
 
         jButton2.setText("⤡");
         jButton2.setEnabled(false);
@@ -403,13 +409,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(196, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -452,7 +458,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     }//GEN-LAST:event_halfLargerViewJMenuItemActionPerformed
 
     private void speakerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakerJButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_speakerJButtonActionPerformed
 
     private void openJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openJMenuItemActionPerformed
@@ -600,5 +606,6 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenu tvJMenu;
     private javax.swing.JMenuItem videoImageAdjustmentJMenuItem;
     private javax.swing.JMenu viewJMenu;
+    private javax.swing.JSlider volumeJSlider;
     // End of variables declaration//GEN-END:variables
 }
