@@ -2,19 +2,33 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.speyer.seishinryohosha;
+package de.seishinryohosha.benzaiten;
+
+import de.seishinryohosha.benzaiten.MusicPlayer;
+
+import javax.swing.*;
+import java.io.File;
 
 /**
  *
- * @author shiho
+ * @author seishinryohosha
  */
-public class BenzaitenGUI extends javax.swing.JFrame {
+public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListener {
+
+    private JFileChooser fc;
+    private MusicPlayer mplayer;
 
     /**
      * Creates new form BenzaitenGUI
      */
     public BenzaitenGUI() {
+        fc = new JFileChooser();
+        mplayer = new MusicPlayer();
+        mplayer.addListener(this);
         initComponents();
+    }
+
+    public void positionChanged(int position) {
     }
 
     /**
@@ -102,20 +116,36 @@ public class BenzaitenGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Benzaiten");
-        setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(java.awt.Color.white);
+        setForeground(java.awt.Color.red);
 
         rewindJButton.setText("«");
+        rewindJButton.setEnabled(false);
+        rewindJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rewindJButtonActionPerformed(evt);
+            }
+        });
         controlsJPanel.add(rewindJButton);
 
         playPauseJButton.setText("►");
+        playPauseJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playPauseJButtonActionPerformed(evt);
+            }
+        });
         controlsJPanel.add(playPauseJButton);
 
         stopPlayingJButton.setText("∎");
+        stopPlayingJButton.setEnabled(false);
         controlsJPanel.add(stopPlayingJButton);
 
         fastForwardJButton.setText("»");
+        fastForwardJButton.setEnabled(false);
         controlsJPanel.add(fastForwardJButton);
+
+        playbackJSlider.setPaintLabels(true);
+        playbackJSlider.setToolTipText("Position");
+        playbackJSlider.setEnabled(false);
         controlsJPanel.add(playbackJSlider);
 
         speakerJButton.setText("\uD83D\uDD0A");
@@ -127,12 +157,18 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         controlsJPanel.add(speakerJButton);
 
         jButton2.setText("⤡");
+        jButton2.setEnabled(false);
         controlsJPanel.add(jButton2);
 
         dateiJMenu.setText("Datei");
 
         openJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         openJMenuItem.setText("Öffnen");
+        openJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openJMenuItemActionPerformed(evt);
+            }
+        });
         dateiJMenu.add(openJMenuItem);
 
         openFolderJMenuItem.setText("Ordner öffnen");
@@ -196,13 +232,13 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         jMenuBar1.add(dateiJMenu);
 
         editJMenu.setText("Bearbeiten");
+        editJMenu.setEnabled(false);
 
-        randomPlaybackJCheckBoxMenuItem.setSelected(true);
         randomPlaybackJCheckBoxMenuItem.setText("Zufällige Wiedergabe");
         editJMenu.add(randomPlaybackJCheckBoxMenuItem);
 
-        playbackAllJCheckBoxMenuItem.setSelected(true);
         playbackAllJCheckBoxMenuItem.setText("Alle Wiederholen");
+        playbackAllJCheckBoxMenuItem.setEnabled(false);
         playbackAllJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playbackAllJCheckBoxMenuItemActionPerformed(evt);
@@ -211,19 +247,24 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         editJMenu.add(playbackAllJCheckBoxMenuItem);
 
         setAudioJMenuItem.setText("Audio setzen");
+        setAudioJMenuItem.setEnabled(false);
         editJMenu.add(setAudioJMenuItem);
 
         standardAudioLanguageJMenu.setText("Standard-Audiosprache:");
+        standardAudioLanguageJMenu.setEnabled(false);
         editJMenu.add(standardAudioLanguageJMenu);
 
         setSubtitletrackJMenuItem.setText("Setze Untertitelspur");
+        setSubtitletrackJMenuItem.setEnabled(false);
         editJMenu.add(setSubtitletrackJMenuItem);
 
         standardSubtitleLanguageJMenuItem.setText("Standard Untertitelsprache:");
+        standardSubtitleLanguageJMenuItem.setEnabled(false);
         editJMenu.add(standardSubtitleLanguageJMenuItem);
 
         takeSnapshotJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         takeSnapshotJMenuItem.setText("Schnappschuss nehmen");
+        takeSnapshotJMenuItem.setEnabled(false);
         editJMenu.add(takeSnapshotJMenuItem);
 
         preferencesJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
@@ -235,13 +276,13 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         viewJMenu.setText("Ansicht");
 
         playlistJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
-        playlistJCheckBoxMenuItem.setSelected(true);
         playlistJCheckBoxMenuItem.setText("Wiedergabeliste");
         viewJMenu.add(playlistJCheckBoxMenuItem);
 
         mediaInformationJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, 0));
         mediaInformationJCheckBoxMenuItem.setSelected(true);
         mediaInformationJCheckBoxMenuItem.setText("Media-Informationen");
+        mediaInformationJCheckBoxMenuItem.setEnabled(false);
         mediaInformationJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mediaInformationJCheckBoxMenuItemActionPerformed(evt);
@@ -252,16 +293,17 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         detailsJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         detailsJCheckBoxMenuItem.setSelected(true);
         detailsJCheckBoxMenuItem.setText("Details");
+        detailsJCheckBoxMenuItem.setEnabled(false);
         viewJMenu.add(detailsJCheckBoxMenuItem);
 
         spectrumAnalyzerJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
-        spectrumAnalyzerJCheckBoxMenuItem.setSelected(true);
         spectrumAnalyzerJCheckBoxMenuItem.setText("Spektrumanalysator");
         viewJMenu.add(spectrumAnalyzerJCheckBoxMenuItem);
 
         fullscreenJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         fullscreenJCheckBoxMenuItem.setSelected(true);
         fullscreenJCheckBoxMenuItem.setText("Vollbild");
+        fullscreenJCheckBoxMenuItem.setEnabled(false);
         fullscreenJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fullscreenJCheckBoxMenuItemActionPerformed(evt);
@@ -271,10 +313,12 @@ public class BenzaitenGUI extends javax.swing.JFrame {
 
         normalViewJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
         normalViewJMenuItem.setText("Normal (1:1)");
+        normalViewJMenuItem.setEnabled(false);
         viewJMenu.add(normalViewJMenuItem);
 
         doubleViewJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
         doubleViewJMenuItem.setText("Doppelte Größe (2:1)");
+        doubleViewJMenuItem.setEnabled(false);
         doubleViewJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doubleViewJMenuItemActionPerformed(evt);
@@ -283,9 +327,11 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         viewJMenu.add(doubleViewJMenuItem);
 
         halfViewJMenuItem.setText("Halbe Größe (1:2)");
+        halfViewJMenuItem.setEnabled(false);
         viewJMenu.add(halfViewJMenuItem);
 
         halfLargerViewJMenuItem.setText("Hälfte Größer (1.5:1)");
+        halfLargerViewJMenuItem.setEnabled(false);
         halfLargerViewJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 halfLargerViewJMenuItemActionPerformed(evt);
@@ -294,37 +340,50 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         viewJMenu.add(halfLargerViewJMenuItem);
 
         aspectRatioJMenu.setText("Seitenverhältnis");
+        aspectRatioJMenu.setEnabled(false);
         viewJMenu.add(aspectRatioJMenu);
 
         showSubtitlesJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, 0));
         showSubtitlesJCheckBoxMenuItem.setSelected(true);
         showSubtitlesJCheckBoxMenuItem.setText("Zeige Untertitel");
+        showSubtitlesJCheckBoxMenuItem.setEnabled(false);
         viewJMenu.add(showSubtitlesJCheckBoxMenuItem);
 
         decreaseSubtitleSizeJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK));
         decreaseSubtitleSizeJMenuItem.setText("Verringere Untertitelgröße");
+        decreaseSubtitleSizeJMenuItem.setEnabled(false);
         viewJMenu.add(decreaseSubtitleSizeJMenuItem);
 
         increaseSubtitleSizeJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK));
         increaseSubtitleSizeJMenuItem.setText("Erhöhe Untertitelgröße");
+        increaseSubtitleSizeJMenuItem.setEnabled(false);
         viewJMenu.add(increaseSubtitleSizeJMenuItem);
 
         decreaseSubtitleDisplayDurationJMenuItem.setText("Verringere die Untertitel-Anzeigedauer");
+        decreaseSubtitleDisplayDurationJMenuItem.setEnabled(false);
         viewJMenu.add(decreaseSubtitleDisplayDurationJMenuItem);
 
         increaseSubtitleDisplayDurationJMenuItem.setText("Erhöhe die Untertitel-Anzeigedauer");
+        increaseSubtitleDisplayDurationJMenuItem.setEnabled(false);
         viewJMenu.add(increaseSubtitleDisplayDurationJMenuItem);
 
         changePerspectiveJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         changePerspectiveJMenuItem.setText("Blickwinkel wechseln");
+        changePerspectiveJMenuItem.setEnabled(false);
         viewJMenu.add(changePerspectiveJMenuItem);
 
         controlElementsJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, 0));
         controlElementsJCheckBoxMenuItem.setSelected(true);
         controlElementsJCheckBoxMenuItem.setText("Bedienelemente");
+        controlElementsJCheckBoxMenuItem.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                controlElementsJCheckBoxMenuItemItemStateChanged(evt);
+            }
+        });
         viewJMenu.add(controlElementsJCheckBoxMenuItem);
 
         videoImageAdjustmentJMenuItem.setText("Videobildanpassung");
+        videoImageAdjustmentJMenuItem.setEnabled(false);
         viewJMenu.add(videoImageAdjustmentJMenuItem);
 
         jMenuBar1.add(viewJMenu);
@@ -355,6 +414,8 @@ public class BenzaitenGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleDescription("Mplayer under Java");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -367,7 +428,7 @@ public class BenzaitenGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_openPlaceMenuItemActionPerformed
 
     private void closeJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeJMenuItemActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_closeJMenuItemActionPerformed
 
     private void playbackAllJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playbackAllJCheckBoxMenuItemActionPerformed
@@ -394,6 +455,49 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_speakerJButtonActionPerformed
 
+    private void openJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openJMenuItemActionPerformed
+        int returnVal = fc.showOpenDialog(BenzaitenGUI.this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+
+            File file = fc.getSelectedFile();
+
+            this.setTitle("Benzaiten - " + file.getName());
+            mplayer.open(file.getAbsolutePath());
+            mplayer.play();
+            playPauseJButton.setText("||");
+        }
+    }//GEN-LAST:event_openJMenuItemActionPerformed
+
+    private void rewindJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rewindJButtonActionPerformed
+        if (mplayer.getStatus() == MusicPlayer.PLAYING) {
+            mplayer.rewind();
+        } else {
+            rewindJButton.setEnabled(false);
+        }
+    }//GEN-LAST:event_rewindJButtonActionPerformed
+
+    private void playPauseJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playPauseJButtonActionPerformed
+        switch (mplayer.getStatus()) {
+            case MusicPlayer.PAUSED:
+                mplayer.resume();
+                playPauseJButton.setText("");
+                break;
+            case MusicPlayer.PLAYING:
+                mplayer.pause();
+                break;
+            case MusicPlayer.STOPPED:
+                mplayer.play();
+        }
+    }//GEN-LAST:event_playPauseJButtonActionPerformed
+
+    private void controlElementsJCheckBoxMenuItemItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_controlElementsJCheckBoxMenuItemItemStateChanged
+        if (controlsJPanel.isVisible()) {
+            controlsJPanel.setVisible(false);
+        } else {
+            controlsJPanel.setVisible(true);
+        }
+    }//GEN-LAST:event_controlElementsJCheckBoxMenuItemItemStateChanged
     /**
      * @param args the command line arguments
      */
@@ -408,16 +512,22 @@ public class BenzaitenGUI extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BenzaitenGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BenzaitenGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BenzaitenGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BenzaitenGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BenzaitenGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BenzaitenGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BenzaitenGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BenzaitenGUI.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

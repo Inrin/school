@@ -1,4 +1,4 @@
-package de.speyer.seishinryohosha;
+package de.seishinryohosha.benzaiten;
 
 /**
  * Ein MusicPlayerListener ist ein Objekt, das über Veränderungen eines

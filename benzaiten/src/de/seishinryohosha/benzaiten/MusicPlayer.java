@@ -1,6 +1,6 @@
-package de.speyer.seishinryohosha;
+package de.seishinryohosha.benzaiten;
 
-import de.speyer.seishinryohosha.MusicPlayerListener;
+import de.seishinryohosha.benzaiten.MusicPlayerListener;
 import java.io.File;
 import java.util.*;
 import java.util.logging.*;

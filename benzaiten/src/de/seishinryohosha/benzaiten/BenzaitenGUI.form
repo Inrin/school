@@ -55,6 +55,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xd6;ffnen"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openJMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="openFolderJMenuItem">
               <Properties>
@@ -145,18 +148,18 @@
         <Menu class="javax.swing.JMenu" name="editJMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bearbeiten"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="randomPlaybackJCheckBoxMenuItem">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Zuf&#xe4;llige Wiedergabe"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="playbackAllJCheckBoxMenuItem">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Alle Wiederholen"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playbackAllJCheckBoxMenuItemActionPerformed"/>
@@ -165,21 +168,25 @@
             <MenuItem class="javax.swing.JMenuItem" name="setAudioJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Audio setzen"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="standardAudioLanguageJMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Standard-Audiosprache:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="setSubtitletrackJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Setze Untertitelspur"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="standardSubtitleLanguageJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Standard Untertitelsprache:"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="takeSnapshotJMenuItem">
@@ -188,6 +195,7 @@
                   <KeyStroke key="Ctrl+P"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Schnappschuss nehmen"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="preferencesJMenuItem">
@@ -210,7 +218,6 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="F9"/>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Wiedergabeliste"/>
               </Properties>
             </MenuItem>
@@ -221,6 +228,7 @@
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Media-Informationen"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mediaInformationJCheckBoxMenuItemActionPerformed"/>
@@ -233,6 +241,7 @@
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Details"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="spectrumAnalyzerJCheckBoxMenuItem">
@@ -240,7 +249,6 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+M"/>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Spektrumanalysator"/>
               </Properties>
             </MenuItem>
@@ -251,6 +259,7 @@
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Vollbild"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fullscreenJCheckBoxMenuItemActionPerformed"/>
@@ -262,6 +271,7 @@
                   <KeyStroke key="Ctrl+1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Normal (1:1)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="doubleViewJMenuItem">
@@ -270,6 +280,7 @@
                   <KeyStroke key="Ctrl+2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Doppelte Gr&#xf6;&#xdf;e (2:1)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doubleViewJMenuItemActionPerformed"/>
@@ -278,11 +289,13 @@
             <MenuItem class="javax.swing.JMenuItem" name="halfViewJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Halbe Gr&#xf6;&#xdf;e (1:2)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="halfLargerViewJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="H&#xe4;lfte Gr&#xf6;&#xdf;er (1.5:1)"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="halfLargerViewJMenuItemActionPerformed"/>
@@ -291,6 +304,7 @@
             <Menu class="javax.swing.JMenu" name="aspectRatioJMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Seitenverh&#xe4;ltnis"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Menu>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="showSubtitlesJCheckBoxMenuItem">
@@ -300,6 +314,7 @@
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Zeige Untertitel"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="decreaseSubtitleSizeJMenuItem">
@@ -308,6 +323,7 @@
                   <KeyStroke key="Shift+R"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Verringere Untertitelgr&#xf6;&#xdf;e"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="increaseSubtitleSizeJMenuItem">
@@ -316,16 +332,19 @@
                   <KeyStroke key="Shift+T"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Erh&#xf6;he Untertitelgr&#xf6;&#xdf;e"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="decreaseSubtitleDisplayDurationJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Verringere die Untertitel-Anzeigedauer"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="increaseSubtitleDisplayDurationJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Erh&#xf6;he die Untertitel-Anzeigedauer"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="changePerspectiveJMenuItem">
@@ -334,6 +353,7 @@
                   <KeyStroke key="Ctrl+A"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Blickwinkel wechseln"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="controlElementsJCheckBoxMenuItem">
@@ -344,10 +364,14 @@
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Bedienelemente"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="controlElementsJCheckBoxMenuItemItemStateChanged"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="videoImageAdjustmentJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Videobildanpassung"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -370,13 +394,13 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Benzaiten"/>
-    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="0" green="0" red="0" type="rgb"/>
-    </Property>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+      <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
     </Property>
   </Properties>
+  <AccessibilityProperties>
+    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Mplayer under Java"/>
+  </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -421,24 +445,38 @@
         <Component class="javax.swing.JButton" name="rewindJButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xab;"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rewindJButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="playPauseJButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x25ba;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playPauseJButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="stopPlayingJButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x220e;"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="fastForwardJButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xbb;"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSlider" name="playbackJSlider">
+          <Properties>
+            <Property name="paintLabels" type="boolean" value="true"/>
+            <Property name="toolTipText" type="java.lang.String" value="Position"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="speakerJButton">
           <Properties>
@@ -453,6 +491,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x2921;"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
