@@ -1,3 +1,5 @@
+package de.speyer.seishinryohosha;
+
 /**
  * Ein MusicPlayerListener ist ein Objekt, das über Veränderungen eines
  * MusicPlayers - wie die aktuelle Position - benachrichtigt werden möchte.
