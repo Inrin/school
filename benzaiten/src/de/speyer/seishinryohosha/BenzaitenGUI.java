@@ -27,104 +27,314 @@ public class BenzaitenGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem8 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jCheckBoxMenuItem10 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem28 = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
+        controlsJPanel = new javax.swing.JPanel();
+        rewindJButton = new javax.swing.JButton();
+        playPauseJButton = new javax.swing.JButton();
+        stopPlayingJButton = new javax.swing.JButton();
+        fastForwardJButton = new javax.swing.JButton();
+        playbackJSlider = new javax.swing.JSlider();
+        speakerJButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        dateiJMenu = new javax.swing.JMenu();
+        openJMenuItem = new javax.swing.JMenuItem();
+        openFolderJMenuItem = new javax.swing.JMenuItem();
+        openPlaceMenuItem = new javax.swing.JMenuItem();
+        discJMenu = new javax.swing.JMenu();
+        openAudioCDJMenuItem = new javax.swing.JMenuItem();
+        openDVDJMenuItem = new javax.swing.JMenuItem();
+        openDVDFolderJMenuItem = new javax.swing.JMenuItem();
+        openDVDisoJMenuItem = new javax.swing.JMenuItem();
+        openVCDJMenuItem = new javax.swing.JMenuItem();
+        tvJMenu = new javax.swing.JMenu();
+        openTVanalogJMenuItem = new javax.swing.JMenuItem();
+        openTVdigitalJMenuItem = new javax.swing.JMenuItem();
+        openLastPlaybackJMenu = new javax.swing.JMenu();
+        closeJMenuItem = new javax.swing.JMenuItem();
+        editJMenu = new javax.swing.JMenu();
+        randomPlaybackJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        playbackAllJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        setAudioJMenuItem = new javax.swing.JMenuItem();
+        standardAudioLanguageJMenu = new javax.swing.JMenu();
+        setSubtitletrackJMenuItem = new javax.swing.JMenuItem();
+        standardSubtitleLanguageJMenuItem = new javax.swing.JMenuItem();
+        takeSnapshotJMenuItem = new javax.swing.JMenuItem();
+        preferencesJMenuItem = new javax.swing.JMenuItem();
+        viewJMenu = new javax.swing.JMenu();
+        playlistJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        mediaInformationJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        detailsJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        spectrumAnalyzerJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        fullscreenJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        normalViewJMenuItem = new javax.swing.JMenuItem();
+        doubleViewJMenuItem = new javax.swing.JMenuItem();
+        halfViewJMenuItem = new javax.swing.JMenuItem();
+        halfLargerViewJMenuItem = new javax.swing.JMenuItem();
+        aspectRatioJMenu = new javax.swing.JMenu();
+        showSubtitlesJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        decreaseSubtitleSizeJMenuItem = new javax.swing.JMenuItem();
+        increaseSubtitleSizeJMenuItem = new javax.swing.JMenuItem();
+        decreaseSubtitleDisplayDurationJMenuItem = new javax.swing.JMenuItem();
+        increaseSubtitleDisplayDurationJMenuItem = new javax.swing.JMenuItem();
+        changePerspectiveJMenuItem = new javax.swing.JMenuItem();
+        controlElementsJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        videoImageAdjustmentJMenuItem = new javax.swing.JMenuItem();
+        helpJMenu = new javax.swing.JMenu();
+        infoJMenuItem = new javax.swing.JMenuItem();
 
         jMenuItem5.setText("jMenuItem5");
 
+        jCheckBoxMenuItem8.setSelected(true);
+        jCheckBoxMenuItem8.setText("jCheckBoxMenuItem8");
+
+        jMenuItem7.setText("jMenuItem7");
+
+        jCheckBoxMenuItem10.setSelected(true);
+        jCheckBoxMenuItem10.setText("jCheckBoxMenuItem10");
+
+        jMenuItem28.setText("jMenuItem28");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Benzaiten");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(java.awt.Color.white);
 
-        jMenu1.setText("Datei");
+        rewindJButton.setText("«");
+        controlsJPanel.add(rewindJButton);
 
-        jMenuItem2.setText("Öffnen");
-        jMenu1.add(jMenuItem2);
+        playPauseJButton.setText("►");
+        controlsJPanel.add(playPauseJButton);
 
-        jMenuItem3.setText("Ordner öffnen");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        stopPlayingJButton.setText("∎");
+        controlsJPanel.add(stopPlayingJButton);
+
+        fastForwardJButton.setText("»");
+        controlsJPanel.add(fastForwardJButton);
+        controlsJPanel.add(playbackJSlider);
+
+        speakerJButton.setText("\uD83D\uDD0A");
+        speakerJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                speakerJButtonActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        controlsJPanel.add(speakerJButton);
 
-        jMenuItem1.setText("Öffne Ort");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("⤡");
+        controlsJPanel.add(jButton2);
+
+        dateiJMenu.setText("Datei");
+
+        openJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        openJMenuItem.setText("Öffnen");
+        dateiJMenu.add(openJMenuItem);
+
+        openFolderJMenuItem.setText("Ordner öffnen");
+        openFolderJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                openFolderJMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        dateiJMenu.add(openFolderJMenuItem);
 
-        jMenuItem4.setText("Disk");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem6.setText("TV");
-        jMenu1.add(jMenuItem6);
-
-        jMenuItem7.setText("Öffne letzte Wiedergabe");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        openPlaceMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        openPlaceMenuItem.setText("Öffne Ort");
+        openPlaceMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                openPlaceMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem7);
+        dateiJMenu.add(openPlaceMenuItem);
 
-        jMenuItem8.setText("Beenden");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        discJMenu.setText("Disc");
+
+        openAudioCDJMenuItem.setText("Öffne Audio-CD");
+        discJMenu.add(openAudioCDJMenuItem);
+
+        openDVDJMenuItem.setText("Öffne DVD mit Menüs");
+        discJMenu.add(openDVDJMenuItem);
+
+        openDVDFolderJMenuItem.setText("Öffne DVD aus Ordner mit Menüs");
+        discJMenu.add(openDVDFolderJMenuItem);
+
+        openDVDisoJMenuItem.setText("Öffne DVD von ISO-Abbild mit Menüs");
+        discJMenu.add(openDVDisoJMenuItem);
+
+        openVCDJMenuItem.setText("Öffne VCD");
+        discJMenu.add(openVCDJMenuItem);
+
+        dateiJMenu.add(discJMenu);
+
+        tvJMenu.setText("TV");
+
+        openTVanalogJMenuItem.setText("Öffne Analog-TV");
+        tvJMenu.add(openTVanalogJMenuItem);
+
+        openTVdigitalJMenuItem.setText("Öffne Digital-TV");
+        tvJMenu.add(openTVdigitalJMenuItem);
+
+        dateiJMenu.add(tvJMenu);
+
+        openLastPlaybackJMenu.setText("Öffne letzte Wiedergabe");
+        dateiJMenu.add(openLastPlaybackJMenu);
+
+        closeJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        closeJMenuItem.setText("Beenden");
+        closeJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                closeJMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem8);
+        dateiJMenu.add(closeJMenuItem);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(dateiJMenu);
 
-        jMenu2.setText("Bearbeiten");
+        editJMenu.setText("Bearbeiten");
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Zufällige Wiedergabe");
-        jMenu2.add(jCheckBoxMenuItem1);
+        randomPlaybackJCheckBoxMenuItem.setSelected(true);
+        randomPlaybackJCheckBoxMenuItem.setText("Zufällige Wiedergabe");
+        editJMenu.add(randomPlaybackJCheckBoxMenuItem);
 
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Alle Wiederholen");
-        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        playbackAllJCheckBoxMenuItem.setSelected(true);
+        playbackAllJCheckBoxMenuItem.setText("Alle Wiederholen");
+        playbackAllJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem2ActionPerformed(evt);
+                playbackAllJCheckBoxMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(jCheckBoxMenuItem2);
+        editJMenu.add(playbackAllJCheckBoxMenuItem);
 
-        jMenuItem9.setText("Audio setzen");
-        jMenu2.add(jMenuItem9);
+        setAudioJMenuItem.setText("Audio setzen");
+        editJMenu.add(setAudioJMenuItem);
 
-        jMenuItem10.setText("Standard-Audiosprache:");
-        jMenu2.add(jMenuItem10);
+        standardAudioLanguageJMenu.setText("Standard-Audiosprache:");
+        editJMenu.add(standardAudioLanguageJMenu);
 
-        jMenuItem11.setText("Setze Untertitelspur");
-        jMenu2.add(jMenuItem11);
+        setSubtitletrackJMenuItem.setText("Setze Untertitelspur");
+        editJMenu.add(setSubtitletrackJMenuItem);
 
-        jMenuBar1.add(jMenu2);
+        standardSubtitleLanguageJMenuItem.setText("Standard Untertitelsprache:");
+        editJMenu.add(standardSubtitleLanguageJMenuItem);
 
-        jMenu3.setText("Ansicht");
-        jMenuBar1.add(jMenu3);
+        takeSnapshotJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        takeSnapshotJMenuItem.setText("Schnappschuss nehmen");
+        editJMenu.add(takeSnapshotJMenuItem);
 
-        jMenu4.setText("Hilfe");
-        jMenuBar1.add(jMenu4);
+        preferencesJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        preferencesJMenuItem.setText("Einstellungen");
+        editJMenu.add(preferencesJMenuItem);
+
+        jMenuBar1.add(editJMenu);
+
+        viewJMenu.setText("Ansicht");
+
+        playlistJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
+        playlistJCheckBoxMenuItem.setSelected(true);
+        playlistJCheckBoxMenuItem.setText("Wiedergabeliste");
+        viewJMenu.add(playlistJCheckBoxMenuItem);
+
+        mediaInformationJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, 0));
+        mediaInformationJCheckBoxMenuItem.setSelected(true);
+        mediaInformationJCheckBoxMenuItem.setText("Media-Informationen");
+        mediaInformationJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediaInformationJCheckBoxMenuItemActionPerformed(evt);
+            }
+        });
+        viewJMenu.add(mediaInformationJCheckBoxMenuItem);
+
+        detailsJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        detailsJCheckBoxMenuItem.setSelected(true);
+        detailsJCheckBoxMenuItem.setText("Details");
+        viewJMenu.add(detailsJCheckBoxMenuItem);
+
+        spectrumAnalyzerJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        spectrumAnalyzerJCheckBoxMenuItem.setSelected(true);
+        spectrumAnalyzerJCheckBoxMenuItem.setText("Spektrumanalysator");
+        viewJMenu.add(spectrumAnalyzerJCheckBoxMenuItem);
+
+        fullscreenJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        fullscreenJCheckBoxMenuItem.setSelected(true);
+        fullscreenJCheckBoxMenuItem.setText("Vollbild");
+        fullscreenJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullscreenJCheckBoxMenuItemActionPerformed(evt);
+            }
+        });
+        viewJMenu.add(fullscreenJCheckBoxMenuItem);
+
+        normalViewJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_MASK));
+        normalViewJMenuItem.setText("Normal (1:1)");
+        viewJMenu.add(normalViewJMenuItem);
+
+        doubleViewJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_MASK));
+        doubleViewJMenuItem.setText("Doppelte Größe (2:1)");
+        doubleViewJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doubleViewJMenuItemActionPerformed(evt);
+            }
+        });
+        viewJMenu.add(doubleViewJMenuItem);
+
+        halfViewJMenuItem.setText("Halbe Größe (1:2)");
+        viewJMenu.add(halfViewJMenuItem);
+
+        halfLargerViewJMenuItem.setText("Hälfte Größer (1.5:1)");
+        halfLargerViewJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                halfLargerViewJMenuItemActionPerformed(evt);
+            }
+        });
+        viewJMenu.add(halfLargerViewJMenuItem);
+
+        aspectRatioJMenu.setText("Seitenverhältnis");
+        viewJMenu.add(aspectRatioJMenu);
+
+        showSubtitlesJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, 0));
+        showSubtitlesJCheckBoxMenuItem.setSelected(true);
+        showSubtitlesJCheckBoxMenuItem.setText("Zeige Untertitel");
+        viewJMenu.add(showSubtitlesJCheckBoxMenuItem);
+
+        decreaseSubtitleSizeJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK));
+        decreaseSubtitleSizeJMenuItem.setText("Verringere Untertitelgröße");
+        viewJMenu.add(decreaseSubtitleSizeJMenuItem);
+
+        increaseSubtitleSizeJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK));
+        increaseSubtitleSizeJMenuItem.setText("Erhöhe Untertitelgröße");
+        viewJMenu.add(increaseSubtitleSizeJMenuItem);
+
+        decreaseSubtitleDisplayDurationJMenuItem.setText("Verringere die Untertitel-Anzeigedauer");
+        viewJMenu.add(decreaseSubtitleDisplayDurationJMenuItem);
+
+        increaseSubtitleDisplayDurationJMenuItem.setText("Erhöhe die Untertitel-Anzeigedauer");
+        viewJMenu.add(increaseSubtitleDisplayDurationJMenuItem);
+
+        changePerspectiveJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        changePerspectiveJMenuItem.setText("Blickwinkel wechseln");
+        viewJMenu.add(changePerspectiveJMenuItem);
+
+        controlElementsJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, 0));
+        controlElementsJCheckBoxMenuItem.setSelected(true);
+        controlElementsJCheckBoxMenuItem.setText("Bedienelemente");
+        viewJMenu.add(controlElementsJCheckBoxMenuItem);
+
+        videoImageAdjustmentJMenuItem.setText("Videobildanpassung");
+        viewJMenu.add(videoImageAdjustmentJMenuItem);
+
+        jMenuBar1.add(viewJMenu);
+
+        helpJMenu.setText("Hilfe");
+
+        infoJMenuItem.setText("Info");
+        helpJMenu.add(infoJMenuItem);
+
+        jMenuBar1.add(helpJMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -132,35 +342,57 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 273, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
+                .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void openFolderJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openFolderJMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_openFolderJMenuItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void openPlaceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPlaceMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_openPlaceMenuItemActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void closeJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeJMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_closeJMenuItemActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void playbackAllJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playbackAllJCheckBoxMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_playbackAllJCheckBoxMenuItemActionPerformed
 
-    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
+    private void mediaInformationJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediaInformationJCheckBoxMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
+    }//GEN-LAST:event_mediaInformationJCheckBoxMenuItemActionPerformed
+
+    private void fullscreenJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullscreenJCheckBoxMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullscreenJCheckBoxMenuItemActionPerformed
+
+    private void doubleViewJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleViewJMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doubleViewJMenuItemActionPerformed
+
+    private void halfLargerViewJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfLargerViewJMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_halfLargerViewJMenuItemActionPerformed
+
+    private void speakerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakerJButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_speakerJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,23 +429,66 @@ public class BenzaitenGUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu aspectRatioJMenu;
+    private javax.swing.JMenuItem changePerspectiveJMenuItem;
+    private javax.swing.JMenuItem closeJMenuItem;
+    private javax.swing.JCheckBoxMenuItem controlElementsJCheckBoxMenuItem;
+    private javax.swing.JPanel controlsJPanel;
+    private javax.swing.JMenu dateiJMenu;
+    private javax.swing.JMenuItem decreaseSubtitleDisplayDurationJMenuItem;
+    private javax.swing.JMenuItem decreaseSubtitleSizeJMenuItem;
+    private javax.swing.JCheckBoxMenuItem detailsJCheckBoxMenuItem;
+    private javax.swing.JMenu discJMenu;
+    private javax.swing.JMenuItem doubleViewJMenuItem;
+    private javax.swing.JMenu editJMenu;
+    private javax.swing.JButton fastForwardJButton;
+    private javax.swing.JCheckBoxMenuItem fullscreenJCheckBoxMenuItem;
+    private javax.swing.JMenuItem halfLargerViewJMenuItem;
+    private javax.swing.JMenuItem halfViewJMenuItem;
+    private javax.swing.JMenu helpJMenu;
+    private javax.swing.JMenuItem increaseSubtitleDisplayDurationJMenuItem;
+    private javax.swing.JMenuItem increaseSubtitleSizeJMenuItem;
+    private javax.swing.JMenuItem infoJMenuItem;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem10;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem28;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JCheckBoxMenuItem mediaInformationJCheckBoxMenuItem;
+    private javax.swing.JMenuItem normalViewJMenuItem;
+    private javax.swing.JMenuItem openAudioCDJMenuItem;
+    private javax.swing.JMenuItem openDVDFolderJMenuItem;
+    private javax.swing.JMenuItem openDVDJMenuItem;
+    private javax.swing.JMenuItem openDVDisoJMenuItem;
+    private javax.swing.JMenuItem openFolderJMenuItem;
+    private javax.swing.JMenuItem openJMenuItem;
+    private javax.swing.JMenu openLastPlaybackJMenu;
+    private javax.swing.JMenuItem openPlaceMenuItem;
+    private javax.swing.JMenuItem openTVanalogJMenuItem;
+    private javax.swing.JMenuItem openTVdigitalJMenuItem;
+    private javax.swing.JMenuItem openVCDJMenuItem;
+    private javax.swing.JButton playPauseJButton;
+    private javax.swing.JCheckBoxMenuItem playbackAllJCheckBoxMenuItem;
+    private javax.swing.JSlider playbackJSlider;
+    private javax.swing.JCheckBoxMenuItem playlistJCheckBoxMenuItem;
+    private javax.swing.JMenuItem preferencesJMenuItem;
+    private javax.swing.JCheckBoxMenuItem randomPlaybackJCheckBoxMenuItem;
+    private javax.swing.JButton rewindJButton;
+    private javax.swing.JMenuItem setAudioJMenuItem;
+    private javax.swing.JMenuItem setSubtitletrackJMenuItem;
+    private javax.swing.JCheckBoxMenuItem showSubtitlesJCheckBoxMenuItem;
+    private javax.swing.JButton speakerJButton;
+    private javax.swing.JCheckBoxMenuItem spectrumAnalyzerJCheckBoxMenuItem;
+    private javax.swing.JMenu standardAudioLanguageJMenu;
+    private javax.swing.JMenuItem standardSubtitleLanguageJMenuItem;
+    private javax.swing.JButton stopPlayingJButton;
+    private javax.swing.JMenuItem takeSnapshotJMenuItem;
+    private javax.swing.JMenu tvJMenu;
+    private javax.swing.JMenuItem videoImageAdjustmentJMenuItem;
+    private javax.swing.JMenu viewJMenu;
     // End of variables declaration//GEN-END:variables
 }

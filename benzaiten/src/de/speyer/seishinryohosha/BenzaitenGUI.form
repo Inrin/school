@@ -7,114 +7,375 @@
         <Property name="text" type="java.lang.String" value="jMenuItem5"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem8">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="jCheckBoxMenuItem8"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem7"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem10">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="jCheckBoxMenuItem10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem28">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem28"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPopupMenu" name="jPopupMenu2">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="dateiJMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Datei"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="openJMenuItem">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+O"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#xd6;ffnen"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="openFolderJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ordner &#xf6;ffnen"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openFolderJMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="openPlaceMenuItem">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+L"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#xd6;ffne Ort"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openPlaceMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <Menu class="javax.swing.JMenu" name="discJMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Disk"/>
+                <Property name="text" type="java.lang.String" value="Disc"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="openAudioCDJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne Audio-CD"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openDVDJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne DVD mit Men&#xfc;s"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openDVDFolderJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne DVD aus Ordner mit Men&#xfc;s"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openDVDisoJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne DVD von ISO-Abbild mit Men&#xfc;s"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openVCDJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne VCD"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="tvJMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="TV"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="openTVanalogJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne Analog-TV"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openTVdigitalJMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xd6;ffne Digital-TV"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="openLastPlaybackJMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xd6;ffne letzte Wiedergabe"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="closeJMenuItem">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Q"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Beenden"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeJMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="editJMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bearbeiten"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="randomPlaybackJCheckBoxMenuItem">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Zuf&#xe4;llige Wiedergabe"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem2">
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="playbackAllJCheckBoxMenuItem">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Alle Wiederholen"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playbackAllJCheckBoxMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="setAudioJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Audio setzen"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <Menu class="javax.swing.JMenu" name="standardAudioLanguageJMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Standard-Audiosprache:"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="setSubtitletrackJMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Setze Untertitelspur"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="standardSubtitleLanguageJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Standard Untertitelsprache:"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="takeSnapshotJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+P"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Schnappschuss nehmen"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="preferencesJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+T"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Einstellungen"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="viewJMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ansicht"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="playlistJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F9"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Wiedergabeliste"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mediaInformationJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="I"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Media-Informationen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mediaInformationJCheckBoxMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="detailsJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+D"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Details"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="spectrumAnalyzerJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+M"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Spektrumanalysator"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="fullscreenJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+F"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Vollbild"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fullscreenJCheckBoxMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="normalViewJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Normal (1:1)"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="doubleViewJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+2"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Doppelte Gr&#xf6;&#xdf;e (2:1)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doubleViewJMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="halfViewJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Halbe Gr&#xf6;&#xdf;e (1:2)"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="halfLargerViewJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;lfte Gr&#xf6;&#xdf;er (1.5:1)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="halfLargerViewJMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <Menu class="javax.swing.JMenu" name="aspectRatioJMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Seitenverh&#xe4;ltnis"/>
+              </Properties>
+            </Menu>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="showSubtitlesJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="V"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Zeige Untertitel"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="decreaseSubtitleSizeJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Shift+R"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Verringere Untertitelgr&#xf6;&#xdf;e"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="increaseSubtitleSizeJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Shift+T"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Erh&#xf6;he Untertitelgr&#xf6;&#xdf;e"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="decreaseSubtitleDisplayDurationJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Verringere die Untertitel-Anzeigedauer"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="increaseSubtitleDisplayDurationJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Erh&#xf6;he die Untertitel-Anzeigedauer"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="changePerspectiveJMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Blickwinkel wechseln"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="controlElementsJCheckBoxMenuItem">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="C"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Bedienelemente"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="videoImageAdjustmentJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Videobildanpassung"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="helpJMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hilfe"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="infoJMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Info"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Benzaiten"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="0" green="0" red="0" type="rgb"/>
+    </Property>
+    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -135,13 +396,66 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="controlsJPanel" pref="567" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="273" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="196" max="32767" attributes="0"/>
+              <Component id="controlsJPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="controlsJPanel">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="rewindJButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xab;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="playPauseJButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x25ba;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="stopPlayingJButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x220e;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="fastForwardJButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xbb;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSlider" name="playbackJSlider">
+        </Component>
+        <Component class="javax.swing.JButton" name="speakerJButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;\uD83D\uDD0A&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="speakerJButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#x2921;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
 </Form>
