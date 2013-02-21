@@ -515,10 +515,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         switch (mplayer.getStatus()) {
             case MusicPlayer.PAUSED:
                 mplayer.resume();
-                playPauseJButton.setText("");
+                playPauseJButton.setText("||");
                 break;
             case MusicPlayer.PLAYING:
                 mplayer.pause();
+                playPauseJButton.setText("►");
                 break;
             case MusicPlayer.STOPPED:
                 mplayer.play();
