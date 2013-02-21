@@ -4,7 +4,6 @@
  */
 package de.seishinryohosha.benzaiten;
 
-
 import javax.swing.*;
 import java.io.File;
 
@@ -28,6 +27,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     }
 
     public void positionChanged(int position) {
+            playbackJSlider.setValue(position);
     }
 
     /**
@@ -168,6 +168,19 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         playbackJSlider.setToolTipText("Position");
         playbackJSlider.setValue(0);
         playbackJSlider.setEnabled(false);
+        playbackJSlider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                playbackJSliderMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                playbackJSliderMouseReleased(evt);
+            }
+        });
+        playbackJSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                playbackJSliderStateChanged(evt);
+            }
+        });
         controlsJPanel.add(playbackJSlider);
 
         volumeJButton.setText("\uD83D\uDD0A");
@@ -523,15 +536,15 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             mplayer.open(file.getAbsolutePath());
             mplayer.play();
             playPauseJButton.setText("||");
-            
+
             rewindJButton.setEnabled(true);
             stopPlayingJButton.setEnabled(true);
             fastForwardJButton.setEnabled(true);
             playbackJSlider.setEnabled(true);
-            
+
             musicInfoJPanel.setVisible(true);
             pack();
-            
+
         }
     }//GEN-LAST:event_openJMenuItemActionPerformed
 
@@ -586,6 +599,24 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             fastForwardJButton.setEnabled(false);
         }
     }//GEN-LAST:event_fastForwardJButtonActionPerformed
+
+    private void playbackJSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playbackJSliderStateChanged
+        JSlider source = (JSlider) evt.getSource();
+        
+        if(!source.getValueIsAdjusting() && mplayer.getStatus() == MusicPlayer.PAUSED){
+            int position = (int) source.getValue();
+            mplayer.seek(position);
+        }
+            
+    }//GEN-LAST:event_playbackJSliderStateChanged
+
+    private void playbackJSliderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbackJSliderMousePressed
+        mplayer.pause();
+    }//GEN-LAST:event_playbackJSliderMousePressed
+
+    private void playbackJSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbackJSliderMouseReleased
+        mplayer.resume();
+    }//GEN-LAST:event_playbackJSliderMouseReleased
     /**
      * @param args the command line arguments
      */
