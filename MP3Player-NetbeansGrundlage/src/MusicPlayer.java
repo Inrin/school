@@ -1,4 +1,3 @@
-package de.speyer.seishinryohosha;
 
 import java.io.File;
 import java.util.*;
@@ -6,9 +5,9 @@ import java.util.logging.*;
 import javazoom.jlgui.basicplayer.*;
 
 /**
- * MusicPlayer bietet grundlegende Funktionalit�t zum Abspielen von Musikdateien.
+ * MusicPlayer bietet grundlegende Funktionalität zum Abspielen von Musikdateien.
  * 
- * Im Wesentlichen ist MusicPlayer eine Wrapper-Klasse f�r BasicPlayer von javazoom.com,
+ * Im Wesentlichen ist MusicPlayer eine Wrapper-Klasse für BasicPlayer von javazoom.com,
  * um die Benutzung dieser Klassen zu vereinfachen.
  * Wer n�heres wissen will, kann sich den Quelltext der Datei anschauen.
  * Wer den Code komplett versteht, kann sich in Informatik erst mal zur�ck lehnen ;-)
