@@ -475,17 +475,18 @@
           <Properties>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="toolTipText" type="java.lang.String" value="Position"/>
+            <Property name="value" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="speakerJButton">
+        <Component class="javax.swing.JButton" name="volumeJButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="&quot;\uD83D\uDD0A&quot;" type="code"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="speakerJButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="volumeJButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSlider" name="volumeJSlider">
@@ -493,6 +494,10 @@
             <Property name="orientation" type="int" value="1"/>
             <Property name="value" type="int" value="100"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="volumeJSliderMouseExited"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="volumeJSliderStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="volumeJSlider.setVisible(false);"/>
           </AuxValues>

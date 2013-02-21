@@ -53,7 +53,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         stopPlayingJButton = new javax.swing.JButton();
         fastForwardJButton = new javax.swing.JButton();
         playbackJSlider = new javax.swing.JSlider();
-        speakerJButton = new javax.swing.JButton();
+        volumeJButton = new javax.swing.JButton();
         volumeJSlider = new javax.swing.JSlider();
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -146,20 +146,31 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         playbackJSlider.setPaintLabels(true);
         playbackJSlider.setToolTipText("Position");
+        playbackJSlider.setValue(0);
         playbackJSlider.setEnabled(false);
         controlsJPanel.add(playbackJSlider);
 
-        speakerJButton.setText("\uD83D\uDD0A");
-        speakerJButton.addActionListener(new java.awt.event.ActionListener() {
+        volumeJButton.setText("\uD83D\uDD0A");
+        volumeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                speakerJButtonActionPerformed(evt);
+                volumeJButtonActionPerformed(evt);
             }
         });
-        controlsJPanel.add(speakerJButton);
+        controlsJPanel.add(volumeJButton);
 
         volumeJSlider.setOrientation(javax.swing.JSlider.VERTICAL);
         volumeJSlider.setValue(100);
         volumeJSlider.setVisible(false);
+        volumeJSlider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                volumeJSliderMouseExited(evt);
+            }
+        });
+        volumeJSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                volumeJSliderStateChanged(evt);
+            }
+        });
         controlsJPanel.add(volumeJSlider);
 
         jButton2.setText("⤡");
@@ -457,9 +468,10 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         // TODO add your handling code here:
     }//GEN-LAST:event_halfLargerViewJMenuItemActionPerformed
 
-    private void speakerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakerJButtonActionPerformed
-        
-    }//GEN-LAST:event_speakerJButtonActionPerformed
+    private void volumeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeJButtonActionPerformed
+        volumeJButton.setVisible(false);
+        volumeJSlider.setVisible(true);
+    }//GEN-LAST:event_volumeJButtonActionPerformed
 
     private void openJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openJMenuItemActionPerformed
         int returnVal = fc.showOpenDialog(BenzaitenGUI.this);
@@ -504,6 +516,15 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             controlsJPanel.setVisible(true);
         }
     }//GEN-LAST:event_controlElementsJCheckBoxMenuItemItemStateChanged
+
+    private void volumeJSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_volumeJSliderStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volumeJSliderStateChanged
+
+    private void volumeJSliderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeJSliderMouseExited
+        volumeJSlider.setVisible(false);
+        volumeJButton.setVisible(true);
+    }//GEN-LAST:event_volumeJSliderMouseExited
     /**
      * @param args the command line arguments
      */
@@ -597,7 +618,6 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem setAudioJMenuItem;
     private javax.swing.JMenuItem setSubtitletrackJMenuItem;
     private javax.swing.JCheckBoxMenuItem showSubtitlesJCheckBoxMenuItem;
-    private javax.swing.JButton speakerJButton;
     private javax.swing.JCheckBoxMenuItem spectrumAnalyzerJCheckBoxMenuItem;
     private javax.swing.JMenu standardAudioLanguageJMenu;
     private javax.swing.JMenuItem standardSubtitleLanguageJMenuItem;
@@ -606,6 +626,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenu tvJMenu;
     private javax.swing.JMenuItem videoImageAdjustmentJMenuItem;
     private javax.swing.JMenu viewJMenu;
+    private javax.swing.JButton volumeJButton;
     private javax.swing.JSlider volumeJSlider;
     // End of variables declaration//GEN-END:variables
 }
