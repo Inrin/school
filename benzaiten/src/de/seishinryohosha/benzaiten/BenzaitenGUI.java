@@ -528,6 +528,8 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             fastForwardJButton.setEnabled(true);
             playbackJSlider.setEnabled(true);
             
+            musicInfoJPanel.setVisible(true);
+            
         }
     }//GEN-LAST:event_openJMenuItemActionPerformed
 
