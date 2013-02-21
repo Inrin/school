@@ -205,6 +205,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         artistJlabel.setText("Artist");
         musicInfoJPanel.add(artistJlabel, java.awt.BorderLayout.CENTER);
 
+        songTitleJLabel.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         songTitleJLabel.setText("Song");
         musicInfoJPanel.add(songTitleJLabel, java.awt.BorderLayout.PAGE_START);
 
