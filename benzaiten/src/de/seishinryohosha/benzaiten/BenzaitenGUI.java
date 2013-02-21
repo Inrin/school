@@ -138,6 +138,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         stopPlayingJButton.setText("∎");
         stopPlayingJButton.setEnabled(false);
+        stopPlayingJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopPlayingJButtonActionPerformed(evt);
+            }
+        });
         controlsJPanel.add(stopPlayingJButton);
 
         fastForwardJButton.setText("»");
@@ -525,6 +530,10 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         volumeJSlider.setVisible(false);
         volumeJButton.setVisible(true);
     }//GEN-LAST:event_volumeJSliderMouseExited
+
+    private void stopPlayingJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopPlayingJButtonActionPerformed
+        mplayer.stop();
+    }//GEN-LAST:event_stopPlayingJButtonActionPerformed
     /**
      * @param args the command line arguments
      */
