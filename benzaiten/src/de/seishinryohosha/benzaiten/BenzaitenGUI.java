@@ -147,6 +147,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         fastForwardJButton.setText("»");
         fastForwardJButton.setEnabled(false);
+        fastForwardJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fastForwardJButtonActionPerformed(evt);
+            }
+        });
         controlsJPanel.add(fastForwardJButton);
 
         playbackJSlider.setPaintLabels(true);
@@ -489,6 +494,12 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             mplayer.open(file.getAbsolutePath());
             mplayer.play();
             playPauseJButton.setText("||");
+            
+            rewindJButton.setEnabled(true);
+            stopPlayingJButton.setEnabled(true);
+            fastForwardJButton.setEnabled(true);
+            playbackJSlider.setEnabled(true);
+            
         }
     }//GEN-LAST:event_openJMenuItemActionPerformed
 
@@ -534,6 +545,14 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private void stopPlayingJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopPlayingJButtonActionPerformed
         mplayer.stop();
     }//GEN-LAST:event_stopPlayingJButtonActionPerformed
+
+    private void fastForwardJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fastForwardJButtonActionPerformed
+        if (mplayer.getStatus() == MusicPlayer.PLAYING) {
+            mplayer.fastForward();
+        } else {
+            fastForwardJButton.setEnabled(false);
+        }
+    }//GEN-LAST:event_fastForwardJButtonActionPerformed
     /**
      * @param args the command line arguments
      */
