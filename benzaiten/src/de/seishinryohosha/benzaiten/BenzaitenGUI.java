@@ -60,6 +60,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         playbackJSlider = new javax.swing.JSlider();
         volumeJSlider = new javax.swing.JSlider();
         volumeJButton = new javax.swing.JButton();
+        playlistJScrollPane = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         dateiJMenu = new javax.swing.JMenu();
         openJMenuItem = new javax.swing.JMenuItem();
@@ -125,7 +126,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Benzaiten");
-        setForeground(java.awt.Color.red);
+        setForeground(java.awt.Color.white);
         setResizable(false);
 
         musicInfoJPanel.setLayout(new java.awt.BorderLayout());
@@ -219,6 +220,8 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             }
         });
         controlsJPanel.add(volumeJButton);
+
+        playlistJScrollPane.setVisible(false);
 
         dateiJMenu.setText("Datei");
 
@@ -337,6 +340,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         playlistJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
         playlistJCheckBoxMenuItem.setText("Wiedergabeliste");
+        playlistJCheckBoxMenuItem.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playlistJCheckBoxMenuItemItemStateChanged(evt);
+            }
+        });
         viewJMenu.add(playlistJCheckBoxMenuItem);
 
         mediaInformationJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, 0));
@@ -464,15 +472,22 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
-                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(playlistJScrollPane)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(playlistJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -569,8 +584,10 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private void controlElementsJCheckBoxMenuItemItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_controlElementsJCheckBoxMenuItemItemStateChanged
         if (controlsJPanel.isVisible()) {
             controlsJPanel.setVisible(false);
+            pack();
         } else {
             controlsJPanel.setVisible(true);
+            pack();
         }
     }//GEN-LAST:event_controlElementsJCheckBoxMenuItemItemStateChanged
 
@@ -616,6 +633,16 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private void playbackJSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbackJSliderMouseReleased
         mplayer.resume();
     }//GEN-LAST:event_playbackJSliderMouseReleased
+
+    private void playlistJCheckBoxMenuItemItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playlistJCheckBoxMenuItemItemStateChanged
+        if (!playlistJScrollPane.isVisible()) {
+            playlistJScrollPane.setVisible(true);
+            pack();
+        } else {
+            playlistJScrollPane.setVisible(false);
+            pack();
+        }
+    }//GEN-LAST:event_playlistJCheckBoxMenuItemItemStateChanged
     /**
      * @param args the command line arguments
      */
@@ -707,6 +734,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JCheckBoxMenuItem playbackAllJCheckBoxMenuItem;
     private javax.swing.JSlider playbackJSlider;
     private javax.swing.JCheckBoxMenuItem playlistJCheckBoxMenuItem;
+    private javax.swing.JScrollPane playlistJScrollPane;
     private javax.swing.JMenuItem preferencesJMenuItem;
     private javax.swing.JCheckBoxMenuItem randomPlaybackJCheckBoxMenuItem;
     private javax.swing.JButton rewindJButton;

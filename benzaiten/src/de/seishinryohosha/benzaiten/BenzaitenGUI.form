@@ -230,6 +230,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Wiedergabeliste"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="playlistJCheckBoxMenuItemItemStateChanged"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mediaInformationJCheckBoxMenuItem">
               <Properties>
@@ -405,7 +408,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Benzaiten"/>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
+      <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -434,8 +437,12 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="controlsJPanel" pref="479" max="32767" attributes="0"/>
-                  <Component id="musicInfoJPanel" max="32767" attributes="0"/>
+                  <Component id="controlsJPanel" pref="488" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="musicInfoJPanel" min="-2" pref="238" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="playlistJScrollPane" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -444,11 +451,17 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="musicInfoJPanel" pref="100" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="musicInfoJPanel" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="playlistJScrollPane" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="controlsJPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -578,6 +591,13 @@
           </Events>
         </Component>
       </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="playlistJScrollPane">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="playlistJScrollPane.setVisible(false);"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
     </Container>
   </SubComponents>
 </Form>
