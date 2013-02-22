@@ -61,6 +61,20 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         volumeJSlider = new javax.swing.JSlider();
         volumeJButton = new javax.swing.JButton();
         playlistJScrollPane = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        openPlaylistJButton = new javax.swing.JButton();
+        savePlaylistJButton = new javax.swing.JButton();
+        addTitleToPlaylistJButton = new javax.swing.JButton();
+        removeTitleFromPlaylistJButton = new javax.swing.JButton();
+        addTitleFromFolderToPlaylistJButton = new javax.swing.JButton();
+        erasePlaylistJButton = new javax.swing.JButton();
+        moveTitleUpJButton = new javax.swing.JButton();
+        moveTitleDownJbutton = new javax.swing.JButton();
+        unsortedListJButton = new javax.swing.JButton();
+        loopListJButton = new javax.swing.JButton();
+        shuffleListJButton = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(45, 0), new java.awt.Dimension(0, 0));
+        closePlaylistJButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         dateiJMenu = new javax.swing.JMenu();
         openJMenuItem = new javax.swing.JMenuItem();
@@ -132,13 +146,18 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         musicInfoJPanel.setLayout(new java.awt.BorderLayout());
         musicInfoJPanel.setVisible(false);
 
+        artistJlabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         artistJlabel.setText("Artist");
+        artistJlabel.setMaximumSize(new java.awt.Dimension(41, 21));
+        artistJlabel.setMinimumSize(new java.awt.Dimension(41, 21));
+        artistJlabel.setPreferredSize(new java.awt.Dimension(41, 21));
         musicInfoJPanel.add(artistJlabel, java.awt.BorderLayout.CENTER);
 
         songTitleJLabel.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         songTitleJLabel.setText("Song");
         musicInfoJPanel.add(songTitleJLabel, java.awt.BorderLayout.PAGE_START);
 
+        albumJLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         albumJLabel.setText("Album");
         musicInfoJPanel.add(albumJLabel, java.awt.BorderLayout.PAGE_END);
 
@@ -222,6 +241,60 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         controlsJPanel.add(volumeJButton);
 
         playlistJScrollPane.setVisible(false);
+
+        openPlaylistJButton.setText("1");
+        openPlaylistJButton.setVisible(false);
+        jPanel1.add(openPlaylistJButton);
+
+        savePlaylistJButton.setText("2");
+        savePlaylistJButton.setVisible(false);
+        jPanel1.add(savePlaylistJButton);
+
+        addTitleToPlaylistJButton.setText("3");
+        addTitleToPlaylistJButton.setVisible(false);
+        jPanel1.add(addTitleToPlaylistJButton);
+
+        removeTitleFromPlaylistJButton.setText("4");
+        removeTitleFromPlaylistJButton.setVisible(false);
+        jPanel1.add(removeTitleFromPlaylistJButton);
+
+        addTitleFromFolderToPlaylistJButton.setText("5");
+        addTitleFromFolderToPlaylistJButton.setVisible(false);
+        jPanel1.add(addTitleFromFolderToPlaylistJButton);
+
+        erasePlaylistJButton.setText("6");
+        erasePlaylistJButton.setVisible(false);
+        jPanel1.add(erasePlaylistJButton);
+
+        moveTitleUpJButton.setText("7");
+        moveTitleUpJButton.setVisible(false);
+        jPanel1.add(moveTitleUpJButton);
+
+        moveTitleDownJbutton.setText("8");
+        moveTitleDownJbutton.setVisible(false);
+        jPanel1.add(moveTitleDownJbutton);
+
+        unsortedListJButton.setText("9");
+        unsortedListJButton.setVisible(false);
+        jPanel1.add(unsortedListJButton);
+
+        loopListJButton.setText("10");
+        loopListJButton.setVisible(false);
+        jPanel1.add(loopListJButton);
+
+        shuffleListJButton.setText("11");
+        shuffleListJButton.setVisible(false);
+        jPanel1.add(shuffleListJButton);
+        jPanel1.add(filler1);
+
+        closePlaylistJButton.setText("12");
+        closePlaylistJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closePlaylistJButtonActionPerformed(evt);
+            }
+        });
+        closePlaylistJButton.setVisible(false);
+        jPanel1.add(closePlaylistJButton);
 
         dateiJMenu.setText("Datei");
 
@@ -472,11 +545,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(playlistJScrollPane)))
+                        .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(playlistJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -487,6 +562,8 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
                     .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(playlistJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -643,6 +720,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             pack();
         }
     }//GEN-LAST:event_playlistJCheckBoxMenuItemItemStateChanged
+
+    private void closePlaylistJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closePlaylistJButtonActionPerformed
+        playlistJScrollPane.setVisible(false);
+        pack();
+    }//GEN-LAST:event_closePlaylistJButtonActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -684,11 +766,14 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addTitleFromFolderToPlaylistJButton;
+    private javax.swing.JButton addTitleToPlaylistJButton;
     private javax.swing.JLabel albumJLabel;
     private javax.swing.JLabel artistJlabel;
     private javax.swing.JMenu aspectRatioJMenu;
     private javax.swing.JMenuItem changePerspectiveJMenuItem;
     private javax.swing.JMenuItem closeJMenuItem;
+    private javax.swing.JButton closePlaylistJButton;
     private javax.swing.JCheckBoxMenuItem controlElementsJCheckBoxMenuItem;
     private javax.swing.JPanel controlsJPanel;
     private javax.swing.JMenu dateiJMenu;
@@ -698,7 +783,9 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenu discJMenu;
     private javax.swing.JMenuItem doubleViewJMenuItem;
     private javax.swing.JMenu editJMenu;
+    private javax.swing.JButton erasePlaylistJButton;
     private javax.swing.JButton fastForwardJButton;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JCheckBoxMenuItem fullscreenJCheckBoxMenuItem;
     private javax.swing.JMenuItem halfLargerViewJMenuItem;
     private javax.swing.JMenuItem halfViewJMenuItem;
@@ -714,9 +801,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem jMenuItem28;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JButton loopListJButton;
     private javax.swing.JCheckBoxMenuItem mediaInformationJCheckBoxMenuItem;
+    private javax.swing.JButton moveTitleDownJbutton;
+    private javax.swing.JButton moveTitleUpJButton;
     private javax.swing.JPanel musicInfoJPanel;
     private javax.swing.JMenuItem normalViewJMenuItem;
     private javax.swing.JMenuItem openAudioCDJMenuItem;
@@ -727,6 +818,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem openJMenuItem;
     private javax.swing.JMenu openLastPlaybackJMenu;
     private javax.swing.JMenuItem openPlaceMenuItem;
+    private javax.swing.JButton openPlaylistJButton;
     private javax.swing.JMenuItem openTVanalogJMenuItem;
     private javax.swing.JMenuItem openTVdigitalJMenuItem;
     private javax.swing.JMenuItem openVCDJMenuItem;
@@ -737,10 +829,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JScrollPane playlistJScrollPane;
     private javax.swing.JMenuItem preferencesJMenuItem;
     private javax.swing.JCheckBoxMenuItem randomPlaybackJCheckBoxMenuItem;
+    private javax.swing.JButton removeTitleFromPlaylistJButton;
     private javax.swing.JButton rewindJButton;
+    private javax.swing.JButton savePlaylistJButton;
     private javax.swing.JMenuItem setAudioJMenuItem;
     private javax.swing.JMenuItem setSubtitletrackJMenuItem;
     private javax.swing.JCheckBoxMenuItem showSubtitlesJCheckBoxMenuItem;
+    private javax.swing.JButton shuffleListJButton;
     private javax.swing.JLabel songTitleJLabel;
     private javax.swing.JCheckBoxMenuItem spectrumAnalyzerJCheckBoxMenuItem;
     private javax.swing.JMenu standardAudioLanguageJMenu;
@@ -748,6 +843,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JButton stopPlayingJButton;
     private javax.swing.JMenuItem takeSnapshotJMenuItem;
     private javax.swing.JMenu tvJMenu;
+    private javax.swing.JButton unsortedListJButton;
     private javax.swing.JMenuItem videoImageAdjustmentJMenuItem;
     private javax.swing.JMenu viewJMenu;
     private javax.swing.JButton volumeJButton;
