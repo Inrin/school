@@ -9,7 +9,13 @@
 *.ctxt
 
 # Backupfiles
-*~
+*
+~
+# Private stuff not needed
 /benzaiten/nbproject/private/
+
+# all the build-stuff
 /benzaiten/build/
+
+# Only for distribution
 /benzaiten/dist/
