@@ -39,6 +39,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         musicInfoJPanel = new javax.swing.JPanel();
         artistJlabel = new javax.swing.JLabel();
         songTitleJLabel = new javax.swing.JLabel();
@@ -51,6 +52,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         playbackJSlider = new javax.swing.JSlider();
         volumeJSlider = new javax.swing.JSlider();
         volumeJButton = new javax.swing.JButton();
+        fullscreenJButton = new javax.swing.JButton();
         playlistJScrollPane = new javax.swing.JScrollPane();
         playlistButtonsJPanel = new javax.swing.JPanel();
         openPlaylistJButton = new javax.swing.JButton();
@@ -112,6 +114,8 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         videoImageAdjustmentJMenuItem = new javax.swing.JMenuItem();
         helpJMenu = new javax.swing.JMenu();
         infoJMenuItem = new javax.swing.JMenuItem();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Benzaiten");
@@ -214,6 +218,9 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             }
         });
         controlsJPanel.add(volumeJButton);
+
+        fullscreenJButton.setText("⤡");
+        controlsJPanel.add(fullscreenJButton);
 
         playlistJScrollPane.setVisible(false);
 
@@ -761,6 +768,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JButton erasePlaylistJButton;
     private javax.swing.JButton fastForwardJButton;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JButton fullscreenJButton;
     private javax.swing.JCheckBoxMenuItem fullscreenJCheckBoxMenuItem;
     private javax.swing.JMenuItem halfLargerViewJMenuItem;
     private javax.swing.JMenuItem halfViewJMenuItem;
@@ -768,6 +776,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem increaseSubtitleDisplayDurationJMenuItem;
     private javax.swing.JMenuItem increaseSubtitleSizeJMenuItem;
     private javax.swing.JMenuItem infoJMenuItem;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JButton loopListJButton;
     private javax.swing.JCheckBoxMenuItem mediaInformationJCheckBoxMenuItem;
