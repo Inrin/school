@@ -38,6 +38,79 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         labelTable.put(new Integer(100), new JLabel(String.valueOf(position) + "%"));
         playbackJSlider.setLabelTable(labelTable);
     }
+    
+    private void openLast(JMenuItem menuitem){
+        if(menuitem.isVisible()){
+            File file = new File(menuitem.getToolTipText());
+
+            this.setTitle("Benzaiten - " + file.getName());
+            mplayer.open(file.getAbsolutePath());
+            mplayer.play();
+            playPauseJButton.setText("||");
+
+            rewindJButton.setEnabled(true);
+            stopPlayingJButton.setEnabled(true);
+            fastForwardJButton.setEnabled(true);
+            playbackJSlider.setEnabled(true);
+
+            labelTable.put(new Integer(0), new JLabel("Play"));
+            playbackJSlider.setLabelTable(labelTable);
+
+            if (mplayer.getTitle(file) != null) {
+                songTitleJLabel.setText(mplayer.getTitle(file));
+                songTitleJLabel.setVisible(true);
+            } else {
+                songTitleJLabel.setVisible(false);
+            }
+
+            if (mplayer.getArtist(file) != null) {
+                artistJlabel.setText(mplayer.getArtist(file));
+                artistJlabel.setVisible(true);
+            } else {
+                artistJlabel.setVisible(false);
+            }
+
+            if (mplayer.getAlbum(file) != null) {
+                albumJLabel.setText(mplayer.getAlbum(file));
+                albumJLabel.setVisible(true);
+            } else {
+                albumJLabel.setVisible(false);
+            }
+
+            if (mplayer.getTitle(file) == null && mplayer.getAlbum(file) == null && mplayer.getArtist(file) == null) {
+                songTitleJLabel.setText(file.getName());
+                songTitleJLabel.setVisible(true);
+            }
+
+            musicInfoJPanel.setVisible(true);
+
+
+            JMenuItem[] menuitems = {openLastJMenuItem1,
+                openLastJMenuItem2,
+                openLastJMenuItem3,
+                openLastJMenuItem4,
+                openLastJMenuItem5,
+                openLastJMenuItem6,
+                openLastJMenuItem7,
+                openLastJMenuItem8,
+                openLastJMenuItem9,
+                openLastJMenuItem10,};
+
+            for (int i = 0; i < menuitems.length; i++) {
+                if (!menuitems[i].isVisible()) {
+                    menuitems[i].setText(file.getName());
+                    menuitems[i].setToolTipText(file.getAbsolutePath());    
+                    menuitems[i].setVisible(true);
+                    break;
+                }else
+                    menuitems[1].setText(file.getName());
+                    menuitems[1].setToolTipText(file.getAbsolutePath());
+            }
+            pack();
+        }
+            
+            
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -92,6 +165,16 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         openTVanalogJMenuItem = new javax.swing.JMenuItem();
         openTVdigitalJMenuItem = new javax.swing.JMenuItem();
         openLastPlaybackJMenu = new javax.swing.JMenu();
+        openLastJMenuItem1 = new javax.swing.JMenuItem();
+        openLastJMenuItem2 = new javax.swing.JMenuItem();
+        openLastJMenuItem3 = new javax.swing.JMenuItem();
+        openLastJMenuItem4 = new javax.swing.JMenuItem();
+        openLastJMenuItem5 = new javax.swing.JMenuItem();
+        openLastJMenuItem6 = new javax.swing.JMenuItem();
+        openLastJMenuItem7 = new javax.swing.JMenuItem();
+        openLastJMenuItem8 = new javax.swing.JMenuItem();
+        openLastJMenuItem9 = new javax.swing.JMenuItem();
+        openLastJMenuItem10 = new javax.swing.JMenuItem();
         closeJMenuItem = new javax.swing.JMenuItem();
         editJMenu = new javax.swing.JMenu();
         randomPlaybackJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
@@ -341,6 +424,97 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         dateiJMenu.add(tvJMenu);
 
         openLastPlaybackJMenu.setText("Öffne letzte Wiedergabe");
+
+        openLastJMenuItem1.setText("jMenuItem1");
+        openLastJMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem1ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem1);
+        openLastJMenuItem1.setVisible(false);
+
+        openLastJMenuItem2.setText("jMenuItem2");
+        openLastJMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem2ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem2);
+        openLastJMenuItem2.setVisible(false);
+
+        openLastJMenuItem3.setText("jMenuItem3");
+        openLastJMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem3ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem3);
+        openLastJMenuItem3.setVisible(false);
+
+        openLastJMenuItem4.setText("jMenuItem4");
+        openLastJMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem4ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem4);
+        openLastJMenuItem4.setVisible(false);
+
+        openLastJMenuItem5.setText("jMenuItem5");
+        openLastJMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem5ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem5);
+        openLastJMenuItem5.setVisible(false);
+
+        openLastJMenuItem6.setText("jMenuItem6");
+        openLastJMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem6ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem6);
+        openLastJMenuItem6.setVisible(false);
+
+        openLastJMenuItem7.setText("jMenuItem7");
+        openLastJMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem7ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem7);
+        openLastJMenuItem7.setVisible(false);
+
+        openLastJMenuItem8.setText("jMenuItem8");
+        openLastJMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem8ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem8);
+        openLastJMenuItem8.setVisible(false);
+
+        openLastJMenuItem9.setText("jMenuItem9");
+        openLastJMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem9ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem9);
+        openLastJMenuItem9.setVisible(false);
+
+        openLastJMenuItem10.setText("jMenuItem10");
+        openLastJMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLastJMenuItem10ActionPerformed(evt);
+            }
+        });
+        openLastPlaybackJMenu.add(openLastJMenuItem10);
+        openLastJMenuItem10.setVisible(false);
+
         dateiJMenu.add(openLastPlaybackJMenu);
 
         closeJMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
@@ -628,27 +802,50 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             } else {
                 songTitleJLabel.setVisible(false);
             }
-            
-            if(mplayer.getArtist(file) != null) {
+
+            if (mplayer.getArtist(file) != null) {
                 artistJlabel.setText(mplayer.getArtist(file));
                 artistJlabel.setVisible(true);
-            }else{
+            } else {
                 artistJlabel.setVisible(false);
             }
-            
-            if(mplayer.getAlbum(file) != null) {
+
+            if (mplayer.getAlbum(file) != null) {
                 albumJLabel.setText(mplayer.getAlbum(file));
                 albumJLabel.setVisible(true);
-            }else{
+            } else {
                 albumJLabel.setVisible(false);
             }
-            
-            if(mplayer.getTitle(file) == null && mplayer.getAlbum(file) == null && mplayer.getArtist(file) == null){
+
+            if (mplayer.getTitle(file) == null && mplayer.getAlbum(file) == null && mplayer.getArtist(file) == null) {
                 songTitleJLabel.setText(file.getName());
                 songTitleJLabel.setVisible(true);
             }
 
             musicInfoJPanel.setVisible(true);
+
+
+            JMenuItem[] menuitems = {openLastJMenuItem1,
+                openLastJMenuItem2,
+                openLastJMenuItem3,
+                openLastJMenuItem4,
+                openLastJMenuItem5,
+                openLastJMenuItem6,
+                openLastJMenuItem7,
+                openLastJMenuItem8,
+                openLastJMenuItem9,
+                openLastJMenuItem10,};
+
+            for (int i = 0; i < menuitems.length; i++) {
+                if (!menuitems[i].isVisible()) {
+                    menuitems[i].setText(file.getName());
+                    menuitems[i].setToolTipText(file.getAbsolutePath());    
+                    menuitems[i].setVisible(true);
+                    break;
+                }else
+                    menuitems[1].setText(file.getName());
+                    menuitems[1].setToolTipText(file.getAbsolutePath());
+            }
             pack();
 
         }
@@ -767,6 +964,46 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             pack();
         }
     }//GEN-LAST:event_playlistJCheckBoxMenuItemActionPerformed
+
+    private void openLastJMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem1ActionPerformed
+            openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem1ActionPerformed
+
+    private void openLastJMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem2ActionPerformed
+          openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem2ActionPerformed
+
+    private void openLastJMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem3ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem3ActionPerformed
+
+    private void openLastJMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem4ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem4ActionPerformed
+
+    private void openLastJMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem5ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem5ActionPerformed
+
+    private void openLastJMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem6ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem6ActionPerformed
+
+    private void openLastJMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem7ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem7ActionPerformed
+
+    private void openLastJMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem8ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem8ActionPerformed
+
+    private void openLastJMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem9ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem9ActionPerformed
+
+    private void openLastJMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem10ActionPerformed
+        openLast((JMenuItem) evt.getSource());
+    }//GEN-LAST:event_openLastJMenuItem10ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -850,6 +1087,16 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem openDVDisoJMenuItem;
     private javax.swing.JMenuItem openFolderJMenuItem;
     private javax.swing.JMenuItem openJMenuItem;
+    private javax.swing.JMenuItem openLastJMenuItem1;
+    private javax.swing.JMenuItem openLastJMenuItem10;
+    private javax.swing.JMenuItem openLastJMenuItem2;
+    private javax.swing.JMenuItem openLastJMenuItem3;
+    private javax.swing.JMenuItem openLastJMenuItem4;
+    private javax.swing.JMenuItem openLastJMenuItem5;
+    private javax.swing.JMenuItem openLastJMenuItem6;
+    private javax.swing.JMenuItem openLastJMenuItem7;
+    private javax.swing.JMenuItem openLastJMenuItem8;
+    private javax.swing.JMenuItem openLastJMenuItem9;
     private javax.swing.JMenu openLastPlaybackJMenu;
     private javax.swing.JMenuItem openPlaceMenuItem;
     private javax.swing.JButton openPlaylistJButton;

@@ -92,6 +92,118 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xd6;ffne letzte Wiedergabe"/>
               </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem1.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem2ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem2.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem3"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem3ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem3.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem4"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem4ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem4.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem5"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem5ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem5.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem6"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem6ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem6.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem7"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem7ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem7.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem8"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem8ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem8.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem9"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem9ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem9.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="openLastJMenuItem10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenuItem10"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openLastJMenuItem10ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="openLastJMenuItem10.setVisible(false);"/>
+                  </AuxValues>
+                </MenuItem>
+              </SubComponents>
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="closeJMenuItem">
               <Properties>

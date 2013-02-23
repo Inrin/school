@@ -9,7 +9,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javazoom.jlgui.basicplayer.*;
-import org.tritonus.share.sampled.TAudioFormat;
+//import org.tritonus.share.sampled.TAudioFormat;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
 
 
@@ -214,6 +214,7 @@ public class MusicPlayer {
     }
 
     // Added bei seishinryohosha START
+    
     public String getTitle(File filename){
         try{
         AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
@@ -288,19 +289,23 @@ public class MusicPlayer {
         public int getPosition() {
             return super.getEncodedStreamPosition();
         }
-
+        
+        @Override
         public void opened(Object arg0, Map arg1) {
         }
 
+        @Override
         public void progress(int arg0, long arg1, byte[] arg2, Map arg3) {
             for (MusicPlayerListener listener : listeners) {
                 listener.positionChanged(getPositionInPercent());
             }
         }
 
+        @Override
         public void stateUpdated(BasicPlayerEvent arg0) {
         }
 
+        @Override
         public void setController(BasicController arg0) {
         }
     }
