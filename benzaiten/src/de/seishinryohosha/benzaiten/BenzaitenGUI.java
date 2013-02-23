@@ -6,8 +6,8 @@ package de.seishinryohosha.benzaiten;
 
 import javax.swing.*;
 import java.io.File;
-//import java.util.Hashtable;
 import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  *
@@ -18,6 +18,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private JFileChooser fc;
     private MusicPlayer mplayer;
     private Hashtable labelTable;
+    private HashMap labelTableHash;
 
     /**
      * Creates new form BenzaitenGUI
@@ -27,9 +28,10 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         mplayer = new MusicPlayer();
         mplayer.addListener(this);
         labelTable = new Hashtable();
+        labelTableHash = new HashMap();
         initComponents();
     }
-    
+
     @Override
     public void positionChanged(int position) {
         playbackJSlider.setValue(position);
@@ -547,8 +549,10 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                    .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -597,6 +601,8 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     }//GEN-LAST:event_volumeJButtonActionPerformed
 
     private void openJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openJMenuItemActionPerformed
+
+
         int returnVal = fc.showOpenDialog(BenzaitenGUI.this);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -612,9 +618,35 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             stopPlayingJButton.setEnabled(true);
             fastForwardJButton.setEnabled(true);
             playbackJSlider.setEnabled(true);
-            
+
             labelTable.put(new Integer(0), new JLabel("Play"));
             playbackJSlider.setLabelTable(labelTable);
+
+            if (mplayer.getTitle(file) != null) {
+                songTitleJLabel.setText(mplayer.getTitle(file));
+                songTitleJLabel.setVisible(true);
+            } else {
+                songTitleJLabel.setVisible(false);
+            }
+            
+            if(mplayer.getArtist(file) != null) {
+                artistJlabel.setText(mplayer.getArtist(file));
+                artistJlabel.setVisible(true);
+            }else{
+                artistJlabel.setVisible(false);
+            }
+            
+            if(mplayer.getAlbum(file) != null) {
+                albumJLabel.setText(mplayer.getAlbum(file));
+                albumJLabel.setVisible(true);
+            }else{
+                albumJLabel.setVisible(false);
+            }
+            
+            if(mplayer.getTitle(file) == null && mplayer.getAlbum(file) == null && mplayer.getArtist(file) == null){
+                songTitleJLabel.setText(file.getName());
+                songTitleJLabel.setVisible(true);
+            }
 
             musicInfoJPanel.setVisible(true);
             pack();

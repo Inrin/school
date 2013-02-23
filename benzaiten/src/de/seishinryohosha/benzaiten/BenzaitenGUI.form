@@ -406,8 +406,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="musicInfoJPanel" pref="202" max="32767" attributes="0"/>
-                  <Component id="playListJPanel" max="32767" attributes="0"/>
+                  <Component id="playListJPanel" pref="202" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="musicInfoJPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="controlsJPanel" min="-2" max="-2" attributes="0"/>
