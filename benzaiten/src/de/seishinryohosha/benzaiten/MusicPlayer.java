@@ -1,18 +1,24 @@
 package de.seishinryohosha.benzaiten;
 
-import de.seishinryohosha.benzaiten.MusicPlayerListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.logging.*;
+import javax.sound.sampled.AudioFileFormat;
 import javazoom.jlgui.basicplayer.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javazoom.spi.mpeg.sampled.file.MpegAudioFileFormat;
 
 /**
- * MusicPlayer bietet grundlegende Funktionalität zum Abspielen von Musikdateien.
- * 
- * Im Wesentlichen ist MusicPlayer eine Wrapper-Klasse für BasicPlayer von javazoom.com,
- * um die Benutzung dieser Klassen zu vereinfachen.
- * Wer n�heres wissen will, kann sich den Quelltext der Datei anschauen.
- * Wer den Code komplett versteht, kann sich in Informatik erst mal zur�ck lehnen ;-)
+ * MusicPlayer bietet grundlegende Funktionalität zum Abspielen von
+ * Musikdateien.
+ *
+ * Im Wesentlichen ist MusicPlayer eine Wrapper-Klasse für BasicPlayer von
+ * javazoom.com, um die Benutzung dieser Klassen zu vereinfachen. Wer n�heres
+ * wissen will, kann sich den Quelltext der Datei anschauen. Wer den Code
+ * komplett versteht, kann sich in Informatik erst mal zur�ck lehnen ;-)
  *
  * @author Thomas Karp
  */
@@ -24,7 +30,6 @@ public class MusicPlayer {
     public static final int OPENED = SimplePlayer.OPENED;
     public static final int SEEKING = SimplePlayer.SEEKING;
     public static final int UNKNOWN = SimplePlayer.UNKNOWN;
-    
     // Delegation-Muster, um einige Methoden zu verbergen.
     private SimplePlayer player;
     /**
@@ -47,6 +52,7 @@ public class MusicPlayer {
 
     /**
      * Gibt den aktuellen Status des MusicPlayers zur�ck (siehe Konstanten)
+     *
      * @return Status des MusicPlayer
      */
     public int getStatus() {
@@ -55,6 +61,7 @@ public class MusicPlayer {
 
     /**
      * Gibt prozentuale Position zur�ck.
+     *
      * @return Aktuelle Position in Prozent.
      */
     public int getPositionInPercent() {
@@ -66,7 +73,7 @@ public class MusicPlayer {
 
     /**
      * �ffnet eine Datei �ber ihren Dateinamen.
-     * 
+     *
      * @param filename Name der Datei
      * @return true, falls das �ffnen erfolgreich war, ansonsten false
      */
@@ -82,8 +89,8 @@ public class MusicPlayer {
     }
 
     /**
-     * Spielt den aktuellen Song ab.
-     * Falls dieser schon abgespielt wird, passiert nichts.
+     * Spielt den aktuellen Song ab. Falls dieser schon abgespielt wird,
+     * passiert nichts.
      */
     public void play() {
         try {
@@ -128,6 +135,7 @@ public class MusicPlayer {
 
     /**
      * Setzt die Lautst�rke im Intervall von 0..100
+     *
      * @param gain Neue Lautst�rke
      */
     public void setGain(int gain) {
@@ -147,6 +155,7 @@ public class MusicPlayer {
 
     /**
      * Spult den Song vor.
+     *
      * @param amount Prozentualer Sprung.
      */
     public void fastForward(int amount) {
@@ -162,6 +171,7 @@ public class MusicPlayer {
 
     /**
      * Spult den Song zur�ck.
+     *
      * @param amount Prozentualer Sprung.
      */
     public void rewind(int amount) {
@@ -170,6 +180,7 @@ public class MusicPlayer {
 
     /**
      * Setzt die aktuelle Position des Songs.
+     *
      * @param pos Prozentualle Position
      */
     public void seek(int pos) {
@@ -181,10 +192,11 @@ public class MusicPlayer {
     }
 
     /**
-     * F�gt neuen Listener hinzu.
-     * Alle Listener werden �ber die Schnittstelle "MusicPlayerListener" �ber
-     * entsprechende Ereignisse benachrichtigt.
-     * @param listener Objekt, das �ber Ver�nderungen benachrichtigt werden soll.
+     * F�gt neuen Listener hinzu. Alle Listener werden �ber die Schnittstelle
+     * "MusicPlayerListener" �ber entsprechende Ereignisse benachrichtigt.
+     *
+     * @param listener Objekt, das �ber Ver�nderungen benachrichtigt werden
+     * soll.
      */
     public void addListener(MusicPlayerListener listener) {
         listeners.add(listener);
@@ -192,12 +204,40 @@ public class MusicPlayer {
 
     /**
      * Entfernt Listener.
+     *
      * @param listener Zu entfernender Listener
      */
     public void removeListener(MusicPlayerListener listener) {
         listeners.remove(listener);
     }
 
+    // Added bei seishinryohosha START
+    private String getTitle(String filename) {
+        File file = new File(filename);
+        AudioFileFormat baseFileFormat = null;
+        AudioFormat baseFormat = null;
+
+        try {
+            baseFileFormat = AudioSystem.getAudioFileFormat(file);
+            baseFormat = baseFileFormat.getFormat();
+
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "author";
+                String val = (String) properties.get(key);
+                key = "mp3.id3tag.v2";
+                InputStream tag = (InputStream) properties.get(key);
+                return "";
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex){
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    // Added by seishinryohosha END
     // Als innere Klasse eine Unterklasse von BasicPlayer, um Klasse unsichtbar zu machen nach au�en.
     private class SimplePlayer extends BasicPlayer implements BasicPlayerListener {
 
