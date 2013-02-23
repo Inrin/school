@@ -394,7 +394,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="musicInfoJPanel" min="-2" pref="299" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="playListJPanel" pref="418" max="32767" attributes="0"/>
+                      <Component id="playListJPanel" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -476,7 +476,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="rewindJButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xab;"/>
+            <Property name="text" type="java.lang.String" value="&#x219e;"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -502,7 +502,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="fastForwardJButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xbb;"/>
+            <Property name="text" type="java.lang.String" value="&#x21a0;"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>

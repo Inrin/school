@@ -138,7 +138,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         albumJLabel.setText("Album");
         musicInfoJPanel.add(albumJLabel, java.awt.BorderLayout.PAGE_END);
 
-        rewindJButton.setText("«");
+        rewindJButton.setText("↞");
         rewindJButton.setEnabled(false);
         rewindJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +164,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         });
         controlsJPanel.add(stopPlayingJButton);
 
-        fastForwardJButton.setText("»");
+        fastForwardJButton.setText("↠");
         fastForwardJButton.setEnabled(false);
         fastForwardJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -529,7 +529,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)))
+                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
