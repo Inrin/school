@@ -394,7 +394,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="musicInfoJPanel" min="-2" pref="299" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="playListJPanel" max="32767" attributes="0"/>
+                      <Component id="playListJPanel" pref="431" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -406,7 +406,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="musicInfoJPanel" pref="223" max="32767" attributes="0"/>
+                  <Component id="musicInfoJPanel" pref="202" max="32767" attributes="0"/>
                   <Component id="playListJPanel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -511,6 +511,7 @@
         </Component>
         <Component class="javax.swing.JSlider" name="playbackJSlider">
           <Properties>
+            <Property name="majorTickSpacing" type="int" value="100"/>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="toolTipText" type="java.lang.String" value="Position"/>
             <Property name="value" type="int" value="0"/>
@@ -521,6 +522,9 @@
             <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="playbackJSliderMouseReleased"/>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="playbackJSliderStateChanged"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="labelTable.put(new Integer(100), new JLabel(&quot;0.00&quot;));&#xa;playbackJSlider.setLabelTable(labelTable);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JSlider" name="volumeJSlider">
           <Properties>

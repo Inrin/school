@@ -6,6 +6,8 @@ package de.seishinryohosha.benzaiten;
 
 import javax.swing.*;
 import java.io.File;
+//import java.util.Hashtable;
+import java.util.Hashtable;
 
 /**
  *
@@ -15,6 +17,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
     private JFileChooser fc;
     private MusicPlayer mplayer;
+    private Hashtable labelTable;
 
     /**
      * Creates new form BenzaitenGUI
@@ -23,11 +26,15 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         fc = new JFileChooser();
         mplayer = new MusicPlayer();
         mplayer.addListener(this);
+        labelTable = new Hashtable();
         initComponents();
     }
-
+    
+    @Override
     public void positionChanged(int position) {
         playbackJSlider.setValue(position);
+        labelTable.put(new Integer(100), new JLabel(String.valueOf(position) + "%"));
+        playbackJSlider.setLabelTable(labelTable);
     }
 
     /**
@@ -173,6 +180,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         });
         controlsJPanel.add(fastForwardJButton);
 
+        playbackJSlider.setMajorTickSpacing(100);
         playbackJSlider.setPaintLabels(true);
         playbackJSlider.setToolTipText("Position");
         playbackJSlider.setValue(0);
@@ -191,6 +199,8 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             }
         });
         controlsJPanel.add(playbackJSlider);
+        labelTable.put(new Integer(100), new JLabel("0.00"));
+        playbackJSlider.setLabelTable(labelTable);
 
         volumeJSlider.setOrientation(javax.swing.JSlider.VERTICAL);
         volumeJSlider.setValue(100);
@@ -529,7 +539,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -537,7 +547,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                    .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                     .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,6 +612,9 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             stopPlayingJButton.setEnabled(true);
             fastForwardJButton.setEnabled(true);
             playbackJSlider.setEnabled(true);
+            
+            labelTable.put(new Integer(0), new JLabel("Play"));
+            playbackJSlider.setLabelTable(labelTable);
 
             musicInfoJPanel.setVisible(true);
             pack();
@@ -622,13 +635,19 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             case MusicPlayer.PAUSED:
                 mplayer.resume();
                 playPauseJButton.setText("||");
+                labelTable.put(new Integer(0), new JLabel("Play"));
+                playbackJSlider.setLabelTable(labelTable);
                 break;
             case MusicPlayer.PLAYING:
                 mplayer.pause();
                 playPauseJButton.setText("►");
+                labelTable.put(new Integer(0), new JLabel("Pause"));
+                playbackJSlider.setLabelTable(labelTable);
                 break;
             case MusicPlayer.STOPPED:
                 mplayer.play();
+                labelTable.put(new Integer(0), new JLabel("Play"));
+                playbackJSlider.setLabelTable(labelTable);
         }
     }//GEN-LAST:event_playPauseJButtonActionPerformed
 
@@ -657,6 +676,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
     private void stopPlayingJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopPlayingJButtonActionPerformed
         mplayer.stop();
+        musicInfoJPanel.setVisible(false);
+        labelTable.put(new Integer(0), new JLabel("Stop"));
+        playbackJSlider.setLabelTable(labelTable);
+        rewindJButton.setEnabled(false);
+        fastForwardJButton.setEnabled(false);
+        stopPlayingJButton.setEnabled(false);
+        pack();
     }//GEN-LAST:event_stopPlayingJButtonActionPerformed
 
     private void fastForwardJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fastForwardJButtonActionPerformed
@@ -744,6 +770,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BenzaitenGUI().setVisible(true);
             }
