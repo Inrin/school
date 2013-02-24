@@ -150,6 +150,37 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         shuffleListJButton = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(45, 0), new java.awt.Dimension(0, 0));
         closePlaylistJButton = new javax.swing.JButton();
+        detailsJPanel = new javax.swing.JPanel();
+        videoDetailsJLabel = new javax.swing.JLabel();
+        videoDetailsJPanel = new javax.swing.JPanel();
+        videoDetailsDynamicJPanel = new javax.swing.JPanel();
+        resolutionValueJLabel = new javax.swing.JLabel();
+        videoFormatValueJLabel = new javax.swing.JLabel();
+        videoCodecValueJLabel = new javax.swing.JLabel();
+        fpsValueJLabel = new javax.swing.JLabel();
+        bitrateValueJLabel = new javax.swing.JLabel();
+        videoChapterValueJLabel = new javax.swing.JLabel();
+        videoDetailsStaticJPanel = new javax.swing.JPanel();
+        resolutionJLabel = new javax.swing.JLabel();
+        videoFormatJLabel = new javax.swing.JLabel();
+        videoCodecJLabel = new javax.swing.JLabel();
+        fpsJLabel = new javax.swing.JLabel();
+        videoBitrateJLabel = new javax.swing.JLabel();
+        videoChapterJLabel = new javax.swing.JLabel();
+        audioDetailsJLabel = new javax.swing.JLabel();
+        audioDetailsJPanel = new javax.swing.JPanel();
+        audioDetailsStaticJPanel = new javax.swing.JPanel();
+        audioFormatJLabel = new javax.swing.JLabel();
+        audioCodecJLabel = new javax.swing.JLabel();
+        audioChannelsJLabel = new javax.swing.JLabel();
+        audioBitrateJLabel = new javax.swing.JLabel();
+        sampleRateJLabel = new javax.swing.JLabel();
+        audioDetailsDynamicJPanel = new javax.swing.JPanel();
+        audioFormatValueJLabel = new javax.swing.JLabel();
+        audioCodecValueJLabel = new javax.swing.JLabel();
+        audioChannelsValueJLabel = new javax.swing.JLabel();
+        audioBitrateValueJLabel = new javax.swing.JLabel();
+        sampleRateValueJLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         dateiJMenu = new javax.swing.JMenu();
         openJMenuItem = new javax.swing.JMenuItem();
@@ -365,6 +396,238 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         playlistButtonsJPanel.add(closePlaylistJButton);
 
         playListJPanel.add(playlistButtonsJPanel, java.awt.BorderLayout.PAGE_START);
+
+        detailsJPanel.setVisible(false);
+
+        videoDetailsJLabel.setText("Video-Details");
+
+        resolutionValueJLabel.setText("0 x 0");
+
+        videoFormatValueJLabel.setText("Unbekannt");
+
+        videoCodecValueJLabel.setText("Unbekannt");
+
+        fpsValueJLabel.setText("0");
+
+        bitrateValueJLabel.setText("0 Kb/s");
+
+        videoChapterValueJLabel.setText("0");
+
+        javax.swing.GroupLayout videoDetailsDynamicJPanelLayout = new javax.swing.GroupLayout(videoDetailsDynamicJPanel);
+        videoDetailsDynamicJPanel.setLayout(videoDetailsDynamicJPanelLayout);
+        videoDetailsDynamicJPanelLayout.setHorizontalGroup(
+            videoDetailsDynamicJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoDetailsDynamicJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(videoDetailsDynamicJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resolutionValueJLabel)
+                    .addComponent(videoFormatValueJLabel)
+                    .addComponent(videoCodecValueJLabel)
+                    .addComponent(bitrateValueJLabel)
+                    .addComponent(fpsValueJLabel)
+                    .addComponent(videoChapterValueJLabel))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        videoDetailsDynamicJPanelLayout.setVerticalGroup(
+            videoDetailsDynamicJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoDetailsDynamicJPanelLayout.createSequentialGroup()
+                .addComponent(resolutionValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoFormatValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoCodecValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fpsValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bitrateValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoChapterValueJLabel))
+        );
+
+        resolutionJLabel.setText("Auflösung:");
+
+        videoFormatJLabel.setText("Video-Format:");
+
+        videoCodecJLabel.setText("Video-Codec:");
+
+        fpsJLabel.setText("Bilder pro Sekunde:");
+
+        videoBitrateJLabel.setText("Video-Bitrate:");
+
+        videoChapterJLabel.setText("Video-Kapitel:");
+
+        javax.swing.GroupLayout videoDetailsStaticJPanelLayout = new javax.swing.GroupLayout(videoDetailsStaticJPanel);
+        videoDetailsStaticJPanel.setLayout(videoDetailsStaticJPanelLayout);
+        videoDetailsStaticJPanelLayout.setHorizontalGroup(
+            videoDetailsStaticJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoDetailsStaticJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(videoDetailsStaticJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resolutionJLabel)
+                    .addComponent(videoFormatJLabel)
+                    .addComponent(videoCodecJLabel)
+                    .addComponent(fpsJLabel)
+                    .addComponent(videoBitrateJLabel)
+                    .addComponent(videoChapterJLabel))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        videoDetailsStaticJPanelLayout.setVerticalGroup(
+            videoDetailsStaticJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoDetailsStaticJPanelLayout.createSequentialGroup()
+                .addComponent(resolutionJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoFormatJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoCodecJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fpsJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoBitrateJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoChapterJLabel))
+        );
+
+        javax.swing.GroupLayout videoDetailsJPanelLayout = new javax.swing.GroupLayout(videoDetailsJPanel);
+        videoDetailsJPanel.setLayout(videoDetailsJPanelLayout);
+        videoDetailsJPanelLayout.setHorizontalGroup(
+            videoDetailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, videoDetailsJPanelLayout.createSequentialGroup()
+                .addComponent(videoDetailsStaticJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(videoDetailsDynamicJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        videoDetailsJPanelLayout.setVerticalGroup(
+            videoDetailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(videoDetailsDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(videoDetailsStaticJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        audioDetailsJLabel.setText("Audio-Details");
+
+        audioFormatJLabel.setText("Audioformat:");
+
+        audioCodecJLabel.setText("Audio-Codec:");
+
+        audioChannelsJLabel.setText("Audio-Kanäle:");
+
+        audioBitrateJLabel.setText("Audio-Bitrate:");
+
+        sampleRateJLabel.setText("Sample Rate:");
+
+        javax.swing.GroupLayout audioDetailsStaticJPanelLayout = new javax.swing.GroupLayout(audioDetailsStaticJPanel);
+        audioDetailsStaticJPanel.setLayout(audioDetailsStaticJPanelLayout);
+        audioDetailsStaticJPanelLayout.setHorizontalGroup(
+            audioDetailsStaticJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(audioDetailsStaticJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(audioDetailsStaticJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(audioFormatJLabel)
+                    .addComponent(audioCodecJLabel)
+                    .addComponent(audioChannelsJLabel)
+                    .addComponent(audioBitrateJLabel)
+                    .addComponent(sampleRateJLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        audioDetailsStaticJPanelLayout.setVerticalGroup(
+            audioDetailsStaticJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(audioDetailsStaticJPanelLayout.createSequentialGroup()
+                .addComponent(audioFormatJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(audioCodecJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(audioChannelsJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(audioBitrateJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sampleRateJLabel))
+        );
+
+        audioFormatValueJLabel.setText("Unbekannt");
+
+        audioCodecValueJLabel.setText("Unbekannt");
+
+        audioChannelsValueJLabel.setText("0");
+
+        audioBitrateValueJLabel.setText("0 Kb/s");
+
+        sampleRateValueJLabel.setText("0 KHz");
+
+        javax.swing.GroupLayout audioDetailsDynamicJPanelLayout = new javax.swing.GroupLayout(audioDetailsDynamicJPanel);
+        audioDetailsDynamicJPanel.setLayout(audioDetailsDynamicJPanelLayout);
+        audioDetailsDynamicJPanelLayout.setHorizontalGroup(
+            audioDetailsDynamicJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(audioDetailsDynamicJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(audioDetailsDynamicJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(audioFormatValueJLabel)
+                    .addComponent(audioCodecValueJLabel)
+                    .addComponent(audioChannelsValueJLabel)
+                    .addComponent(audioBitrateValueJLabel)
+                    .addComponent(sampleRateValueJLabel))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        audioDetailsDynamicJPanelLayout.setVerticalGroup(
+            audioDetailsDynamicJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(audioDetailsDynamicJPanelLayout.createSequentialGroup()
+                .addComponent(audioFormatValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(audioCodecValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(audioChannelsValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(audioBitrateValueJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sampleRateValueJLabel))
+        );
+
+        javax.swing.GroupLayout audioDetailsJPanelLayout = new javax.swing.GroupLayout(audioDetailsJPanel);
+        audioDetailsJPanel.setLayout(audioDetailsJPanelLayout);
+        audioDetailsJPanelLayout.setHorizontalGroup(
+            audioDetailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(audioDetailsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(audioDetailsStaticJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(audioDetailsDynamicJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        audioDetailsJPanelLayout.setVerticalGroup(
+            audioDetailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(audioDetailsJPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(audioDetailsStaticJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(audioDetailsDynamicJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout detailsJPanelLayout = new javax.swing.GroupLayout(detailsJPanel);
+        detailsJPanel.setLayout(detailsJPanelLayout);
+        detailsJPanelLayout.setHorizontalGroup(
+            detailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(detailsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(detailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(detailsJPanelLayout.createSequentialGroup()
+                        .addComponent(videoDetailsJLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(detailsJPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(videoDetailsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(audioDetailsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(detailsJPanelLayout.createSequentialGroup()
+                        .addComponent(audioDetailsJLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        detailsJPanelLayout.setVerticalGroup(
+            detailsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(detailsJPanelLayout.createSequentialGroup()
+                .addComponent(videoDetailsJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(videoDetailsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(audioDetailsJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(audioDetailsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         dateiJMenu.setText("Datei");
 
@@ -713,9 +976,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(controlsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(musicInfoJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(detailsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)))
+                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -723,12 +988,12 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(playListJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(musicInfoJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(detailsJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -793,6 +1058,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             stopPlayingJButton.setEnabled(true);
             fastForwardJButton.setEnabled(true);
             playbackJSlider.setEnabled(true);
+            detailsJCheckBoxMenuItem.setEnabled(true);
 
             labelTable.put(new Integer(0), new JLabel("Play"));
             playbackJSlider.setLabelTable(labelTable);
@@ -1052,6 +1318,19 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JLabel albumJLabel;
     private javax.swing.JLabel artistJlabel;
     private javax.swing.JMenu aspectRatioJMenu;
+    private javax.swing.JLabel audioBitrateJLabel;
+    private javax.swing.JLabel audioBitrateValueJLabel;
+    private javax.swing.JLabel audioChannelsJLabel;
+    private javax.swing.JLabel audioChannelsValueJLabel;
+    private javax.swing.JLabel audioCodecJLabel;
+    private javax.swing.JLabel audioCodecValueJLabel;
+    private javax.swing.JPanel audioDetailsDynamicJPanel;
+    private javax.swing.JLabel audioDetailsJLabel;
+    private javax.swing.JPanel audioDetailsJPanel;
+    private javax.swing.JPanel audioDetailsStaticJPanel;
+    private javax.swing.JLabel audioFormatJLabel;
+    private javax.swing.JLabel audioFormatValueJLabel;
+    private javax.swing.JLabel bitrateValueJLabel;
     private javax.swing.JMenuItem changePerspectiveJMenuItem;
     private javax.swing.JMenuItem closeJMenuItem;
     private javax.swing.JButton closePlaylistJButton;
@@ -1061,12 +1340,15 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem decreaseSubtitleDisplayDurationJMenuItem;
     private javax.swing.JMenuItem decreaseSubtitleSizeJMenuItem;
     private javax.swing.JCheckBoxMenuItem detailsJCheckBoxMenuItem;
+    private javax.swing.JPanel detailsJPanel;
     private javax.swing.JMenu discJMenu;
     private javax.swing.JMenuItem doubleViewJMenuItem;
     private javax.swing.JMenu editJMenu;
     private javax.swing.JButton erasePlaylistJButton;
     private javax.swing.JButton fastForwardJButton;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel fpsJLabel;
+    private javax.swing.JLabel fpsValueJLabel;
     private javax.swing.JButton fullscreenJButton;
     private javax.swing.JCheckBoxMenuItem fullscreenJCheckBoxMenuItem;
     private javax.swing.JMenuItem halfLargerViewJMenuItem;
@@ -1114,7 +1396,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem preferencesJMenuItem;
     private javax.swing.JCheckBoxMenuItem randomPlaybackJCheckBoxMenuItem;
     private javax.swing.JButton removeTitleFromPlaylistJButton;
+    private javax.swing.JLabel resolutionJLabel;
+    private javax.swing.JLabel resolutionValueJLabel;
     private javax.swing.JButton rewindJButton;
+    private javax.swing.JLabel sampleRateJLabel;
+    private javax.swing.JLabel sampleRateValueJLabel;
     private javax.swing.JButton savePlaylistJButton;
     private javax.swing.JMenuItem setAudioJMenuItem;
     private javax.swing.JMenuItem setSubtitletrackJMenuItem;
@@ -1128,6 +1414,17 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private javax.swing.JMenuItem takeSnapshotJMenuItem;
     private javax.swing.JMenu tvJMenu;
     private javax.swing.JButton unsortedListJButton;
+    private javax.swing.JLabel videoBitrateJLabel;
+    private javax.swing.JLabel videoChapterJLabel;
+    private javax.swing.JLabel videoChapterValueJLabel;
+    private javax.swing.JLabel videoCodecJLabel;
+    private javax.swing.JLabel videoCodecValueJLabel;
+    private javax.swing.JPanel videoDetailsDynamicJPanel;
+    private javax.swing.JLabel videoDetailsJLabel;
+    private javax.swing.JPanel videoDetailsJPanel;
+    private javax.swing.JPanel videoDetailsStaticJPanel;
+    private javax.swing.JLabel videoFormatJLabel;
+    private javax.swing.JLabel videoFormatValueJLabel;
     private javax.swing.JMenuItem videoImageAdjustmentJMenuItem;
     private javax.swing.JMenu viewJMenu;
     private javax.swing.JButton volumeJButton;

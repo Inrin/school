@@ -504,9 +504,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="controlsJPanel" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="musicInfoJPanel" min="-2" pref="299" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="musicInfoJPanel" max="32767" attributes="0"/>
+                          <Component id="detailsJPanel" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="playListJPanel" pref="431" max="32767" attributes="0"/>
+                      <Component id="playListJPanel" pref="373" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -518,15 +521,14 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="playListJPanel" pref="210" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="playListJPanel" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="musicInfoJPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="detailsJPanel" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="controlsJPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -778,6 +780,374 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closePlaylistJButtonActionPerformed"/>
               </Events>
             </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="detailsJPanel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="detailsJPanel.setVisible(false);"/>
+      </AuxValues>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="videoDetailsJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                          <Component id="videoDetailsJPanel" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="audioDetailsJPanel" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="audioDetailsJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="videoDetailsJLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="videoDetailsJPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="audioDetailsJLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="audioDetailsJPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="videoDetailsJLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Video-Details"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="videoDetailsJPanel">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="videoDetailsStaticJPanel" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="videoDetailsDynamicJPanel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="videoDetailsDynamicJPanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="videoDetailsStaticJPanel" alignment="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="videoDetailsDynamicJPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="resolutionValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoFormatValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoCodecValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="bitrateValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fpsValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoChapterValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="80" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="resolutionValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoFormatValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoCodecValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="fpsValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="bitrateValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoChapterValueJLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="resolutionValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0 x 0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoFormatValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unbekannt"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoCodecValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unbekannt"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="fpsValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="bitrateValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0 Kb/s"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoChapterValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="videoDetailsStaticJPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="resolutionJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoFormatJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoCodecJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fpsJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoBitrateJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="videoChapterJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="resolutionJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoFormatJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoCodecJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="fpsJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoBitrateJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="videoChapterJLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="resolutionJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Aufl&#xf6;sung:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoFormatJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Video-Format:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoCodecJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Video-Codec:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="fpsJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Bilder pro Sekunde:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoBitrateJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Video-Bitrate:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="videoChapterJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Video-Kapitel:"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="audioDetailsJLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Audio-Details"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="audioDetailsJPanel">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="audioDetailsStaticJPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="audioDetailsDynamicJPanel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="audioDetailsStaticJPanel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="audioDetailsDynamicJPanel" alignment="1" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="audioDetailsStaticJPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="audioFormatJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="audioCodecJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="audioChannelsJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="audioBitrateJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="sampleRateJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="audioFormatJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="audioCodecJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="audioChannelsJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="audioBitrateJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="sampleRateJLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="audioFormatJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Audioformat:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="audioCodecJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Audio-Codec:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="audioChannelsJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Audio-Kan&#xe4;le:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="audioBitrateJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Audio-Bitrate:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="sampleRateJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sample Rate:"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="audioDetailsDynamicJPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="audioFormatValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="audioCodecValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="audioChannelsValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="audioBitrateValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="sampleRateValueJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="80" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="audioFormatValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="audioCodecValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="audioChannelsValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="audioBitrateValueJLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="sampleRateValueJLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="audioFormatValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unbekannt"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="audioCodecValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unbekannt"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="audioChannelsValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="audioBitrateValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0 Kb/s"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="sampleRateValueJLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0 KHz"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
