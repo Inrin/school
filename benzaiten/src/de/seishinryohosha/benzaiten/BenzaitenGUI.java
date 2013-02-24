@@ -19,6 +19,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private MusicPlayer mplayer;
     private Hashtable labelTable;
     private HashMap labelTableHash;
+    private File currentPlayingFile;
 
     /**
      * Creates new form BenzaitenGUI
@@ -29,6 +30,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         mplayer.addListener(this);
         labelTable = new Hashtable();
         labelTableHash = new HashMap();
+        currentPlayingFile = null;
         initComponents();
     }
 
@@ -38,12 +40,9 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         labelTable.put(new Integer(100), new JLabel(String.valueOf(position) + "%"));
         playbackJSlider.setLabelTable(labelTable);
     }
-
-    private void openLast(JMenuItem menuitem) {
-        if (menuitem.isVisible()) {
-            File file = new File(menuitem.getToolTipText());
-
-            this.setTitle("Benzaiten - " + file.getName());
+    
+    private void playFile(File file){
+        this.setTitle("Benzaiten - " + file.getName());
             mplayer.open(file.getAbsolutePath());
             mplayer.play();
             playPauseJButton.setText("||");
@@ -108,6 +107,20 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
                 }
                 menuitems[1].setToolTipText(file.getAbsolutePath());
             }
+            
+            audioFormatValueJLabel.setText(mplayer.getAudioFormat(file));
+            audioCodecValueJLabel.setText(mplayer.getAudioCodec(file));
+            audioChannelsValueJLabel.setText(String.valueOf(mplayer.getAudioChannels(file)));
+            audioBitrateValueJLabel.setText(String.valueOf(mplayer.getAudioBitrate(file)) + " Kb/s");
+            sampleRateValueJLabel.setText(String.valueOf(mplayer.getSampleRate(file)) + " KHz");
+            
+            pack();
+    }
+
+    private void openLast(JMenuItem menuitem) {
+        if (menuitem.isVisible()) {
+            File file = new File(menuitem.getToolTipText());
+            playFile(file);
             pack();
         }
 
@@ -401,6 +414,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
 
         detailsJPanel.setVisible(false);
 
+        videoDetailsJLabel.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         videoDetailsJLabel.setText("Video-Details");
 
         resolutionValueJLabel.setText("0 x 0");
@@ -504,6 +518,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             .addComponent(videoDetailsStaticJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        audioDetailsJLabel.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         audioDetailsJLabel.setText("Audio-Details");
 
         audioFormatJLabel.setText("Audioformat:");
@@ -1055,72 +1070,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         if (returnVal == JFileChooser.APPROVE_OPTION) {
 
             File file = fc.getSelectedFile();
-
-            this.setTitle("Benzaiten - " + file.getName());
-            mplayer.open(file.getAbsolutePath());
-            mplayer.play();
-            playPauseJButton.setText("||");
-
-            rewindJButton.setEnabled(true);
-            stopPlayingJButton.setEnabled(true);
-            fastForwardJButton.setEnabled(true);
-            playbackJSlider.setEnabled(true);
-            detailsJCheckBoxMenuItem.setEnabled(true);
-
-            labelTable.put(new Integer(0), new JLabel("Play"));
-            playbackJSlider.setLabelTable(labelTable);
-
-            if (mplayer.getTitle(file) != null) {
-                songTitleJLabel.setText(mplayer.getTitle(file));
-                songTitleJLabel.setVisible(true);
-            } else {
-                songTitleJLabel.setVisible(false);
-            }
-
-            if (mplayer.getArtist(file) != null) {
-                artistJlabel.setText(mplayer.getArtist(file));
-                artistJlabel.setVisible(true);
-            } else {
-                artistJlabel.setVisible(false);
-            }
-
-            if (mplayer.getAlbum(file) != null) {
-                albumJLabel.setText(mplayer.getAlbum(file));
-                albumJLabel.setVisible(true);
-            } else {
-                albumJLabel.setVisible(false);
-            }
-
-            if (mplayer.getTitle(file) == null && mplayer.getAlbum(file) == null && mplayer.getArtist(file) == null) {
-                songTitleJLabel.setText(file.getName());
-                songTitleJLabel.setVisible(true);
-            }
-
-            musicInfoJPanel.setVisible(true);
-
-
-            JMenuItem[] menuitems = {openLastJMenuItem1,
-                openLastJMenuItem2,
-                openLastJMenuItem3,
-                openLastJMenuItem4,
-                openLastJMenuItem5,
-                openLastJMenuItem6,
-                openLastJMenuItem7,
-                openLastJMenuItem8,
-                openLastJMenuItem9,
-                openLastJMenuItem10,};
-
-            for (int i = 0; i < menuitems.length; i++) {
-                if (!menuitems[i].isVisible()) {
-                    menuitems[i].setText(file.getName());
-                    menuitems[i].setToolTipText(file.getAbsolutePath());
-                    menuitems[i].setVisible(true);
-                    break;
-                } else {
-                    menuitems[1].setText(file.getName());
-                }
-                menuitems[1].setToolTipText(file.getAbsolutePath());
-            }
+            playFile(file);
             pack();
 
         }

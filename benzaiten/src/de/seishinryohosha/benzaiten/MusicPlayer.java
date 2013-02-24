@@ -312,14 +312,14 @@ public class MusicPlayer {
         return "";
     }
 
-    public String getAudioChannels(File filename) {
+    public Integer getAudioChannels(File filename) {
         try {
             AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
             AudioFormat baseFormat = baseFileFormat.getFormat();
             if (baseFileFormat instanceof TAudioFileFormat) {
                 Map properties = ((TAudioFileFormat) baseFileFormat).properties();
                 String key = "mp3.channels";
-                String val = (String) properties.get(key);
+                Integer val = (Integer) properties.get(key);
 
                 return val;
             }
@@ -328,45 +328,45 @@ public class MusicPlayer {
         } catch (IOException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "";
+        return null;
     }
 
-    public String getAudioBitrate(File filename) {
+    public Integer getAudioBitrate(File filename) {
         try {
             AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
             AudioFormat baseFormat = baseFileFormat.getFormat();
             if (baseFileFormat instanceof TAudioFileFormat) {
                 Map properties = ((TAudioFileFormat) baseFileFormat).properties();
                 String key = "mp3.bitrate.nominal.bps";
-                String val = (String) properties.get(key);
+                Integer val = (Integer) properties.get(key);
 
-                return val;
+                return val/1000;
             }
         } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "";
+        return null;
     }
     
-    public String getSampleRate(File filename) {
+    public Integer getSampleRate(File filename) {
         try {
             AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
             AudioFormat baseFormat = baseFileFormat.getFormat();
             if (baseFileFormat instanceof TAudioFileFormat) {
                 Map properties = ((TAudioFileFormat) baseFileFormat).properties();
                 String key = "mp3.frequency.hz";
-                String val = (String) properties.get(key);
+                Integer val = (Integer) properties.get(key);
 
-                return val;
+                return val/1000;
             }
         } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "";
+        return null;
     }
 
     // Added by seishinryohosha END
