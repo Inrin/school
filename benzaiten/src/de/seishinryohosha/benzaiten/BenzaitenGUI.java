@@ -52,6 +52,7 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             stopPlayingJButton.setEnabled(true);
             fastForwardJButton.setEnabled(true);
             playbackJSlider.setEnabled(true);
+            detailsJCheckBoxMenuItem.setEnabled(true);
 
             labelTable.put(new Integer(0), new JLabel("Play"));
             playbackJSlider.setLabelTable(labelTable);
