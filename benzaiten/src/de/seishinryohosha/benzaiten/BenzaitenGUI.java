@@ -38,9 +38,9 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         labelTable.put(new Integer(100), new JLabel(String.valueOf(position) + "%"));
         playbackJSlider.setLabelTable(labelTable);
     }
-    
-    private void openLast(JMenuItem menuitem){
-        if(menuitem.isVisible()){
+
+    private void openLast(JMenuItem menuitem) {
+        if (menuitem.isVisible()) {
             File file = new File(menuitem.getToolTipText());
 
             this.setTitle("Benzaiten - " + file.getName());
@@ -100,17 +100,18 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             for (int i = 0; i < menuitems.length; i++) {
                 if (!menuitems[i].isVisible()) {
                     menuitems[i].setText(file.getName());
-                    menuitems[i].setToolTipText(file.getAbsolutePath());    
+                    menuitems[i].setToolTipText(file.getAbsolutePath());
                     menuitems[i].setVisible(true);
                     break;
-                }else
+                } else {
                     menuitems[1].setText(file.getName());
-                    menuitems[1].setToolTipText(file.getAbsolutePath());
+                }
+                menuitems[1].setToolTipText(file.getAbsolutePath());
             }
             pack();
         }
-            
-            
+
+
     }
 
     /**
@@ -865,6 +866,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
         detailsJCheckBoxMenuItem.setSelected(true);
         detailsJCheckBoxMenuItem.setText("Details");
         detailsJCheckBoxMenuItem.setEnabled(false);
+        detailsJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailsJCheckBoxMenuItemActionPerformed(evt);
+            }
+        });
         viewJMenu.add(detailsJCheckBoxMenuItem);
 
         spectrumAnalyzerJCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
@@ -1107,12 +1113,13 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
             for (int i = 0; i < menuitems.length; i++) {
                 if (!menuitems[i].isVisible()) {
                     menuitems[i].setText(file.getName());
-                    menuitems[i].setToolTipText(file.getAbsolutePath());    
+                    menuitems[i].setToolTipText(file.getAbsolutePath());
                     menuitems[i].setVisible(true);
                     break;
-                }else
+                } else {
                     menuitems[1].setText(file.getName());
-                    menuitems[1].setToolTipText(file.getAbsolutePath());
+                }
+                menuitems[1].setToolTipText(file.getAbsolutePath());
             }
             pack();
 
@@ -1234,11 +1241,11 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     }//GEN-LAST:event_playlistJCheckBoxMenuItemActionPerformed
 
     private void openLastJMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem1ActionPerformed
-            openLast((JMenuItem) evt.getSource());
+        openLast((JMenuItem) evt.getSource());
     }//GEN-LAST:event_openLastJMenuItem1ActionPerformed
 
     private void openLastJMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem2ActionPerformed
-          openLast((JMenuItem) evt.getSource());
+        openLast((JMenuItem) evt.getSource());
     }//GEN-LAST:event_openLastJMenuItem2ActionPerformed
 
     private void openLastJMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem3ActionPerformed
@@ -1272,6 +1279,15 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
     private void openLastJMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLastJMenuItem10ActionPerformed
         openLast((JMenuItem) evt.getSource());
     }//GEN-LAST:event_openLastJMenuItem10ActionPerformed
+
+    private void detailsJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsJCheckBoxMenuItemActionPerformed
+        if (!detailsJPanel.isVisible()) {
+            detailsJPanel.setVisible(true);
+        } else {
+            detailsJPanel.setVisible(false);
+        }
+        pack();
+    }//GEN-LAST:event_detailsJCheckBoxMenuItemActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -1286,8 +1302,6 @@ public class BenzaitenGUI extends javax.swing.JFrame implements MusicPlayerListe
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
-
                 }
             }
         } catch (ClassNotFoundException ex) {
