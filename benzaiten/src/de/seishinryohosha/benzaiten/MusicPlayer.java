@@ -12,7 +12,6 @@ import javazoom.jlgui.basicplayer.*;
 //import org.tritonus.share.sampled.TAudioFormat;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
 
-
 /**
  * MusicPlayer bietet grundlegende Funktionalität zum Abspielen von
  * Musikdateien.
@@ -214,71 +213,163 @@ public class MusicPlayer {
     }
 
     // Added bei seishinryohosha START
-    
-    public String getTitle(File filename){
-        try{
-        AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
-        AudioFormat baseFormat = baseFileFormat.getFormat();
-        
-        // TAudioFileFormat properties
-        if ( baseFileFormat instanceof TAudioFileFormat){
-            Map properties = ((TAudioFileFormat)baseFileFormat).properties();
-            String key = "title";
-            String val = (String) properties.get(key);
-            
-            return val;
-        }
-        } catch(UnsupportedAudioFileException ex){
+    public String getTitle(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+
+            // TAudioFileFormat properties
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "title";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(IOException ex){
+        } catch (IOException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    public String getArtist(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+
+            // TAudioFileFormat properties
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "author";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    public String getAlbum(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+            AudioFormat baseFormat = baseFileFormat.getFormat();
+
+            // TAudioFileFormat properties
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "album";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    public String getAudioFormat(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+            AudioFormat baseFormat = baseFileFormat.getFormat();
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "mp3.version.encoding";
+                String val = (String) properties.get(key);
+
+                return "85"; // Not correct of course!
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    public String getAudioCodec(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+            AudioFormat baseFormat = baseFileFormat.getFormat();
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "mp3.version.encoding";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    public String getAudioChannels(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+            AudioFormat baseFormat = baseFileFormat.getFormat();
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "mp3.channels";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+
+    public String getAudioBitrate(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+            AudioFormat baseFormat = baseFileFormat.getFormat();
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "mp3.bitrate.nominal.bps";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
     }
     
-    public String getArtist(File filename){
-        try{
-        AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
-        AudioFormat baseFormat = baseFileFormat.getFormat();
-        
-        // TAudioFileFormat properties
-        if ( baseFileFormat instanceof TAudioFileFormat){
-            Map properties = ((TAudioFileFormat)baseFileFormat).properties();
-            String key = "author";
-            String val = (String) properties.get(key);
-            
-            return val;
-        }
-        } catch(UnsupportedAudioFileException ex){
+    public String getSampleRate(File filename) {
+        try {
+            AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
+            AudioFormat baseFormat = baseFileFormat.getFormat();
+            if (baseFileFormat instanceof TAudioFileFormat) {
+                Map properties = ((TAudioFileFormat) baseFileFormat).properties();
+                String key = "mp3.frequency.hz";
+                String val = (String) properties.get(key);
+
+                return val;
+            }
+        } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(IOException ex){
+        } catch (IOException ex) {
             Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
     }
-    
-    public String getAlbum(File filename){
-        try{
-        AudioFileFormat baseFileFormat = AudioSystem.getAudioFileFormat(filename);
-        AudioFormat baseFormat = baseFileFormat.getFormat();
-        
-        // TAudioFileFormat properties
-        if ( baseFileFormat instanceof TAudioFileFormat){
-            Map properties = ((TAudioFileFormat)baseFileFormat).properties();
-            String key = "album";
-            String val = (String) properties.get(key);
-            
-            return val;
-        }
-        } catch(UnsupportedAudioFileException ex){
-            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(IOException ex){
-            Logger.getLogger(MusicPlayer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "";
-    }
+
     // Added by seishinryohosha END
-    
     // Als innere Klasse eine Unterklasse von BasicPlayer, um Klasse unsichtbar zu machen nach au�en.
     private class SimplePlayer extends BasicPlayer implements BasicPlayerListener {
 
@@ -289,7 +380,7 @@ public class MusicPlayer {
         public int getPosition() {
             return super.getEncodedStreamPosition();
         }
-        
+
         @Override
         public void opened(Object arg0, Map arg1) {
         }
