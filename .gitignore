@@ -9,7 +9,7 @@
 *.ctxt
 
 # Backupfiles
-*
+*~
 ~
 # Private stuff not needed
 benzaiten/nbproject/private/
