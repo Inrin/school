@@ -12,10 +12,10 @@
 *
 ~
 # Private stuff not needed
-/benzaiten/nbproject/private/
+benzaiten/nbproject/private/
 
 # all the build-stuff
-/benzaiten/build/
+benzaiten/build/
 
 # Only for distribution
-/benzaiten/dist/
+benzaiten/dist/
