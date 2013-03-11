@@ -30,4 +30,10 @@ public class SheepWorld extends World
     public void act(){
         populateFlora();
     }
+    
+    public void beep(){
+        System.out.println("\007");
+        java.awt.Toolkit.getDefaultToolkit().beep();
+        System.out.println("\a");
+    }
 }

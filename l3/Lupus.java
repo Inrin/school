@@ -4,36 +4,45 @@ import java.util.Random;
 public class Lupus extends MovingActor
 {
 
-	private int gestationtime = 1;
+    private int gestationtime = 1;
+    private static int lupi = 0;
 
-	public void movement(){
-		if(!this.canMove()){
-			if(new Random().nextInt(1) == 0)
-				this.turnRight();
-			else
-				this.turnLeft();
-		}
+    public Lupus(){
+        Lupus.lupi++;
+    }
 
-		if(new Random().nextInt(10) == 0)
-			setDirection(new Random().nextInt(4));
+    public static int getLupi(){
+        return lupi;
+    }
 
-		move();
-	}
+    public void movement(){
+        if(!this.canMove()){
+            if(new Random().nextInt(1) == 0)
+                this.turnRight();
+            else
+                this.turnLeft();
+        }
 
-	private void breed(){
-		gestationtime = (gestationtime>0 && gestationtime<63) ? gestationtime+=1:0; 
+        if(new Random().nextInt(10) == 0)
+            setDirection(new Random().nextInt(4));
 
-		if(new Random().nextInt(getWorld().getObjects(Lupus.class).size()) == 0){
-			if(getOneIntersectingObject(Lupus.class)!= null && gestationtime == 0){
-				SheepWorld w =(SheepWorld) getWorld();
-				w.populateLupus(6);
-				gestationtime++;
-			}
-		}
-	}
+        move();
+    }
 
-	public void act(){
-		breed();
-		movement();
-	}
+    private void breed(){
+        gestationtime = (gestationtime>0 && gestationtime<63) ? gestationtime+=1:0; 
+
+        if(new Random().nextInt(getWorld().getObjects(Lupus.class).size()) == 0){
+            if(getOneIntersectingObject(Lupus.class)!= null && gestationtime == 0){
+                SheepWorld w =(SheepWorld) getWorld();
+                w.populateLupus(6);
+                gestationtime++;
+            }
+        }
+    }
+
+    public void act(){
+        breed();
+        movement();
+    }
 }

@@ -9,7 +9,7 @@ public class Sheep extends MovingActor
     }
 
     private void sheepInit(){
-        this.energy=10;
+        this.energy=10000000;
         this.score=0;
     }
 
@@ -50,7 +50,7 @@ public class Sheep extends MovingActor
 
     public void sheepLogic(){
         eatFlower();
-        printStats();
+//         printStats();
         notifyDeath();
     }
 
