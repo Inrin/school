@@ -1,8 +1,8 @@
 
 public class Einsatz
 {
-    public void durchführen()
+    public void durchführen() throws EntschärfungsException
     {
-//         new Bombe().entsch�rfen();
+        new Bombe().entschärfen();
     }
 }
