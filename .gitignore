@@ -19,3 +19,6 @@ benzaiten/build/
 
 # Only for distribution
 benzaiten/dist/
+
+# Pythonstuff
+__pycache__
