@@ -1,21 +1,24 @@
 #!/usr/bin/python
 
 ##############################################################################
+##                                 Imports                                  ##
+##############################################################################
+
+from Spiel import printError
+
+##############################################################################
+##                                 Fields                                   ##
+##############################################################################
+
+userInput = -1
+
+##############################################################################
 ##                                Definitions                               ##
 ##############################################################################
 
-def buttonBetClick(entry):
-    """Bet to win some nice prices"""
-#    if int(entry.get()) < 7:
-#        print('hahaha')
-#    else:
-#        print('lkajsfkjasd')
-    pass
-
-def buttonPayClick():
-    """Yes I have won, give Player his money or take it all"""
-    pass
-
-def buttonDiceClick():
-    """Alea iacta est. Give the results"""
-    pass
+def setGuess(entry):
+    """Sets users input"""
+    if 0 <= int(entry) < 7:
+        print('haha')
+    else:
+        printError("Please insert a value betweenn 0~7")

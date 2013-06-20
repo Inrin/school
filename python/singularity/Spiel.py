@@ -103,11 +103,31 @@ labelResult3 = Label(master=frameResults, text='', fg=FGL, bg=BGL,
 entryBetInt = Entry(master=root, fg=FGE, bg=BGE, font=(FONT, FONTSIZEE))
 
 ##############################################################################
+##                                Buttondefs                                ##
+##############################################################################
+def buttonBetClick():
+    """ Start Engine """
+    setGuess(entryBetInt.get())
+
+
+def buttonPayClick():
+    """Start Engine"""
+    pass    
+
+def buttonDiceClick():
+    """Start Engine"""
+    pass
+
+def printError(errorcode):
+    """Prints errors send by Engine"""
+    pass
+
+##############################################################################
 ##                                Buttons                                   ##
 ##############################################################################
 
 buttonBet = Button(master=root, text=BUTTONBET, fg=FGB, bg=BGB, font=(FONT,
-    FONTSIZEB), command=buttonBetClick(entryBetInt))
+    FONTSIZEB), command=buttonBetClick)
 buttonPay = Button(master=root, text=BUTTONPAY, fg=FGB, bg=BGB, font=(FONT,
     FONTSIZEB), command=buttonPayClick)
 buttonDice = Button(master=root, text=BUTTONDICE, fg=FGB, bg=BGB, font=(FONT,
