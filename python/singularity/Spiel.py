@@ -57,19 +57,9 @@ PADX='5'
 PADY='5'
 
 ##############################################################################
-##                                Fields                                    ##
-##############################################################################
-CREDIT='0'
-RESULT=[0,1,2]
-
-##############################################################################
-##                                 GUI                                      ##
+##                              GUI ~Creation                               ##
 ##############################################################################
 
-
-##############################################################################
-##                               Creation                                   ##
-##############################################################################
 root = Tk()
 root.title(TITLE)
 root.geometry(ROOTSIZE)
@@ -97,13 +87,13 @@ labelSegment3 = Label(master=root, text=SEGMENTT3, fg=FGL, bg=BGL,
     font=(FONT,FONTSIZEL))
 
 ## Label der Auswertungen
-labelCredit = Label(master=root, text=CREDIT, fg=FGL, bg=BGL, 
+labelCredit = Label(master=root, text='100', fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
-labelResult1 = Label(master=frameResults, text=RESULT[0], fg=FGL, bg=BGL, 
+labelResult1 = Label(master=frameResults, text='', fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
-labelResult2 = Label(master=frameResults, text=RESULT[1], fg=FGL, bg=BGL, 
+labelResult2 = Label(master=frameResults, text='', fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
-labelResult3 = Label(master=frameResults, text=RESULT[2], fg=FGL, bg=BGL, 
+labelResult3 = Label(master=frameResults, text='', fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
 
 ##############################################################################
@@ -117,7 +107,7 @@ entryBetInt = Entry(master=root, fg=FGE, bg=BGE, font=(FONT, FONTSIZEE))
 ##############################################################################
 
 buttonBet = Button(master=root, text=BUTTONBET, fg=FGB, bg=BGB, font=(FONT,
-    FONTSIZEB), command=buttonBetClick)
+    FONTSIZEB), command=buttonBetClick(entryBetInt))
 buttonPay = Button(master=root, text=BUTTONPAY, fg=FGB, bg=BGB, font=(FONT,
     FONTSIZEB), command=buttonPayClick)
 buttonDice = Button(master=root, text=BUTTONDICE, fg=FGB, bg=BGB, font=(FONT,
@@ -155,6 +145,3 @@ root.rowconfigure(0, weight=1)
 root.rowconfigure(1, weight=1)
 root.rowconfigure(2, weight=1)
 root.rowconfigure(3, weight=1)
-
-## aktiviere Fenster
-root.mainloop()
