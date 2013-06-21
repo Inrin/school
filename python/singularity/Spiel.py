@@ -1,64 +1,18 @@
-#!/usr/bin/python
-
 ##############################################################################
 ##                               Imports                                    ##
 ##############################################################################
 
 from tkinter import *
-
-from Engine import *
-
-##############################################################################
-##                               Constants                                  ##
-##############################################################################
-
-## Fentsergröße
-ROOTSIZE='700x200'
-
-## Spieltitel
-TITLE='Chuck-a-Luck'
-
-## Segmenttitel
-SEGMENTT1='Konto'
-SEGMENTT2='Zahl'
-SEGMENTT3='Wurfel' 
-
-## Buttontext
-BUTTONBET='Einsatz zahlen'
-BUTTONPAY='Gewinn auszahlen'
-BUTTONDICE='Würfel werfen'
-
-## Fonts
-FONT='Arial'
-FONTSIZET=33
-FONTSIZEL=16
-FONTSIZEB=17
-FONTSIZEE=16
-
-## Label Colors
-BGT='gray'
-FGT='white'
-BGL='gray'
-FGL='white'
-
-## Input(Entry) Colors
-BGE='gray'
-FGE='white'
-
-## Button Colors
-BGB='gray'
-FGB='white'
-
-## Frame Colors
-BGF='gray'
-
-## Layout padding
-PADX='5'
-PADY='5'
+from tkinter.messagebox import showerror
+import Engine
+from config import *
 
 ##############################################################################
 ##                              GUI ~Creation                               ##
 ##############################################################################
+
+## Use custom theme, yes = 'enabled'; no = 'disabled'
+useCustomTheme('disabled')
 
 root = Tk()
 root.title(TITLE)
@@ -89,12 +43,10 @@ labelSegment3 = Label(master=root, text=SEGMENTT3, fg=FGL, bg=BGL,
 ## Label der Auswertungen
 labelCredit = Label(master=root, text='100', fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
-labelResult1 = Label(master=frameResults, text='', fg=FGL, bg=BGL, 
-    font=(FONT,FONTSIZEL))
-labelResult2 = Label(master=frameResults, text='', fg=FGL, bg=BGL, 
-    font=(FONT,FONTSIZEL))
-labelResult3 = Label(master=frameResults, text='', fg=FGL, bg=BGL, 
-    font=(FONT,FONTSIZEL))
+labelResults = [None,None,None]
+for i in range(len(labelResults)):
+    labelResults[i] = Label(master=frameResults, text='-1', fg=FGL,
+            bg=BGL, font=(FONT ,FONTSIZEL))
 
 ##############################################################################
 ##                                Inputs                                    ##
@@ -103,35 +55,15 @@ labelResult3 = Label(master=frameResults, text='', fg=FGL, bg=BGL,
 entryBetInt = Entry(master=root, fg=FGE, bg=BGE, font=(FONT, FONTSIZEE))
 
 ##############################################################################
-##                                Buttondefs                                ##
-##############################################################################
-def buttonBetClick():
-    """ Start Engine """
-    setGuess(entryBetInt.get())
-
-
-def buttonPayClick():
-    """Start Engine"""
-    pass    
-
-def buttonDiceClick():
-    """Start Engine"""
-    pass
-
-def printError(errorcode):
-    """Prints errors send by Engine"""
-    pass
-
-##############################################################################
 ##                                Buttons                                   ##
 ##############################################################################
 
-buttonBet = Button(master=root, text=BUTTONBET, fg=FGB, bg=BGB, font=(FONT,
-    FONTSIZEB), command=buttonBetClick)
+buttonBet = Button(master=root, text=BUTTONBET,fg=FGB, bg=BGB, font=(FONT,
+    FONTSIZEB), command=lambda: Engine.buttonBetClick())
 buttonPay = Button(master=root, text=BUTTONPAY, fg=FGB, bg=BGB, font=(FONT,
-    FONTSIZEB), command=buttonPayClick)
+    FONTSIZEB), state='disabled', command=lambda: Engine.buttonPayClick())
 buttonDice = Button(master=root, text=BUTTONDICE, fg=FGB, bg=BGB, font=(FONT,
-    FONTSIZEB), command=buttonDiceClick)
+    FONTSIZEB), state='disabled', command=lambda: Engine.buttonDiceClick())
 
 
 ##############################################################################
@@ -151,10 +83,8 @@ buttonPay.grid(row=3, column=1, padx=PADX, pady=PADY)
 buttonDice.grid(row=3, column=2, padx=PADX, pady=PADY)
 
 ## Putting in the frame
-labelResult3.pack(side='left', fill='both')
-labelResult2.pack(side='left', fill='both')
-labelResult1.pack(side='left', fill='both')
-
+[labelResults[i].pack(side='left', fill='both') 
+    for i in range(len(labelResults))]
 
 ## Resizeable, YES
 root.columnconfigure(0, weight=1)

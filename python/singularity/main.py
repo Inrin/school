@@ -1,5 +1,5 @@
 #!/usr/bin/python
 
-import Spiel 
+import Spiel
 
 Spiel.root.mainloop()
