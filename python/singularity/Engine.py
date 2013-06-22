@@ -26,15 +26,14 @@ def getUpdate(entry=True, credit=True, results=True):
 
     try:
         if entry:
-            _entry = int(Spiel.entryBetInt.get())
+            _entry = int(GUI.inputChoice.get())
         if credit:
-            _credit = int(Spiel.labelCredit.cget('text'))
+            _credit = int(GUI.labelCredit.cget('text'))
         if results:
-            _results = [int(Spiel.labelResults[i].cget('text')) for i in range(3)]
+            _results = [int(GUI.labelResults[i].cget('text')) for i in range(3)]
 
     except ValueError:
-        Spiel.showerror('Convert Error!','Unable to convert input to int')
-        Spiel.entryBetInt.delete(0, Spiel.END)
+        GUI.showerror('Convert Error!','Unable to convert input to int')
 
 ### BUTTONS BEGIN
 
@@ -42,14 +41,13 @@ def buttonBetClick():
     """Sets users input"""
     getUpdate()
     if _entry != 0 and _entry not in range(1,7):
-        Spiel.showerror('Logic Error', 'Please insert a value between 1~6')
+        GUI.showerror('Logic Error', 'Please insert a value between 1~6')
     elif _entry not in range(1,7): 
         return
     else:
-        Spiel.labelCredit.config(text=str((_credit -1)))
-        Spiel.buttonBet.config(state='disabled')
-        Spiel.buttonDice.config(state='normal')
-        Spiel.entryBetInt.config(state='readonly')
+        GUI.labelCredit.config(text=str((_credit -1)))
+        GUI.buttonBet.config(state='disabled')
+        GUI.buttonDice.config(state='normal')
 
 def buttonPayClick():
     """Give it to me"""
@@ -58,9 +56,9 @@ def buttonPayClick():
 
     getUpdate()
     _credit += _results.count(_entry)
-    Spiel.labelCredit.config(text=_credit)
-    Spiel.buttonBet.config(state='normal')
-    Spiel.buttonPay.config(state='disabled')
+    GUI.labelCredit.config(text=_credit)
+    GUI.buttonBet.config(state='normal')
+    GUI.buttonPay.config(state='disabled')
 
 def buttonDiceClick():
     """alea iacta est"""
@@ -69,9 +67,9 @@ def buttonDiceClick():
 
     getUpdate()
     rand = [randint(1,6) for x in range(len(_results))]
-    [Spiel.labelResults[i].config(text=str(rand[i])) 
+    [GUI.labelResults[i].config(text=str(rand[i])) 
         for i in range(len(_results))]
-    Spiel.buttonDice.config(state='disabled')
-    Spiel.buttonPay.config(state='normal')
+    GUI.buttonDice.config(state='disabled')
+    GUI.buttonPay.config(state='normal')
 
 ### BUTTONS END
