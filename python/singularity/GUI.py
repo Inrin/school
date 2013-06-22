@@ -23,6 +23,7 @@ root.geometry(ROOTSIZE)
 ##############################################################################
 
 frameResults = Frame(master=root, bg=BGF)
+frameInputs = Frame(master=root, bg=BGF)
 
 ##############################################################################
 ##                                Labels                                    ##
@@ -52,7 +53,13 @@ for i in range(len(labelResults)):
 ##                                Inputs                                    ##
 ##############################################################################
 
-entryBetInt = Entry(master=root, fg=FGE, bg=BGE, font=(FONT, FONTSIZEE))
+inputChoice = IntVar()
+
+for i in range(1,7):
+    radiobuttons[i] = Radiobutton(master=frameInputs, text=str(i), 
+        value=i, variable=inputChoice)
+
+radiobuttons[1].select()
 
 ##############################################################################
 ##                                Buttons                                   ##
@@ -76,7 +83,7 @@ labelSegment1.grid(row=1, column=0, padx=PADX, pady=PADY)
 labelSegment2.grid(row=1, column=1, padx=PADX, pady=PADY)
 labelSegment3.grid(row=1, column=2, padx=PADX, pady=PADY)
 labelCredit.grid(row=2, column=0, padx=PADX, pady=PADY)
-entryBetInt.grid(row=2, column=1, padx=PADX, pady=PADY)
+frameInputs.grid(row=2, column=1, padx=PADX, pady=PADY)
 frameResults.grid(row=2, column=2, padx=PADX, pady=PADY)
 buttonBet.grid(row=3, column=0, padx=PADX, pady=PADY)
 buttonPay.grid(row=3, column=1, padx=PADX, pady=PADY)
