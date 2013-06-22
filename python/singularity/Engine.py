@@ -12,6 +12,7 @@ from random import randint
 _entry = 0
 _credit = -1
 _results = [0,0,0]
+_diced = 0
 
 ##############################################################################
 ##                                Definitions                               ##
@@ -39,7 +40,7 @@ def getUpdate(entry=True, credit=True, results=True):
 
 def buttonBetClick():
     """Sets users input"""
-    getUpdate()
+    getUpdate(results=False)
     if _entry != 0 and _entry not in range(1,7):
         GUI.showerror('Logic Error', 'Please insert a value between 1~6')
     elif _entry not in range(1,7): 
@@ -69,7 +70,7 @@ def buttonDiceClick():
     #use fields
     global _results
 
-    getUpdate()
+    getUpdate(entry=False, credit=False)
     rand = [randint(1,6) for x in range(len(_results))]
     for i in range(len(_results)):
         GUI.labelResults[i].config(text=str(rand[i])) 
