@@ -26,7 +26,7 @@ def getUpdate(entry=True, credit=True, results=True):
 
     try:
         if entry:
-            _entry = int(GUI.entryBetInt.get())
+            _entry = int(GUI.inputChoice.get())
         if credit:
             _credit = int(GUI.labelCredit.cget('text'))
         if results:
@@ -34,7 +34,6 @@ def getUpdate(entry=True, credit=True, results=True):
 
     except ValueError:
         GUI.showerror('Convert Error!','Unable to convert input to int')
-        GUI.entryBetInt.delete(0, GUI.END)
 
 ### BUTTONS BEGIN
 
@@ -49,7 +48,6 @@ def buttonBetClick():
         GUI.labelCredit.config(text=str((_credit -1)))
         GUI.buttonBet.config(state='disabled')
         GUI.buttonDice.config(state='normal')
-        GUI.entryBetInt.config(state='readonly')
 
 def buttonPayClick():
     """Give it to me"""
@@ -69,8 +67,8 @@ def buttonDiceClick():
 
     getUpdate()
     rand = [randint(1,6) for x in range(len(_results))]
-    [GUI.labelResults[i].config(text=str(rand[i])) 
-        for i in range(len(_results))]
+    for i in range(len(_results)):
+        GUI.labelResults[i].config(text=str(rand[i])) 
     GUI.buttonDice.config(state='disabled')
     GUI.buttonPay.config(state='normal')
 
