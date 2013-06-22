@@ -23,16 +23,17 @@ root.geometry(ROOTSIZE)
 ##############################################################################
 
 frameResults = Frame(master=root, bg=BGF)
+frameInputs = Frame(master=root, bg=BGF)
 
 ##############################################################################
 ##                                Labels                                    ##
 ##############################################################################
 
-## Label für Titel
+## Label of title
 labelTitle = Label(master=root, text=TITLE, fg=FGT, bg=BGT,
     font=(FONT, FONTSIZET))
 
-## Label der Bereiche
+## Label of segments
 labelSegment1 = Label(master=root, text=SEGMENTT1, fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
 labelSegment2 = Label(master=root, text=SEGMENTT2, fg=FGL, bg=BGL, 
@@ -40,19 +41,32 @@ labelSegment2 = Label(master=root, text=SEGMENTT2, fg=FGL, bg=BGL,
 labelSegment3 = Label(master=root, text=SEGMENTT3, fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
 
-## Label der Auswertungen
+## Label of evaluations
 labelCredit = Label(master=root, text='100', fg=FGL, bg=BGL, 
     font=(FONT,FONTSIZEL))
-labelResults = [None,None,None]
-for i in range(len(labelResults)):
-    labelResults[i] = Label(master=frameResults, text='-1', fg=FGL,
+labelResults = []
+for i in range(3):
+    labelResults.append(
+        Label(master=frameResults, text='-1', fg=FGL,
             bg=BGL, font=(FONT ,FONTSIZEL))
+    )
 
 ##############################################################################
 ##                                Inputs                                    ##
 ##############################################################################
 
-entryBetInt = Entry(master=root, fg=FGE, bg=BGE, font=(FONT, FONTSIZEE))
+## Controlvar for users choice
+inputChoice = IntVar()
+
+## Radiobuttons for users choice
+radiobuttons = []
+for i in range(1,7):
+    radiobuttons.append(
+        Radiobutton(master=frameInputs, text=str(i), 
+            value=i, variable=inputChoice)
+    )
+
+radiobuttons[1].select()
 
 ##############################################################################
 ##                                Buttons                                   ##
@@ -76,15 +90,24 @@ labelSegment1.grid(row=1, column=0, padx=PADX, pady=PADY)
 labelSegment2.grid(row=1, column=1, padx=PADX, pady=PADY)
 labelSegment3.grid(row=1, column=2, padx=PADX, pady=PADY)
 labelCredit.grid(row=2, column=0, padx=PADX, pady=PADY)
-entryBetInt.grid(row=2, column=1, padx=PADX, pady=PADY)
+frameInputs.grid(row=2, column=1, padx=PADX, pady=PADY)
 frameResults.grid(row=2, column=2, padx=PADX, pady=PADY)
 buttonBet.grid(row=3, column=0, padx=PADX, pady=PADY)
 buttonPay.grid(row=3, column=1, padx=PADX, pady=PADY)
 buttonDice.grid(row=3, column=2, padx=PADX, pady=PADY)
 
-## Putting in the frame
-[labelResults[i].pack(side='left', fill='both') 
-    for i in range(len(labelResults))]
+### Putting in the frames ###
+## Labelresults
+for i in range(len(labelResults)):
+    labelResults[i].pack(side='left', fill='both') 
+
+## Radiobuttons first row
+for i in range(len(radiobuttons)//2):
+    radiobuttons[i].grid(row=0, column=i, padx=PADX, pady=PADY)
+
+## Radiobuttons second row
+for i in range(((len(radiobuttons)//2)), (len(radiobuttons))):
+    radiobuttons[i].grid(row=1, column=i-(len(radiobuttons))//2, padx=PADX, pady=PADY)
 
 ## Resizeable, YES
 root.columnconfigure(0, weight=1)
