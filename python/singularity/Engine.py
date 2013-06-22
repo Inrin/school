@@ -56,6 +56,7 @@ def buttonPayClick():
     """Give it to me"""
     ## Use fields
     global _credit
+    global _canDice
 
     getUpdate()
     _credit += _results.count(_entry)
@@ -64,17 +65,32 @@ def buttonPayClick():
     GUI.buttonPay.config(state='disabled')
     for i in range(len(GUI.radiobuttons)):
         GUI.radiobuttons[i].config(state='normal') 
+    for i in range(len(_canDice)):
+       _canDice[i]=True
+    for i in range(len(GUI.labelResults)):
+        GUI.labelResults[i].config(image=GUI.imageDice[0]) 
 
 def buttonDiceClick():
     """alea iacta est"""
     #use fields
     global _results
+    global _canDice
 
     getUpdate(entry=False, credit=False)
     rand = [randint(1,6) for x in range(len(_results))]
-    for i in range(len(_results)):
-        GUI.labelResults[i].config(text=str(rand[i])) 
-        GUI.labelResults[i].config(image=GUI.imageDice[rand[i]]) 
+
+    if False in _canDice:
+        for i in range(_canDice.count(True)):
+            GUI.labelResults[_canDice.index(True)].config(text=
+                    str(rand[_canDice.index(True)])) 
+            GUI.labelResults[_canDice.index(True)].config(image=
+                    GUI.imageDice[rand[_canDice.index(True)]]) 
+            _canDice[_canDice.index(True)] = False
+    else:
+        for i in range(len(_results)):
+            GUI.labelResults[i].config(text=str(rand[i])) 
+            GUI.labelResults[i].config(image=GUI.imageDice[rand[i]]) 
+
     GUI.buttonDice.config(state='disabled')
     GUI.buttonPay.config(state='normal')
 
@@ -84,15 +100,9 @@ def labelDieDoubleClick(event):
     global _results
     global _canDice
 
-    if True not in _canDice:
-            for i in range(len(_canDice)):
-               _canDice[i]=True
-
-    GUI.buttonDice.config(state='disabled')
-
     getUpdate(entry=False, credit=False)
     rand = randint(1,6) 
-    if True in _canDice: 
+    if True in _canDice and GUI.buttonBet.cget('state') == 'disabled': 
         if event.widget is GUI.labelResults[0] and _canDice[0]:
             event.widget.config(text=str(rand)) 
             event.widget.config(image=GUI.imageDice[rand]) 
