@@ -11,9 +11,6 @@ from config import *
 ##                              GUI ~Creation                               ##
 ##############################################################################
 
-## Use custom theme, yes = 'enabled'; no = 'disabled'
-useCustomTheme('disabled')
-
 root = Tk()
 root.title(TITLE)
 root.geometry(ROOTSIZE)

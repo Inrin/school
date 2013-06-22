@@ -1,19 +1,17 @@
 ##############################################################################
 ##                               Config                                     ##
 ##############################################################################
+
+## Custom theme 'enabled'?
 _state = 'disabled'
 
-def useCustomTheme(state='disabled'):
-    """Use custom theme?"""
-    global _state
-    _state = state
 
 if _state == 'enabled':
 ## Fentsergröße
     ROOTSIZE='700x200'
 
 ## Spieltitel
-    TITLE='Chuck-a-Luck'
+    TITLE='Chucaak-a-Luck'
 
 ## Segmenttitel
     SEGMENTT1='Konto'
@@ -72,8 +70,8 @@ else:
     FGT=None
     BGL=None
     FGL=None
-    BGE=None
-    FGE=None
+    BGR=None
+    FGR=None
     BGB=None
     FGB=None
     BGF=None
