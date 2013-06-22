@@ -73,6 +73,7 @@ def buttonDiceClick():
     rand = [randint(1,6) for x in range(len(_results))]
     for i in range(len(_results)):
         GUI.labelResults[i].config(text=str(rand[i])) 
+        GUI.labelResults[i].config(image=GUI.imageDice[rand[i]]) 
     GUI.buttonDice.config(state='disabled')
     GUI.buttonPay.config(state='normal')
 

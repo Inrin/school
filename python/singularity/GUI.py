@@ -23,6 +23,16 @@ frameResults = Frame(master=root, bg=BGF)
 frameInputs = Frame(master=root, bg=BGF)
 
 ##############################################################################
+##                                Images                                    ##
+##############################################################################
+
+imageDice = []
+for i in range(7):
+    imageDice.append(
+        PhotoImage(file=PATH + IMAGEPREFIX + str(i) + IMAGESUFFIX)
+    )
+
+##############################################################################
 ##                                Labels                                    ##
 ##############################################################################
 
@@ -44,8 +54,8 @@ labelCredit = Label(master=root, text='100', fg=FGL, bg=BGL,
 labelResults = []
 for i in range(3):
     labelResults.append(
-        Label(master=frameResults, text='-1', fg=FGL,
-            bg=BGL, font=(FONT ,FONTSIZEL))
+        Label(master=frameResults, text='-1', image=imageDice[0],
+            fg=FGL, bg=BGL, font=(FONT ,FONTSIZEL))
     )
 
 ##############################################################################

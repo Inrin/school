@@ -18,6 +18,11 @@ if _state == 'enabled':
     SEGMENTT2='Zahl'
     SEGMENTT3='Wurfel' 
 
+## Imagepath
+    PATH='img/'
+    IMAGEPREFIX='w'
+    IMAGESUFFIX='.gif'
+
 ## Buttontext
     BUTTONBET='Einsatz zahlen'
     BUTTONPAY='Gewinn auszahlen'
@@ -58,6 +63,9 @@ else:
     SEGMENTT1='Konto'
     SEGMENTT2='Zahl'
     SEGMENTT3='Wurfel' 
+    PATH='img/'
+    IMAGEPREFIX='w'
+    IMAGESUFFIX='.gif'
     BUTTONBET='Einsatz zahlen'
     BUTTONPAY='Gewinn auszahlen'
     BUTTONDICE='Würfel werfen'
