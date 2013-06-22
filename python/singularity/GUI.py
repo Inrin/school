@@ -57,6 +57,8 @@ for i in range(3):
         Label(master=frameResults, text='-1', image=imageDice[0],
             fg=FGL, bg=BGL, font=(FONT ,FONTSIZEL))
     )
+    labelResults[i].bind('<Double-Button-1>', 
+        lambda event: Engine.labelDieDoubleClick(event))
 
 ##############################################################################
 ##                                Inputs                                    ##
