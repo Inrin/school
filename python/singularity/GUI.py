@@ -62,7 +62,8 @@ inputChoice = IntVar()
 radiobuttons = []
 for i in range(1,7):
     radiobuttons.append(
-        Radiobutton(master=frameInputs, text=str(i), 
+        Radiobutton(master=frameInputs, text=str(i), indicatoron=0, 
+            bg=BGR, fg=FGR, font=FONT,
             value=i, variable=inputChoice)
     )
 

@@ -38,9 +38,9 @@ if _state == 'enabled':
     BGL='gray'
     FGL='white'
 
-## Input(Entry) Colors
-    BGE='gray'
-    FGE='white'
+## Input(Radiobuttons) Colors
+    BGR='gray'
+    FGR='white'
 
 ## Button Colors
     BGB='gray'
