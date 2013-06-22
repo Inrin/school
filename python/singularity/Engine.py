@@ -61,6 +61,7 @@ def buttonPayClick():
     GUI.labelCredit.config(text=_credit)
     GUI.buttonBet.config(state='normal')
     GUI.buttonPay.config(state='disabled')
+    GUI.entryBetInt.config(state='normal')
 
 def buttonDiceClick():
     """alea iacta est"""
