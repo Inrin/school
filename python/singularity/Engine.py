@@ -48,6 +48,8 @@ def buttonBetClick():
         GUI.labelCredit.config(text=str((_credit -1)))
         GUI.buttonBet.config(state='disabled')
         GUI.buttonDice.config(state='normal')
+        for i in range(len(GUI.radiobuttons)):
+            GUI.radiobuttons[i].config(state='disabled') 
 
 def buttonPayClick():
     """Give it to me"""
@@ -59,7 +61,8 @@ def buttonPayClick():
     GUI.labelCredit.config(text=_credit)
     GUI.buttonBet.config(state='normal')
     GUI.buttonPay.config(state='disabled')
-    GUI.entryBetInt.config(state='normal')
+    for i in range(len(GUI.radiobuttons)):
+        GUI.radiobuttons[i].config(state='normal') 
 
 def buttonDiceClick():
     """alea iacta est"""
