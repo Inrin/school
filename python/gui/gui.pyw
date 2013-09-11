@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from tkinter import *
 
 def wegberechnungen(geschwindigkeit):
@@ -10,7 +12,7 @@ def Button_Berechnen_Click():
     # Übernahme der Daten
     geschwindigkeit = float(entryGeschwindigkeit.get())
     # Verarbeitung der Daten
-    (reaktionsweg, bremsweg, anhalteweg) = wegberechnungen(geschwindigkeit)   
+    (reaktionsweg, bremsweg, anhalteweg) = wegberechnungen(geschwindigkeit)
     # Anzeige der Daten
     anzeigeReaktionsweg = '{0:.2f}'. format(reaktionsweg)
     labelWertReaktionsweg.config(text=anzeigeReaktionsweg)
@@ -23,8 +25,6 @@ def Button_Berechnen_Click():
 tkFenster = Tk()
 tkFenster.title('Anhalteweg')
 tkFenster.geometry('300x287')
-self.style = Style()
-self.style.theme_use("default")
 # Rahmen für die Überschrift
 frameUeberschrift = Frame(master=tkFenster,
                           #background='#889E9D')
