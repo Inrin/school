@@ -1,3 +1,8 @@
+'''
+File: robos.py
+Author: Rieger Anton
+Description: Ampelklassen
+'''
 class AutoRobo(object):
     """Lenkt die Lampen"""
 

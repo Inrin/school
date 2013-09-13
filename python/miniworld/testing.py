@@ -1,3 +1,8 @@
+'''
+File: testing.py
+Author: Rieger Anton
+Description: minimale Testdatei
+'''
 #!/usr/bin/python
 ###############################################################################
 ##                                 Imports                                   ##

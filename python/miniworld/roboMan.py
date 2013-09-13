@@ -1,3 +1,8 @@
+'''
+File: roboMan.py
+Author: Rieger Anton
+Description: Ampelmanager
+'''
 from cpm import CPM
 from robos import *
 class RoboMan(object):

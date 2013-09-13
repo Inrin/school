@@ -1,3 +1,8 @@
+'''
+File: cpm.py
+Author: Rieger Anton
+Description: Schaltplanzentrale
+'''
 class CPM(object):
     """Schaltplanmanager"""
 
