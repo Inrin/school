@@ -3,14 +3,14 @@ class CPM(object):
 
     def __init__(self):
         self.plans = [
-            [False, True, True, False, False, True, True, False, False, False],
-            [True, True, False, False, False, False, True, True, False, False],
-            [False, True, True, False, False, True, True, False, False, False],
-            [True, True, False, False, False, False, True, True, False, False],
-            [False, False, True, False, False, True, False, False, False, False],
-            [True, False, False, False, False, False, False, True, False, False],
-            [False, False, True, False, False, True, False, False, False, False],
-            [True, False, False, False, False, False, False, True, False, False]
+                [True,  True,  False, False, False, False, True,  True,  False, False],
+                [True,  False, False, False, False, False, False, True, False, False],
+                [False, True,  True,  False, False, True,  True,  False, False, False],
+                [False, False, True,  False, False, True,  False, False,  False, False],
+                [True,  True,  False, False, False, False, True,  True, False, False],
+                [True,  False, False, False, False, False, False, True,  False, False],
+                [False, True,  True,  False, False, True,  True,  False, False, False],
+                [False, False, True,  False, False, True,  False, False,  False, False]
             ]
         self.counter = 0
         self.LIMIT = 10

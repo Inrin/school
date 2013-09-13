@@ -11,10 +11,10 @@ class AutoRobo(object):
         if self.state == 'rot':
             self.state = 'rotgelb'
         elif self.state == 'rotgelb':
-            self.state = 'gelb'
-        elif self.state == 'gelb':
             self.state = 'gruen'
         elif self.state == 'gruen':
+            self.state = 'gelb'
+        elif self.state == 'gelb':
             self.state = 'rot'
 
 class PedesRobo(object):

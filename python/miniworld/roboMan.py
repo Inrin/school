@@ -6,8 +6,8 @@ class RoboMan(object):
     def __init__(self):
         self.cpm = CPM()
         self.robos = [AutoRobo('gruen'),PedesRobo('gruen'),
-                AutoRobo('gruen'),PedesRobo('gruen'),
                 AutoRobo('rot'),PedesRobo('rot'),
+                AutoRobo('gruen'),PedesRobo('gruen'),
                 AutoRobo('rot'),PedesRobo('rot')]
 
     def switchRobos(self):
