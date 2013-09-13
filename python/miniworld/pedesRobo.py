@@ -4,10 +4,10 @@ class PedesRobo(object):
 
     def __init__(self, initstate):
         self.state = initstate
-        
+
     def getState():
         return self.state
-        
+
     def switch():
         if self.state == 'rot':
             state == 'gelb'
@@ -15,4 +15,4 @@ class PedesRobo(object):
             state == 'gruen'
         elif self.state == 'gruen'
             state == 'rot'
-        
+

@@ -1,6 +1,6 @@
-class SPM(object):
+class CPM(object):
     """Schaltplanmanager"""
-    
+
     section = 0
     circuitPlan = [[]]
     def __init__(self):

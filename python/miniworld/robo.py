@@ -1,13 +1,13 @@
-class Ampel(object):
+class Robo(object):
     """Lenkt die Lampen"""
     state
 
     def __init__(self, initstate):
         self.state = initstate
-        
+
     def getState():
         return self.state
-        
+
     def switch():
         if self.state == 'rot':
             state == 'rotgelb'
@@ -17,4 +17,4 @@ class Ampel(object):
             state == 'gruen'
         elif self.state == 'gruen'
             state == 'rot'
-        
+

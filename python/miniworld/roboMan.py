@@ -9,4 +9,4 @@ class RoboMan(object):
                 AutoRobo('gruen'),PedesRobo('gruen'),
                 AutoRobo('rot'),PedesRobo('rot'),
                 AutoRobo('rot'),PedesRobo('rot')]
-                
+
