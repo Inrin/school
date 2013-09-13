@@ -9,7 +9,7 @@ from roboMan import RoboMan
 ###############################################################################
 rm = RoboMan()
 
-for i in range(9):
+for i in range(12):
     states = rm.getStates()
     print(states)
     state = rm.robos[1].getState()
