@@ -1,8 +1,3 @@
-'''
-File: TestCase.py
-Author: Rieger Anton
-Description: Unittestklasse
-'''
 #!/usr/bin/python
 import roboMan
 import robos

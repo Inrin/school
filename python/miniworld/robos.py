@@ -9,7 +9,7 @@ class AutoRobo(object):
     def __init__(self, initstate):
         self.state = initstate
 
-    def getState(self):
+    def getState(self) -> 'as string (rot/rotgelb/gelb/gruen)':
         return self.state
 
     def switch(self):
@@ -28,7 +28,7 @@ class PedesRobo(object):
     def __init__(self, initstate):
         self.state = initstate
 
-    def getState(self):
+    def getState(self) -> 'as string (rot/gruen)':
         return self.state
 
     def switch(self):

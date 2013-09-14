@@ -20,7 +20,7 @@ class CPM(object):
         self.counter = 0
         self.LIMIT = 10
 
-    def getCurrentSectionSignal(self):
+    def getCurrentSectionSignal(self) -> 'current switch signals':
         signals = []
         for plan in self.plans:
             signal = plan[self.counter]

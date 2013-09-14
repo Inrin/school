@@ -21,7 +21,8 @@ class RoboMan(object):
         for i in range(len(self.robos)):
             if signals[i] == True:
                 self.robos[i].switch()
-    def getStates(self):
+
+    def getStates(self) -> 'as string list':
         """get state of all robos clockwise (NOSW)"""
         states = []
         for robo in self.robos:
