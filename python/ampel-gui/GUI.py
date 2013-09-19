@@ -28,31 +28,31 @@ class GUI(object):
         # Erzeugung des Fensters
         self.fenster = Tk()
         self.fenster.title("Ampel")
-        self.fenster.geometry("400x300")
+        self.fenster.geometry("640x480")
         # Zeichenfläche
         self.canvas = Canvas(master=self.fenster)
-        self.canvas.place(x=0, y=0, width=400, height=300)
+        self.canvas.place(x=0, y=0, width=640, height=480)
         # Hintergrundbild
         self.hintergrundbild = PhotoImage(file="hintergrund.gif")
         self.canvas.create_image(0, 0, image=self.hintergrundbild, anchor=NW)
         # Ampelanzeige
         # Ampelkasten
-        self.canvas.create_rectangle(250, 120, 262, 152, fill=grau)
+        self.canvas.create_rectangle(304, 162, 316, 200, fill=grau)
         # Rot-Licht
-        self.id_rot = self.canvas.create_oval(252, 122, 260, 130, fill=grau)
+        self.id_rot = self.canvas.create_oval(306, 168, 314, 176, fill=grau)
         # Gelb-Licht
-        self.id_gelb = self.canvas.create_oval(252, 132, 260, 140, fill=grau)
+        self.id_gelb = self.canvas.create_oval(306, 178, 314, 186, fill=grau)
         # Grün-Licht
-        self.id_gruen = self.canvas.create_oval(252, 142, 260, 150, fill=grau)
+        self.id_gruen = self.canvas.create_oval(306, 188, 314, 196, fill=grau)
         # Stange
-        self.canvas.create_rectangle(255, 152, 257, 184, fill=grau)
+        #self.canvas.create_rectangle(309, 198, 310, 230, fill=grau)
         # Aktualisierung der Anzeige
         self.anzeigeAktualisieren()
         # Button zum Weiterschalten
         self.buttonWeiter = Button(master=self.fenster,
                                    text="weiter",
                                    command=self.buttonWeiterClick)
-        self.buttonWeiter.place(x=150, y=270, width=100, height=20)
+        self.buttonWeiter.place(x=350, y=450, width=100, height=20)
 
     def buttonWeiterClick(self):
         # Verarbeitung der Daten
@@ -74,6 +74,8 @@ class GUI(object):
             self.canvas.itemconfigure(self.id_gruen, fill=gruenAn)
         else:
             self.canvas.itemconfigure(self.id_gruen, fill=gruenAus)
+
+            ## Copy and paste
 
 #------------------------------------------------------------------------------
 # Erzeugung der Objekte
