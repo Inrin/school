@@ -68,22 +68,25 @@ class GUI(object):
         (lampeRot, lampeGelb, lampeGruen) = ampel.getLampen()
         if lampeRot:
             self.canvas.itemconfigure(self.id_rot, fill=rotAn)
-            self.canvas.itemconfigure(self.id_rot2, fill=rotAn)
+            self.canvas.itemconfigure(self.id_gruen2, fill=gruenAn)
         else:
             self.canvas.itemconfigure(self.id_rot, fill=rotAus)
-            self.canvas.itemconfigure(self.id_rot2, fill=rotAus)
         if lampeGelb:
             self.canvas.itemconfigure(self.id_gelb, fill=gelbAn)
+            self.canvas.itemconfigure(self.id_gruen2, fill=gruenAus)
             self.canvas.itemconfigure(self.id_gelb2, fill=gelbAn)
         else:
             self.canvas.itemconfigure(self.id_gelb, fill=gelbAus)
+            self.canvas.itemconfigure(self.id_rot2, fill=rotAus)
             self.canvas.itemconfigure(self.id_gelb2, fill=gelbAus)
         if lampeGruen:
             self.canvas.itemconfigure(self.id_gruen, fill=gruenAn)
-            self.canvas.itemconfigure(self.id_gruen2, fill=gruenAn)
+            self.canvas.itemconfigure(self.id_rot2, fill=rotAn)
         else:
             self.canvas.itemconfigure(self.id_gruen, fill=gruenAus)
-            self.canvas.itemconfigure(self.id_gruen2, fill=gruenAus)
+        if lampeRot and lampeGelb:
+            self.canvas.itemconfigure(self.id_gelb2, fill=gelbAn)
+            self.canvas.itemconfigure(self.id_rot2, fill=rotAus)
 
 #------------------------------------------------------------------------------
 # Erzeugung der Objekte
