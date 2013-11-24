@@ -27,7 +27,7 @@ def triforce(l):
     triangleUpsideDown(l/2)
 
 def sierpinski(l):
-    speed(1)
+    speed(0)
     triforce(l)
 
     right(120)
