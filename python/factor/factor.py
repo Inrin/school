@@ -13,9 +13,12 @@ def factor(n) -> "int list":
                     factors.append(i)
                     n /= i
         else:
-            for i in range(102, n**0.5):
+            for i in range(102, int(n**0.5)):
                 if n%i == 0:
                     factors.append(i)
                     n /= i
 
     return factors
+
+print(factor(484639526894037745950720))
+print(factor(565765434324543216797351))
