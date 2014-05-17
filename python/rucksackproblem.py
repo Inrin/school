@@ -4,6 +4,17 @@ from random import randint
 gegenstaende = [(3.5, 375), (2.5, 300), (2.0, 100), (3.0, 225), (1.0, 50),
                (1.75, 125), (0.75, 75), (3.0, 275), (2.5, 150), (2.25, 50)]
 
+population = [
+"1011110010",
+"0000110010",
+"1011010111",
+"1000010010",
+"1010010010",
+"1011110111",
+"1011110010",
+"1010111000"
+]
+
 def attribs(komb, weight=True, value=True):
 
     while len(komb) < len(gegenstaende):
@@ -38,35 +49,32 @@ def crossing(candidates):
 def selection(population, maxWeight):
     quantity = len(population)-1
 
-    parents = [population[randint(0, quantity)] for x in range(2)]
+    parents = [population[randint(0, quantity)] for x in range(4)]
 
-    weight1 = attribs(parents[0], weight=True, value=False);
-    weight2 = attribs(parents[1], weight=True, value=False);
+    for p in parents:
+        if attribs(p, weight=True, value=False) > maxWeight:
+            parents.remove(p)
 
-    if weight1 and weight2 > maxWeight:
-        del parents[:]
-    elif weight1 > maxWeight:
-        del parents[0]
-    elif weight2 > maxWeight:
-        del parents[1]
+    while len(parents) != 2:
+        parentsAndDensity = [[attribs(p, weight=False) / attribs(p, value=False), p] for p in parents]
+        parentsAndDensity.sort()
+        parents.remove(parentsAndDensity[0][1])
+        del parentsAndDensity[0]
 
     return parents
 
-def cycle(startpopulation):
-    pass
+def cycle(startPopulation, maxWeight, howLong):
+    for i in range(howLong):
+        newPopulation = []
+        for j in range(4):
+            #newPopulation.append(crossing(selection(startPopulation, maxWeight)))
+            descendants = crossing(selection(startPopulation, maxWeight))
+            newPopulation += [c for c in descendants]
+        startPopulation = newPopulation
+        print(startPopulation)
+    return startPopulation
+
+cycle(population, 15, 10)
 
 def mutate():
     pass
-
-"""
-crossing(["0000","1111"])
-
-print(attribs("1011110010", False))
-print(attribs("0000110010", True, False))
-print(attribs("1011010111", value=False ))
-print(attribs("1000010010", value=True, weight=True))
-print(attribs("1010010010", value=False, weight=False))
-print(attribs("1011110111"))
-print(attribs("1011110010"))
-print(attribs("1010111000"))
-"""
