@@ -1,0 +1,12 @@
+ 0 JMP 4              0:  0
+ 1 INC 0              1:  0
+ 2 INC 1              2:  4
+ 3 DEC 2              3:  0
+ 4 TST 2              4:
+ 5 JMP 1              .. ..
+ 6 TST 1
+ 7 JMP 9
+ 8 HLT
+ 9 INC 0
+10 DEC 1
+11 JMP 6
