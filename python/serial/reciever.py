@@ -2,11 +2,9 @@ from serial import *
 from time import *
 
 bitTime = 0.6
-"""
 
 r = Serial("com1")
 r.setRTS(False)
-"""
 
 def recieve():
     """ Get a Bitstream and save it as string"""
@@ -28,7 +26,7 @@ def recieve():
             message += "0"
             sleep(bitTime)
         else:
-            print("Severe Error")
+            print("Severe Error recieving")
     ## Jump to EOT-Bit
     sleep(bitTime / 2)
 
