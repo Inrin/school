@@ -2,18 +2,18 @@ from serial import *
 from time import *
 
 bitTime = 0.6
-"""
 
-r = Serial("com1")
-r.setRTS(False)
-"""
+r = Serial("/dev/pts/2", xonxoff=True)
+#r.setRTS(False)
+#r.flowControlOut(True)
 
 def recieve():
     """ Get a Bitstream and save it as string"""
     message = ""
 
     ## Wait for Connectionbit
-    while not r.getCTS():
+    #while not r.getCTS():
+    while not r.xonxoff:
         sleep(0.0001)
 
     ## Jump to first Messagebit
@@ -21,10 +21,12 @@ def recieve():
 
     ## Read the 8-Bit block
     for i in range(8):
-        if getCTS():
+        #if getCTS():
+        if r.xonxoff:
             message += "1"
             sleep(bitTime)
-        elif not getCTS():
+        #elif not getCTS():
+        elif not r.xonxoff:
             message += "0"
             sleep(bitTime)
         else:
@@ -37,3 +39,8 @@ def recieve():
 
 def binToChar(binString):
     return chr(int(binString,2))
+
+
+while True:
+    print(r.xonxoff)
+    sleep(0.6)
