@@ -3,9 +3,8 @@ from time import *
 
 bitTime = 0.6
 
-#s = Serial('com1')
-#s.setRTS(False)
-sFake = open("/home/shiho/ttyS1", 'w')
+s = Serial('com1')
+s.setRTS(False)
 
 def sendChar(char):
     """ Send a Char via serial line """
@@ -23,7 +22,7 @@ def sendChar(char):
             s.setRTS(False)
             sleep(1)
         else:
-            print("Error")
+            print("Error sending")
 
 def sendString(string):
     """ Send an Char-Array """
